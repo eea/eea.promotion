@@ -1,0 +1,15 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <include package=".browser" />
+
+  <utility
+      component=".vocabulary.LocationVocabularyFactory"
+      name="Promotion Locations"
+      />
+
+  <utility
+      component=".vocabulary.VisibilityVocabularyFactory"
+      name="Promotion Visibility Levels"
+      />
+
+</configure>

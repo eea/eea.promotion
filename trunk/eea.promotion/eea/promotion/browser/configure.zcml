@@ -1,0 +1,51 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+  <browser:page
+      for="eea.promotion.interfaces.IPromotedItem"
+      name="promotion_edit.html"
+      permission="cmf.ModifyPortalContent"
+      class=".form.EditForm"
+      />
+
+  <browser:page
+      for="eea.promotion.interfaces.IPromotable"
+      name="createPromotion"
+      permission="cmf.ModifyPortalContent"
+      class=".actions.CreatePromotion"
+      />
+
+  <browser:page
+      for="eea.promotion.interfaces.IPromotedItem"
+      name="removePromotion"
+      permission="cmf.ModifyPortalContent"
+      class=".actions.RemovePromotion"
+      />
+
+  <browser:menuItem
+      for="eea.promotion.interfaces.IPromotedItem"
+      menu="object"
+      title="Promotions"
+      action="promotion_edit.html"
+      permission="cmf.ModifyPortalContent"
+      />
+
+   <browser:menuItem
+      for="eea.promotion.interfaces.IPromotable"
+      menu="object_buttons"
+      title="Create Promotion"
+      action="@@createPromotion"
+      description="Create a promotion for this item"
+      permission="cmf.ModifyPortalContent"
+      />
+
+   <browser:menuItem
+      for="eea.promotion.interfaces.IPromotedItem"
+      menu="object_buttons"
+      title="Remove Promotion"
+      action="@@removePromotion"
+      description="Remove all promotions for this item"
+      permission="cmf.ModifyPortalContent"
+      />
+
+</configure>
