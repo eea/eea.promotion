@@ -1,5 +1,5 @@
 from zope.interface import alsoProvides, directlyProvides, directlyProvidedBy
-from eea.promotion.interfaces import IPromotedItem
+from eea.promotion.interfaces import IPromoted
 
 
 class CreatePromotion(object):
@@ -11,7 +11,7 @@ class CreatePromotion(object):
         self.request = request
 
     def __call__(self):
-        alsoProvides(self.context, IPromotedItem) 
+        alsoProvides(self.context, IPromoted) 
         return self.request.RESPONSE.redirect(self.context.absolute_url() + '/promotion_edit.html')
 
 
@@ -24,5 +24,5 @@ class RemovePromotion(object):
         self.request = request
 
     def __call__(self):
-        directlyProvides(self.context, directlyProvidedBy(self.context) - IPromotedItem)
+        directlyProvides(self.context, directlyProvidedBy(self.context) - IPromoted)
         return self.request.RESPONSE.redirect(self.context.absolute_url())
