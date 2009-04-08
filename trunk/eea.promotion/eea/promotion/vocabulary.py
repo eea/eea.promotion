@@ -3,7 +3,7 @@ from zope.app.schema.vocabulary import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 
 
-ALLOWED_LOCATIONS = ['Front Page', 'Highlights', 'Whole Site']
+ALLOWED_SECTIONS = ['Front Page', 'Highlights', 'Whole Site']
 
 VISIBILITY_LEVELS = {'Invisible': 1,
                      'Low': 2,
@@ -12,12 +12,12 @@ VISIBILITY_LEVELS = {'Invisible': 1,
                      'Global': 5}
 
 
-class LocationVocabulary(object):
+class SectionsVocabulary(object):
 
     implements(IVocabularyFactory)
 
     def __call__(self, context):
-        return SimpleVocabulary.fromValues(ALLOWED_LOCATIONS)
+        return SimpleVocabulary.fromValues(ALLOWED_SECTIONS)
 
 
 class VisibilityVocabulary(object):
@@ -28,5 +28,5 @@ class VisibilityVocabulary(object):
         return SimpleVocabulary.fromItems(VISIBILITY_LEVELS.items())
 
 
-LocationVocabularyFactory = LocationVocabulary()
+SectionsVocabularyFactory = SectionsVocabulary()
 VisibilityVocabularyFactory = VisibilityVocabulary()

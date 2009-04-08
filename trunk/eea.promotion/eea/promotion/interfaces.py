@@ -2,23 +2,28 @@ from zope.interface import Interface, Attribute
 from zope.schema import Choice
 
 
-class IPromotedItem(Interface):
+class IPromotion(Interface):
      
     """A promoted item can have a number of promotions"""
     
-    location = Choice(
-            title = u"Location",
-            description = u"Where you want this promotion to be displayed",
+    section = Choice(
+            title = u"Section",
+            description = u"Where to display this promotion",
             required = True,
-            vocabulary = "Promotion Locations",
+            vocabulary = "Promotion Sections",
         )
 
     visibility = Choice(
             title = u"Visibility",
-            description = u"Where you want this promotion to be displayed",
+            description = u"Degree of visibility",
             required = True,
             vocabulary = "Promotion Visibility Levels",
         )
+
+
+class IPromoted(Interface):
+
+    """Marker interface for promoted items"""
 
 
 class IPromotable(Interface):

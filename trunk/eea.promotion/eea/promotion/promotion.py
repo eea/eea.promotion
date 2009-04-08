@@ -1,5 +1,6 @@
 from zope.interface import implements
-from interfaces import IPromotedItem
+from zope.component import adapts
+from interfaces import IPromoted, IPromotion
 from zope.app.annotation.interfaces import IAnnotations
 from persistent.dict import PersistentDict
 
@@ -7,29 +8,30 @@ from persistent.dict import PersistentDict
 KEY = 'eea.promotion'
 
 
-class PromotedItem(object):
-    implements(IPromotedItem)
+class Promotion(object):
+    implements(IPromotion)
+    adapts(IPromoted)
 
     def __init__(self, context):
         self.context = context
         annotations = IAnnotations(context)
-        mapping = annotation.get(KEY)
+        mapping = annotations.get(KEY)
         if mapping is None:
-            d = {'visibility': '', 'location': ''}
-            mapping = annotation[KEY] = PersistentDict(d)
+            d = {'visibility': '', 'section': ''}
+            mapping = annotations[KEY] = PersistentDict(d)
         self.mapping = mapping
 
-    def location():
+    def section():
         def get(self):
-            return self.mapping.get('location')
+            return self.mapping.get('section')
         def set(self, val):
-            self.mapping['location'] = val
+            self.mapping['section'] = val
         return property(get, set)
-    location = location()
+    section = section()
 
     def visibility():
         def get(self):
-            return self.maping.get('visibility')
+            return self.mapping.get('visibility')
         def set(self, val):
             self.mapping['visibility'] = val
         return property(get, set)

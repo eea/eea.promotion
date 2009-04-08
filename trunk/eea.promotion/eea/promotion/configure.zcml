@@ -2,9 +2,11 @@
 
   <include package=".browser" />
 
+  <adapter factory=".promotion.Promotion" />
+
   <utility
-      component=".vocabulary.LocationVocabularyFactory"
-      name="Promotion Locations"
+      component=".vocabulary.SectionsVocabularyFactory"
+      name="Promotion Sections"
       />
 
   <utility
