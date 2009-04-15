@@ -48,4 +48,10 @@
       permission="cmf.ModifyPortalContent"
       />
 
+   <browser:resource
+      name="promotion_form.js"
+      file="promotion_form.js"
+      permission="zope.Public"
+      />
+
 </configure>

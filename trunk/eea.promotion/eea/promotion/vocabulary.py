@@ -3,30 +3,45 @@ from zope.app.schema.vocabulary import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 
 
-ALLOWED_SECTIONS = ['Front Page', 'Highlights', 'Whole Site']
-
-VISIBILITY_LEVELS = {'Invisible': 1,
-                     'Low': 2,
-                     'Medium': 3,
-                     'High': 4,
-                     'Global': 5}
+ALLOWED_LOCATIONS = [u'Front Page', u'Themes', u'Global']
+ALLOWED_FRONT_PAGE_SECTIONS = [u'Spotlight', u'Center']
+ALLOWED_THEME_PAGE_SECTIONS = [u'Left', u'Right', u'Center']
+ALLOWED_THEMES = [u'Climate Change', u'Environment', u'Ice Cream']
 
 
-class SectionsVocabulary(object):
+class LocationsVocabulary(object):
 
     implements(IVocabularyFactory)
 
     def __call__(self, context):
-        return SimpleVocabulary.fromValues(ALLOWED_SECTIONS)
+        return SimpleVocabulary.fromValues(ALLOWED_LOCATIONS)
 
 
-class VisibilityVocabulary(object):
+class FrontPageSectionsVocabulary(object):
 
     implements(IVocabularyFactory)
 
     def __call__(self, context):
-        return SimpleVocabulary.fromItems(VISIBILITY_LEVELS.items())
+        return SimpleVocabulary.fromValues(ALLOWED_FRONT_PAGE_SECTIONS)
 
 
-SectionsVocabularyFactory = SectionsVocabulary()
-VisibilityVocabularyFactory = VisibilityVocabulary()
+class ThemePageSectionsVocabulary(object):
+
+    implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        return SimpleVocabulary.fromValues(ALLOWED_THEME_PAGE_SECTIONS)
+
+
+class ThemesVocabulary(object):
+
+    implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        return SimpleVocabulary.fromValues(ALLOWED_THEMES)
+
+
+FrontPageSectionsVocabularyFactory = FrontPageSectionsVocabulary()
+ThemePageSectionsVocabularyFactory = ThemePageSectionsVocabulary()
+LocationsVocabularyFactory = LocationsVocabulary()
+ThemesVocabularyFactory = ThemesVocabulary()

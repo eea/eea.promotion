@@ -5,13 +5,23 @@
   <adapter factory=".promotion.Promotion" />
 
   <utility
-      component=".vocabulary.SectionsVocabularyFactory"
-      name="Promotion Sections"
+      component=".vocabulary.LocationsVocabularyFactory"
+      name="Allowed Promotion Locations"
       />
 
   <utility
-      component=".vocabulary.VisibilityVocabularyFactory"
-      name="Promotion Visibility Levels"
+      component=".vocabulary.FrontPageSectionsVocabularyFactory"
+      name="Allowed Front Page Promotion Sections"
+      />
+
+  <utility
+      component=".vocabulary.ThemePageSectionsVocabularyFactory"
+      name="Allowed Theme Page Promotion Sections"
+      />
+
+  <utility
+      component=".vocabulary.ThemesVocabularyFactory"
+      name="Allowed Promotion Themes"
       />
 
 </configure>

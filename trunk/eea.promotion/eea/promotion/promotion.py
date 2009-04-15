@@ -17,22 +17,42 @@ class Promotion(object):
         annotations = IAnnotations(context)
         mapping = annotations.get(KEY)
         if mapping is None:
-            d = {'visibility': '', 'section': ''}
+            d = {'locations': '', 'section': ''}
             mapping = annotations[KEY] = PersistentDict(d)
         self.mapping = mapping
 
-    def section():
+    def locations():
         def get(self):
-            return self.mapping.get('section')
+            return self.mapping.get('locations')
         def set(self, val):
-            self.mapping['section'] = val
+            self.mapping['locations'] = val
         return property(get, set)
-    section = section()
+    locations = locations()
 
-    def visibility():
+    def themepage_section():
         def get(self):
-            return self.mapping.get('visibility')
+            return self.mapping.get('themepage_section')
         def set(self, val):
-            self.mapping['visibility'] = val
+            self.mapping['themepage_section'] = val
         return property(get, set)
-    visibility = visibility()
+    themepage_section = themepage_section()
+
+    def frontpage_section():
+        def get(self):
+            return self.mapping.get('frontpage_section')
+        def set(self, val):
+            self.mapping['frontpage_section'] = val
+        return property(get, set)
+    frontpage_section = frontpage_section()
+
+    @property
+    def active(self):
+        return True
+
+    def themes():
+        def get(self):
+            return self.mapping.get('themes')
+        def set(self, val):
+            self.mapping['themes'] = val
+        return property(get, set)
+    themes = themes()

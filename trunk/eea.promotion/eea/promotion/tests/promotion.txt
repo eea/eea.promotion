@@ -1,0 +1,59 @@
+==========
+Promotions
+==========
+
+First we create a news item and mark it as promotable:
+
+  >>> self.setRoles(['Manager'])
+  >>> id = portal.invokeFactory('News Item', id='test')
+  >>> item = portal[id]
+  >>> from eea.promotion.interfaces import IPromotable
+  >>> from zope.interface import alsoProvides
+  >>> alsoProvides(item, IPromotable)
+
+When making a promotion out of it, the createPromotion action sets the marker
+interface and redirects us to the edit form:
+
+  >>> edit_form_url = item.restrictedTraverse("@@createPromotion")()
+  >>> from eea.promotion.interfaces import IPromoted
+  >>> IPromoted.providedBy(item)
+  True
+
+Now we can create a promotion of it:
+
+  >>> from eea.promotion.interfaces import IPromotion
+  >>> promotion = IPromotion(item)
+  >>> promotion.location = 'Front Page'
+
+  >>> from Products.Five.testbrowser import Browser
+  >>> self.portal.error_log._ignored_exceptions = ()
+  >>> browser = Browser()
+  >>> browser.handleErrors = False
+  >>> browser.open(self.portal.absolute_url())
+
+Let's log in:
+
+  >>> from Products.PloneTestCase.setup import portal_owner, default_password
+  >>> browser.getControl(name='__ac_name').value = portal_owner
+  >>> browser.getControl(name='__ac_password').value = default_password
+  >>> browser.getControl(name='submit').click()
+
+Now we can enter our edit form...
+
+  >>> browser.open(edit_form_url)
+  >>> browser.url == edit_form_url
+  True
+
+... And verify that our input fields have the correct values:
+
+  >>> loc = browser.getControl(name='form.location')
+  >>> loc.options
+  ['Front Page', 'Themes', 'Global']
+
+  >>> frontpage_section = browser.getControl(name='form.frontpage_section')
+  >>> frontpage_section.options
+  ['Spotlight', 'Center']
+
+  >>> themepage_section = browser.getControl(name='form.themepage_section')
+  >>> themepage_section.options
+  ['Left', 'Right', 'Center']
