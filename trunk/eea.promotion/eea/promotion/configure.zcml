@@ -19,9 +19,4 @@
       name="Allowed Theme Page Promotion Sections"
       />
 
-  <utility
-      component=".vocabulary.ThemesVocabularyFactory"
-      name="Allowed Promotion Themes"
-      />
-
 </configure>

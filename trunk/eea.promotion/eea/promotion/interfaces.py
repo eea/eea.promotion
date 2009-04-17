@@ -30,7 +30,7 @@ class IPromotion(Interface):
             title = u"Themes(s)",
             description = u"Which Themes(s) to apply.",
             required = True,
-            value_type=Choice(vocabulary=u"Allowed Promotion Themes")
+            value_type=Choice(vocabulary=u"Allowed themes")
         )
 
     active = Bool(

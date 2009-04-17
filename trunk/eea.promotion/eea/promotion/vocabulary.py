@@ -33,15 +33,6 @@ class ThemePageSectionsVocabulary(object):
         return SimpleVocabulary.fromValues(ALLOWED_THEME_PAGE_SECTIONS)
 
 
-class ThemesVocabulary(object):
-
-    implements(IVocabularyFactory)
-
-    def __call__(self, context):
-        return SimpleVocabulary.fromValues(ALLOWED_THEMES)
-
-
 FrontPageSectionsVocabularyFactory = FrontPageSectionsVocabulary()
 ThemePageSectionsVocabularyFactory = ThemePageSectionsVocabulary()
 LocationsVocabularyFactory = LocationsVocabulary()
-ThemesVocabularyFactory = ThemesVocabulary()
