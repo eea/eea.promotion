@@ -23,17 +23,16 @@ Now we can create a promotion of it:
 
   >>> from eea.promotion.interfaces import IPromotion
   >>> promotion = IPromotion(item)
-  >>> promotion.location = 'Front Page'
+  >>> promotion.locations = [u'Front Page', u'Themes']
+
+Let's log in:
 
   >>> from Products.Five.testbrowser import Browser
+  >>> from Products.PloneTestCase.setup import portal_owner, default_password
   >>> self.portal.error_log._ignored_exceptions = ()
   >>> browser = Browser()
   >>> browser.handleErrors = False
   >>> browser.open(self.portal.absolute_url())
-
-Let's log in:
-
-  >>> from Products.PloneTestCase.setup import portal_owner, default_password
   >>> browser.getControl(name='__ac_name').value = portal_owner
   >>> browser.getControl(name='__ac_password').value = default_password
   >>> browser.getControl(name='submit').click()
@@ -44,16 +43,15 @@ Now we can enter our edit form...
   >>> browser.url == edit_form_url
   True
 
-... And verify that our input fields have the correct values:
+... and verify that our input fields have the values we applied above:
 
-  >>> loc = browser.getControl(name='form.location')
-  >>> loc.options
-  ['Front Page', 'Themes', 'Global']
+  >>> browser.getControl(name='form.locations').value
+  'Front Page, Themes'
 
-  >>> frontpage_section = browser.getControl(name='form.frontpage_section')
-  >>> frontpage_section.options
-  ['Spotlight', 'Center']
+User selects new site locations:
 
-  >>> themepage_section = browser.getControl(name='form.themepage_section')
-  >>> themepage_section.options
-  ['Left', 'Right', 'Center']
+  >>> browser.getControl(name='form.locations').value = "'Front Page', 'Global'"
+  >>> browser.getControl(name='form.actions.apply').click()
+  >>> promotion.locations
+  [u'Front Page', u'Global']
+

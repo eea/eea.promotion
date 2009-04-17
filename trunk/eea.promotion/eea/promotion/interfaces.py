@@ -1,16 +1,15 @@
 from zope.interface import Interface, Attribute
-from zope.schema import Choice, Bool, Set
+from zope.schema import Choice, Bool, Set, List
 
 
 class IPromotion(Interface):
      
     """A promoted item can have a number of promotions"""
     
-    locations = Set(
+    locations = List(
             title = u"Website locations",
             description = u"Where on the site to display this promotion.",
             required = True,
-            value_type = Choice(vocabulary=u"Allowed Promotion Locations")
         )
 
     frontpage_section = Choice(

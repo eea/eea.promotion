@@ -50,7 +50,13 @@
 
    <browser:resource
       name="promotion_form.js"
-      file="promotion_form.js"
+      file="form.js"
+      permission="zope.Public"
+      />
+
+   <browser:resource
+      name="promotion_form.css"
+      file="form.css"
       permission="zope.Public"
       />
 

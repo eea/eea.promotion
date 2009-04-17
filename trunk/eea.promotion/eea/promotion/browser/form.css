@@ -1,0 +1,15 @@
+.col {
+    width: auto;
+    float: left;
+    margin-right: 2em;
+}
+
+.location {
+    font-size: 110%;
+    font-weight: bold;
+    margin-bottom: 2em;
+}
+
+.actionButtons {
+    margin-top: 2em;
+}
