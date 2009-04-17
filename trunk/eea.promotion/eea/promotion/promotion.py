@@ -47,7 +47,7 @@ class Promotion(object):
 
     @property
     def active(self):
-        return True
+        return len(self.locations) > 0
 
     def themes():
         def get(self):

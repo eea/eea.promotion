@@ -68,3 +68,17 @@ User selects new site locations:
   >>> promotion.locations
   [u'Front Page', u'Global']
 
+
+Deactivation
+------------
+
+To deactivate a promotion, simply uncheck all locations:
+
+  >>> promotion.active
+  True
+
+  >>> browser.getControl(name='form.locations').value = ''
+  >>> browser.getControl(name='form.actions.apply').click()
+  >>> promotion.active
+  False
+
