@@ -52,7 +52,7 @@ function disable() {
             input.attr('disabled', disabled);
             if (disabled) {
                 input.addClass('disabled');
-            } else if (inputs[i].hasClass('disabled')) {
+            } else if (input.hasClass('disabled')) {
                 input.removeClass('disabled');
             }
         }
