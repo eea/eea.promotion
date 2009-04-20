@@ -24,7 +24,7 @@
         <input tal:define="widget nocall:view/widgets/locations" tal:replace="structure widget" />
 
         <div class="col" id="frontpage">
-            <input name="category" type="checkbox" value="Front Page" />
+            <input class="category" name="category" type="checkbox" value="Front Page" />
             <span class="location">Front Page</span>
             <br/>
 
@@ -43,7 +43,7 @@
         </div>
 
         <div class="col" id="themes">
-            <input name="category" type="checkbox" value="Themes" />
+            <input class="category" name="category" type="checkbox" value="Themes" />
             <span class="location">Themes</span>
             <br/>
 
@@ -74,7 +74,7 @@
         </div>
 
         <div class="col" id="global">
-            <input name="category" type="checkbox" value="Global" />
+            <input class="category" name="category" type="checkbox" value="Global" />
             <span class="location">Global</span>
             <br/>
         </div>
