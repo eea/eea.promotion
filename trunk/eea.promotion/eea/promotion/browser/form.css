@@ -17,3 +17,7 @@ label {
 .actionButtons {
     margin-top: 2em;
 }
+
+.disabled {
+    background: #ccc;
+}

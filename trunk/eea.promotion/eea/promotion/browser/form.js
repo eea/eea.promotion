@@ -36,15 +36,25 @@ function save() {
 // Disable columns that aren't marked as active.
 function disable() {
     $('input[name=category]').each(function() {
-        var disabled = $(this).attr('checked') == false;
+        var inputs = Array();
         switch ($(this).attr('value')) {
             case 'Front Page':
-            $('#form\\.frontpage_section').attr('disabled', disabled);
+            inputs.push($('#form\\.frontpage_section'));
             break;
             case 'Themes':
-            $('#form\\.themepage_section').attr('disabled', disabled);
-            $('#form\\.themes').attr('disabled', disabled);
+            inputs.push($('#form\\.themepage_section'));
+            inputs.push($('#form\\.themes'));
             break;
+        }
+        var disabled = $(this).attr('checked') == false;
+        for (i = 0; i < inputs.length; i++) {
+            var input = inputs[i];
+            input.attr('disabled', disabled);
+            if (disabled) {
+                input.addClass('disabled');
+            } else if (inputs[i].hasClass('disabled')) {
+                input.removeClass('disabled');
+            }
         }
     });
 }
