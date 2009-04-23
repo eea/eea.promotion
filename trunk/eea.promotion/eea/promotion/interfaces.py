@@ -35,7 +35,18 @@ class IPromotion(Interface):
     active = Bool(
             title = u"Activated",
             description = u"Activate/Deactivate this promotion.",
-            required = True,
+        )
+
+    display_on_frontpage = Bool(
+            title = u"Display On Front Page",
+            description = u"Whether or not this promotion should be visible \
+                    on the front page.",
+        )
+
+    display_on_themepage = Bool(
+            title = u"Display On Themes Page",
+            description = u"Whether or not this promotion should be visible \
+                    on the themes page.",
         )
 
 

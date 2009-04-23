@@ -49,6 +49,14 @@ class Promotion(object):
     def active(self):
         return len(self.locations) > 0
 
+    @property
+    def display_on_frontpage(self):
+        return u'Front Page' in self.locations
+
+    @property
+    def display_on_themepage(self):
+        return u'Themes' in self.locations
+
     def themes():
         def get(self):
             return self.mapping.get('themes')
