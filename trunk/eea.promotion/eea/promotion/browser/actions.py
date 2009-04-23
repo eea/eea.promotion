@@ -12,6 +12,7 @@ class CreatePromotion(object):
 
     def __call__(self):
         alsoProvides(self.context, IPromoted) 
+        self.context.reindexObject()
         return self.request.RESPONSE.redirect(self.context.absolute_url() + '/promotion_edit.html')
 
 
@@ -25,4 +26,5 @@ class RemovePromotion(object):
 
     def __call__(self):
         directlyProvides(self.context, directlyProvidedBy(self.context) - IPromoted)
+        self.context.reindexObject()
         return self.request.RESPONSE.redirect(self.context.absolute_url())
