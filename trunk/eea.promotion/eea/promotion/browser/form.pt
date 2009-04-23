@@ -34,7 +34,7 @@
                     tal:content="widget/label">
                     Label
                 </label>
-                <div tal:condition="widget/error" tal:content="widget/error">
+                <div tal:condition="widget/error" tal:replace="structure widget/error">
                     Error
                 </div>
                 <input tal:replace="structure widget" />
@@ -53,7 +53,7 @@
                     tal:content="widget/label">
                     Label
                 </label>
-                <div tal:condition="widget/error" tal:content="widget/error">
+                <div tal:condition="widget/error" tal:replace="structure widget/error">
                     Error
                 </div>
                 <input tal:replace="structure widget" />
@@ -65,7 +65,7 @@
                     tal:content="widget/label">
                     Label
                 </label>
-                <div tal:condition="widget/error" tal:content="widget/error">
+                <div tal:condition="widget/error" tal:replace="structure widget/error">
                     Error
                 </div>
                 <input tal:replace="structure widget" />

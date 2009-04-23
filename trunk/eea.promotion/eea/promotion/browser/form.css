@@ -21,3 +21,7 @@ label {
 .disabled {
     background: #ccc;
 }
+
+.error {
+    display: block;
+}
