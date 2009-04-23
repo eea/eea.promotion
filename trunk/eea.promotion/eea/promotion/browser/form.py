@@ -6,7 +6,6 @@ from Products.Five.formlib.formbase import EditForm as BaseEditForm
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.app.form.browser.widget import SimpleInputWidget
 from eea.promotion.interfaces import IPromotion
-from eea.promotion.vocabulary import FrontPageSectionsVocabulary
 
 
 class CheckboxWidget(MultiCheckBoxWidget):

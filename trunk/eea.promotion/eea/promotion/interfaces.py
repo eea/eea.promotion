@@ -16,20 +16,19 @@ class IPromotion(Interface):
             title = u"Front Page Section",
             description = u"Which page section to put this promotion in.",
             required = True,
-            vocabulary = u"Allowed Front Page Promotion Sections"
+            vocabulary = u"Frontpage Promotion Sections"
         )
 
     themepage_section = Choice(
             title = u"Theme Page Section",
             description = u"Which page section to put this promotion in.",
             required = True,
-            vocabulary = u"Allowed Theme Page Promotion Sections"
+            vocabulary = u"Themepage Promotion Sections"
         )
 
     themes = Set(
             title = u"Themes(s)",
             description = u"Which Themes(s) to apply.",
-            required = True,
             value_type=Choice(vocabulary=u"Allowed themes")
         )
 

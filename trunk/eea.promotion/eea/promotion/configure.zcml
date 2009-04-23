@@ -6,17 +6,7 @@
 
   <utility
       component=".vocabulary.LocationsVocabularyFactory"
-      name="Allowed Promotion Locations"
-      />
-
-  <utility
-      component=".vocabulary.FrontPageSectionsVocabularyFactory"
-      name="Allowed Front Page Promotion Sections"
-      />
-
-  <utility
-      component=".vocabulary.ThemePageSectionsVocabularyFactory"
-      name="Allowed Theme Page Promotion Sections"
+      name="Promotion Locations"
       />
 
 </configure>
