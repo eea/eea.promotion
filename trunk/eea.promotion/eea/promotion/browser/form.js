@@ -43,7 +43,9 @@ function disable() {
             break;
             case 'Themes':
             inputs.push($('#form\\.themepage_section'));
-            inputs.push($('#form\\.themes'));
+            inputs.push($('#form\\.themes\\.from'));
+            inputs.push($('#form\\.themes\\.to'));
+            inputs.push($('.ordered-selection-field button'));
             break;
         }
         var disabled = $(this).attr('checked') == false;
