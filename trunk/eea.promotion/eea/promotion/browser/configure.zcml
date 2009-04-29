@@ -26,7 +26,7 @@
       for="eea.promotion.interfaces.IPromoted"
       menu="object"
       title="Promotions"
-      action="promotion_edit.html"
+      action="${object_url}/promotion_edit.html"
       permission="cmf.ModifyPortalContent"
       />
 
@@ -34,7 +34,7 @@
       for="eea.promotion.interfaces.IPromotable"
       menu="object_buttons"
       title="Create Promotion"
-      action="@@createPromotion"
+      action="${object_url}/@@createPromotion"
       description="Create a promotion for this item"
       permission="cmf.ModifyPortalContent"
       />
@@ -43,7 +43,7 @@
       for="eea.promotion.interfaces.IPromoted"
       menu="object_buttons"
       title="Remove Promotion"
-      action="@@removePromotion"
+      action="${object_url}/@@removePromotion"
       description="Remove all promotions for this item"
       permission="cmf.ModifyPortalContent"
       />

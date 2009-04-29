@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<import-steps>
+ <import-step id="controlpanel" version="20060213-01"
+              handler="Products.CMFPlone.exportimport.controlpanel.importControlPanel"
+              title="Control Panel">
+    Import Plone control panel actions.
+ </import-step>
+ <import-step id="promotion_manage"
+              version="20090428-01"
+              handler="eea.promotion.setuphandlers.setupManagePage"
+              title="eea.promotion: Initial Setup">
+  </import-step>
+    Setup Promotion Manage Page
+</import-steps>

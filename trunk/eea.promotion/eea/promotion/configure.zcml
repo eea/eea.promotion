@@ -1,4 +1,8 @@
-<configure xmlns="http://namespaces.zope.org/zope">
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:five="http://namespaces.zope.org/five">
+
+  <five:registerPackage package="." initialize=".initialize" />
+  <include file="profiles.zcml" />
 
   <include package=".browser" />
 
@@ -8,5 +12,13 @@
       component=".vocabulary.LocationsVocabularyFactory"
       name="Promotion Locations"
       />
+
+  <class class="Products.ATContentTypes.content.document.ATDocument">
+      <implements interface="eea.promotion.interfaces.IPromotable" />
+  </class>
+
+  <class class="Products.ATContentTypes.content.file.ATFile">
+      <implements interface="eea.promotion.interfaces.IPromotable" />
+  </class>
 
 </configure>
