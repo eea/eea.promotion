@@ -9,20 +9,20 @@ class IPromotion(Interface):
     locations = List(
             title = u"Website locations",
             description = u"Where on the site to display this promotion.",
-            required = True,
+            required = False,
         )
 
     frontpage_section = Choice(
             title = u"Front Page Section",
             description = u"Which page section to put this promotion in.",
-            required = True,
+            required = False,
             vocabulary = u"Frontpage Promotion Sections"
         )
 
     themepage_section = Choice(
             title = u"Theme Page Section",
             description = u"Which page section to put this promotion in.",
-            required = True,
+            required = False,
             vocabulary = u"Themepage Promotion Sections"
         )
 
