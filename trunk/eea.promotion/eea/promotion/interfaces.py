@@ -26,10 +26,16 @@ class IPromotion(Interface):
             vocabulary = u"Themepage Promotion Sections"
         )
 
-    themes = Set(
-            title = u"Themes(s)",
-            description = u"Which Themes(s) to apply.",
-            value_type=Choice(vocabulary=u"Allowed themes")
+    themes = List(
+        title = u"Themes",
+        description = u"List of themes that this content object should be "
+                       "associated with",
+        required = False,
+        max_length = 3,
+        value_type = Choice(
+            title = u"Theme",
+            vocabulary = "Allowed themes",
+            )
         )
 
     active = Bool(
