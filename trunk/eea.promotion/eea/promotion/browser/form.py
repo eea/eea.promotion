@@ -1,22 +1,9 @@
 from zope.formlib.form import Fields
-from zope.component import adapts
-from zope.app.form.browser import MultiSelectWidget, SelectWidget
-from zope.app.form.browser.itemswidgets import MultiCheckBoxWidget 
 from Products.Five.formlib.formbase import EditForm as BaseEditForm
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.app.form.browser.widget import SimpleInputWidget
 from eea.themecentre.browser.themes import ThemesOrderedWidget
 from eea.promotion.interfaces import IPromotion
-
-
-class CheckboxWidget(MultiCheckBoxWidget):
-
-    def __init__(self, field, request):
-        MultiCheckBoxWidget.__init__(self, field, field.value_type.vocabulary, request)
-
-    def __call__(self):
-        checkboxes = super(CheckboxWidget, self).__call__()
-        return '<span id="%s">%s</span>' % (self.name, checkboxes)
 
 
 class LocationsWidget(SimpleInputWidget):
