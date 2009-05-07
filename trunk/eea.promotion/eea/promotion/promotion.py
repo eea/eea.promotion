@@ -17,9 +17,9 @@ class Promotion(object):
         annotations = IAnnotations(context)
         mapping = annotations.get(KEY)
         if mapping is None:
-            d = {'locations': '',
-                 'frontpage_section': '',
-                 'themepage_section': '',
+            d = {'locations': [],
+                 'frontpage_section': None,
+                 'themepage_section': None,
                  'themes': []}
             mapping = annotations[KEY] = PersistentDict(d)
         self.mapping = mapping
