@@ -1,9 +1,12 @@
 $(document).ready(function() {
+        // Temporarily disabled the grey-out/inactivation of disabled inputs.
+        // IE7 doesn't redisplay the inputs when we apply the new style in
+        // the disable function. #2425
         load();
-        disable();
+        //disable();
         $('input[name=category]').change(function() {
             save();
-            disable();
+            //disable();
         });
 });
 
