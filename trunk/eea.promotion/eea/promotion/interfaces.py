@@ -55,6 +55,14 @@ class IPromotion(Interface):
                     on the themes page.",
         )
 
+    display_globally = Bool(
+            title = u"Display On All Pages",
+            description = u"Whether or not this promotion should be visible \
+                    on all pages",
+        )
+
+    remove = Attribute("Remove all annotations stored in this promotion")
+
 
 class IPromoted(Interface):
 

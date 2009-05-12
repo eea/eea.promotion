@@ -24,6 +24,10 @@ class Promotion(object):
             mapping = annotations[KEY] = PersistentDict(d)
         self.mapping = mapping
 
+    def remove(self):
+        annotations = IAnnotations(self.context)
+        del annotations[KEY]
+
     def locations():
         def get(self):
             return self.mapping.get('locations')
@@ -59,6 +63,10 @@ class Promotion(object):
     @property
     def display_on_themepage(self):
         return u'Themes' in self.locations
+
+    @property
+    def display_globally(self):
+        return (u'Global' in self.locations) and (u'spotlight' in self.frontpage_locations)
 
     def themes():
         def get(self):

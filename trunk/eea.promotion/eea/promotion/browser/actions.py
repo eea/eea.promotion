@@ -29,8 +29,10 @@ class RemovePromotion(object):
         self.request = request
 
     def __call__(self):
-        if IPromotion(self.context).display_on_frontpage:
+        promo = IPromotion(self.context)
+        if promo.display_on_frontpage:
             invalidateFrontpageMethodCache(self.context, None)
+        promo.remove()
         directlyProvides(self.context, directlyProvidedBy(self.context) - IPromoted)
         self.context.reindexObject()
         return self.request.RESPONSE.redirect(self.context.absolute_url())
