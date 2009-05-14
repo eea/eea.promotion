@@ -1,11 +1,12 @@
-from os.path import dirname
-from Globals import package_home
-from Products.CMFCore import utils as cmfutils
 from Products.CMFCore.DirectoryView import registerDirectory
+from Products.CMFCore import utils
+from Globals import package_home
+from os.path import dirname
 
-ppath = cmfutils.ProductsPath
-cmfutils.ProductsPath.append(dirname(package_home(globals())))
-cmfutils.ProductsPath = ppath
+GLOBALS = globals()
 
-def initialize(context):
-    """Initializer called when used as a Zope 2 product."""
+ppath = utils.ProductsPath
+utils.ProductsPath.append(dirname(package_home(GLOBALS)))
+registerDirectory('skins', GLOBALS)
+utils.ProductsPath = ppath
+
