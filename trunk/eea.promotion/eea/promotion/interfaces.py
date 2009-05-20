@@ -72,3 +72,8 @@ class IPromoted(Interface):
 class IPromotable(Interface):
 
     """Marker interface for promotable content types"""
+
+
+class IFrontpageSectionIndex(Interface):
+
+    """Returns which frontpage section the promotion is in"""

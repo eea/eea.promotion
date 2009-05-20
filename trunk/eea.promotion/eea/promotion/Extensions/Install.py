@@ -1,9 +1,10 @@
-# Copied from valentine.imagescales
-
 import transaction
 from Products.CMFCore.utils import getToolByName
 
+
 PROFILE = 'eea.promotion:default'
+PRODUCTS = 'RichTopic'
+
 
 def install(self, reinstall=False):
     portal_setup = getToolByName(self, 'portal_setup')
