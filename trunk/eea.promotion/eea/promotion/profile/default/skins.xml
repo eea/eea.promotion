@@ -20,4 +20,7 @@
  <skin-path name="EEADesign2006">
   <layer name="eea_promotion" insert-after="custom"/>
  </skin-path>
+ <skin-path name="Plone Default">
+  <layer name="eea_promotion" insert-after="custom"/>
+ </skin-path>
 </object>

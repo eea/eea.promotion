@@ -29,3 +29,8 @@ class EditForm(BaseEditForm):
     form_fields['themes'].custom_widget = ThemesOrderedWidget
     label = u'Edit Promotion'
     template = ViewPageTemplateFile('form.pt')
+
+
+def promotion_modified(obj, event):
+    # TODO only reindex from our promotion edit form...
+    obj.reindexObject()
