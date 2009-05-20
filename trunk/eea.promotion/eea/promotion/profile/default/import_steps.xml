@@ -15,6 +15,7 @@
               version="20090515-01"
               handler="eea.promotion.setuphandlers.setupQuicklinks"
               title="eea.promotion: Quicklinks">
+  <dependency step="skins"/>
   <dependency step="catalog"/>
     Setup Quicklinks Folders
  </import-step>

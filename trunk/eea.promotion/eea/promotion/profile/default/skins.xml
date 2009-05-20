@@ -17,4 +17,7 @@
    portal_skins tool, so that they become usable as skin layers. -->
  <object name="eea_promotion" meta_type="Filesystem Directory View"
     directory="promotion/skins/eea_promotion"/>
+ <skin-path name="EEADesign2006">
+  <layer name="eea_promotion" insert-after="custom"/>
+ </skin-path>
 </object>
