@@ -2,7 +2,6 @@ from zope.app.event.objectevent import ObjectModifiedEvent
 from zope.event import notify
 from zope.interface import alsoProvides, directlyProvides, directlyProvidedBy
 from eea.promotion.interfaces import IPromoted, IPromotion
-from Products.EEAContentTypes.cache import invalidateFrontpageMethodCache
 
 
 class CreatePromotion(object):
@@ -31,7 +30,7 @@ class RemovePromotion(object):
     def __call__(self):
         promo = IPromotion(self.context)
         if promo.display_on_frontpage:
-            invalidateFrontpageMethodCache(self.context, None)
+            notify(ObjectModifiedEvent(self.context))
         promo.remove()
         directlyProvides(self.context, directlyProvidedBy(self.context) - IPromoted)
         self.context.reindexObject()
