@@ -1,6 +1,20 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser">
 
+   <browser:resource
+      name="promotion_admin_view.css"
+      file="admin.css"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      for="*"
+      name="promotion_admin_view"
+      class=".admin.AdminView"
+      permission="cmf.ModifyPortalContent"
+      allowed_interface=".interfaces.IAdminView"
+      />
+
   <browser:page
       for="eea.promotion.interfaces.IPromoted"
       name="promotion_edit.html"
