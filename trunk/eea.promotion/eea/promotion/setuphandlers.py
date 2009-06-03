@@ -43,3 +43,7 @@ def setupQuicklinks(context, portal=None):
     result = catalog.searchResults({'portal_type': 'Promotion'})
     for i in result:
         i.getObject().reindexObject()
+    result = catalog.searchResults({'object_provides': 'eea.promotion.interfaces.IPromoted'})
+    for i in result:
+        i.getObject().reindexObject()
+
