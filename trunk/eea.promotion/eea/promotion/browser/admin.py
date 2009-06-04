@@ -16,7 +16,7 @@ class AdminView(BrowserView):
     def find_promotions(self):
         ret = []
         catalog = self.context.portal_catalog
-        query = {'object_provides': 'eea.promotion.interfaces.IPromoted',
+        query = {'object_provides': ['eea.promotion.interfaces.IPromoted', 'Products.EEAContentTypes.content.interfaces.IExternalPromotion'],
                 'review_state': 'published'}
         result = catalog.searchResults(query)
         for i in result:
