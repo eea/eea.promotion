@@ -5,16 +5,8 @@
       i18n:domain="plone">
 
 <head>
-    <style type="text/css" tal:content="string:@import url(${portal_url}/++resource++promotion_admin_view.css);"></style>
-    <style type="text/css" tal:content="string:@import url(${portal_url}/++resource++resource.css);"></style>
-    <metal:css tal:define="css nocall:here/renderAllTheStylesheets|nothing">
-       <tal:block condition="nocall:css">
-              <metal:block metal:use-macro="css/macros/cssrenderer">
-                <!-- Fetch stylesheets from the CSS Registry -->
-              </metal:block>
-        </tal:block>
-    </metal:css>
-</head>    
+    <title>Promotions Admin Panel</title>
+</head>
 
 <body>
 
@@ -25,9 +17,11 @@
         <thead>
         <tr>
             <th>Image</th>
+            <th>Active</th>
             <th>Title</th>
             <th>Locations</th>
             <th>Frontpage Section</th>
+            <th>Themepage Section</th>
             <th>Themes</th>
         </tr>
         </thead>
@@ -35,11 +29,14 @@
         <tal:promotions tal:define="promotions view/find_promotions"
             tal:repeat="promo promotions">
             <tr tal:define="imgtag nocall:promo/imgtag">
-            <td tal:content="structure python:imgtag('icon')">image</td>
-            <td><a href="#" tal:attributes="href promo/href" tal:content="promo/title"></a></td>
-            <td tal:content="promo/locations">locations</td>
-            <td tal:content="promo/frontpage_section">frontpage_section</td>
-            <td tal:content="promo/themes">themes</td>
+                <td tal:content="structure python:imgtag('icon')">image</td>
+                <td tal:content="structure promo/active" class=""
+                    tal:attributes="class promo/active">active</td>
+                <td><a href="#" tal:attributes="href promo/href" tal:content="promo/title"></a></td>
+                <td tal:content="promo/locations">locations</td>
+                <td tal:content="promo/frontpage_section">frontpage_section</td>
+                <td tal:content="promo/themepage_section">themepage_section</td>
+                <td tal:content="promo/themes">themes</td>
             </tr>
         </tal:promotions>
         </tbody>
