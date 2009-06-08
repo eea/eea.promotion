@@ -5,12 +5,6 @@
               title="Control Panel">
     Import Plone control panel actions.
  </import-step>
- <import-step id="promotion_manage"
-              version="20090428-01"
-              handler="eea.promotion.setuphandlers.setupManagePage"
-              title="eea.promotion: Admin Panel">
-    Setup Promotion Manage Page
- </import-step>
  <import-step id="promotion_quicklinks"
               version="20090515-01"
               handler="eea.promotion.setuphandlers.setupQuicklinks"
