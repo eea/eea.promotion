@@ -23,6 +23,7 @@ class Promotion(object):
                  'themes': []}
             mapping = annotations[KEY] = PersistentDict(d)
         self.mapping = mapping
+        self.is_external = False
 
     def remove(self):
         annotations = IAnnotations(self.context)
@@ -79,3 +80,7 @@ class Promotion(object):
             self.mapping['themes'] = val
         return property(get, set)
     themes = themes()
+
+    @property
+    def edit_url(self):
+        return self.context.absolute_url() + '/promotion_edit.html'

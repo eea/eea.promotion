@@ -63,6 +63,10 @@ class IPromotion(Interface):
 
     remove = Attribute("Remove all annotations stored in this promotion")
 
+    edit_url = Attribute("URL to edit this promotion")
+
+    is_external  = Attribute("Is this an external or internal promotion?")
+
 
 class IPromoted(Interface):
 
