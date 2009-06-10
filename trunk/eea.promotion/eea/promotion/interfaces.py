@@ -67,6 +67,8 @@ class IPromotion(Interface):
 
     is_external  = Attribute("Is this an external or internal promotion?")
 
+    url = Attribute("Get the URL to this promotion")
+
 
 class IPromoted(Interface):
 

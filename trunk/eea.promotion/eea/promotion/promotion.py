@@ -24,6 +24,7 @@ class Promotion(object):
             mapping = annotations[KEY] = PersistentDict(d)
         self.mapping = mapping
         self.is_external = False
+        self.url = context.absolute_url()
 
     def remove(self):
         annotations = IAnnotations(self.context)
