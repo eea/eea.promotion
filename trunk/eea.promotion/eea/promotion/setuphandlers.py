@@ -3,12 +3,25 @@ def setupManagePage(context):
     pass
 
 
-def setupQuicklinks(context, portal=None):
+def setupQuicklinks(context):
     """Set up the quicklink folders so that they also list internal promotions.
 
     To do this, we add a RichTopic in every quicklinks sub-folder.
     """
-    portal = portal or context.getSite()
+    # Ordinarily, GenericSetup handlers check for the existence of XML files.
+    # Here, we are not parsing an XML file, but we use this text file as a 
+    # flag to check that we actually meant for this import step to be run.
+    # The file is found in profiles/default.
+    
+    if context.readDataFile('eea.promotion_various.txt') is None:
+        return
+
+    portal = context.getSite()
+
+    # If portal/SITE does not exist, we're probably in some unrelated test
+    # environment:
+    if not hasattr(portal, 'SITE'):
+        return
 
     # The quicklinks subfolders get their locally allowed types by aquisition,
     # that is from quicklinks.

@@ -1,4 +1,5 @@
 from zope.interface import alsoProvides
+from Products.CMFCore.utils import getToolByName
 from Products.PloneTestCase import PloneTestCase
 from Products.PloneTestCase.layer import onsetup
 from eea.promotion.setuphandlers import setupQuicklinks
@@ -35,7 +36,9 @@ class Test(PloneTestCase.PloneTestCase):
         self.testpromo.locations = [u'Front Page']
         self.folders = quicklinks.listFolderContents()
         self.folders = [i for i in self.folders if i.portal_type == 'Folder']
-        setupQuicklinks(self, portal)
+        setup_tool = getToolByName(portal, 'portal_setup')
+        setup_tool.setImportContext('profile-eea.promotion:default')
+        setup_tool.runAllImportSteps()
 
     def testCriterion(self):
         portal = self.portal
