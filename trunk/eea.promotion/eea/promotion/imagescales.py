@@ -34,7 +34,8 @@ class ImageLink(BaseImageLink):
         a2.set('href', img.get('src'))
 
         a3 = ET.Element('a')
-        a3.set('class', 'noHover')
+        a3.set('href', self.url)
+        a3.set('class', ' '.join(self.classnames))
         a3.set('title', self.desc or 'description not available')
         a3.append(img)
 

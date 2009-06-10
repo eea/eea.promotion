@@ -29,7 +29,6 @@ Let's log in:
 
   >>> from Products.Five.testbrowser import Browser
   >>> from Products.PloneTestCase.setup import portal_owner, default_password
-  >>> self.portal.error_log._ignored_exceptions = ()
   >>> browser = Browser()
   >>> browser.handleErrors = False
   >>> browser.open(self.portal.absolute_url())

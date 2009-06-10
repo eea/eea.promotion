@@ -27,14 +27,14 @@ class ThemepageSectionsVocabulary(object):
     implements(IVocabularyFactory)
 
     def __call__(self, context):
-        return SimpleVocabulary.fromValues([u'Left', u'Left', u'Right'])
+        return SimpleVocabulary.fromValues([u'Left', u'Center', u'Right'])
 
 
 class Test(EEAPromotionTestCase):
 
     def afterSetUp(self):
         provideUtility(ThemesVocabulary(), name=u'Allowed themes')
-        provideUtility(ThemesVocabulary(), name=u'Themepage Promotion Sections')
+        provideUtility(ThemepageSectionsVocabulary(), name=u'Themepage Promotion Sections')
         provideUtility(FrontPageSectionsVocabulary(), name=u'Frontpage Promotion Sections')
 
 
