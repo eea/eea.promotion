@@ -34,7 +34,7 @@ class AdminView(BrowserView):
                     'themepage_section': (promo.themepage_section or '').split('/')[-1],
                     'imgtag' : getMultiAdapter((obj, obj.REQUEST), name='imgtag'),
                     'active': promo.active,
-                    'external': promo.is_external}
+                    'is_external': promo.is_external}
             ret.append(info)
         return ret
 

@@ -18,6 +18,7 @@
         <tr>
             <th>Image</th>
             <th>Active</th>
+            <th>External</th>
             <th>Title</th>
             <th>Locations</th>
             <th>Frontpage Section</th>
@@ -31,7 +32,10 @@
             <tr tal:define="imgtag nocall:promo/imgtag">
                 <td tal:content="structure python:imgtag('icon')">image</td>
                 <td tal:content="structure promo/active" class=""
-                    tal:attributes="class promo/active">active</td>
+                    tal:attributes="class promo/active">
+                    active
+                </td>
+                <td tal:content="promo/is_external">is_external</td>
                 <td><a href="#" tal:attributes="href promo/href" tal:content="promo/title"></a></td>
                 <td tal:content="promo/locations">locations</td>
                 <td tal:content="promo/frontpage_section">frontpage_section</td>
