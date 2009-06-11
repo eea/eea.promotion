@@ -34,7 +34,7 @@ class IPromotion(Interface):
         max_length = 3,
         value_type = Choice(
             title = u"Theme",
-            vocabulary = "Allowed themes",
+            vocabulary = u"Allowed themes",
             )
         )
 

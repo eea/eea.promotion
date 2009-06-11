@@ -1,18 +1,13 @@
 import unittest
 from zope.testing import doctest
 from zope.interface import implements
-from zope.component import provideUtility
+from zope.component import provideUtility, queryUtility
 from zope.app.schema.vocabulary import IVocabularyFactory
 from zope.schema.vocabulary import SimpleVocabulary
+from Products.CMFCore.utils import getToolByName
 from Testing.ZopeTestCase import FunctionalDocFileSuite
 from base import EEAPromotionTestCase
-
-
-class ThemesVocabulary(object):
-    implements(IVocabularyFactory)
-
-    def __call__(self, context):
-        return SimpleVocabulary.fromValues(['Snow', 'Space', 'Sand'])
+from eea.promotion.tests.EEAContentTypes import setupATVocabularies
 
 
 class FrontPageSectionsVocabulary(object):
@@ -33,7 +28,8 @@ class ThemepageSectionsVocabulary(object):
 class Test(EEAPromotionTestCase):
 
     def afterSetUp(self):
-        provideUtility(ThemesVocabulary(), name=u'Allowed themes')
+        self.setRoles(['Manager'])
+        setupATVocabularies(self.portal)
         provideUtility(ThemepageSectionsVocabulary(), name=u'Themepage Promotion Sections')
         provideUtility(FrontPageSectionsVocabulary(), name=u'Frontpage Promotion Sections')
 
