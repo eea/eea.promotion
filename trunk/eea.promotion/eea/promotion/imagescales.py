@@ -10,16 +10,12 @@ class ImageLink(BaseImageLink):
     with the logic of promotion.js.dtml.
 
     See #2118.
-    """ 
-
-    def __init__(self, context, request):
-        super(ImageLink, self).__init__(context, request)
-        self.classnames.append('portletHeader')
+    """
 
     def link(self, imgtag):
         a1 = ET.Element('a')
         a1.set('title', self.desc)
-        a1.set('class', ' '.join(self.classnames))
+        a1.set('class', ' '.join(self.classnames + ['portletHeader']))
         a1.set('href', self.url)
         a1.text = self.title
 
