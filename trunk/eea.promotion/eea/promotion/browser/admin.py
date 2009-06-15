@@ -32,7 +32,7 @@ class AdminView(BrowserView):
                     'themes': u', '.join(promo.themes),
                     'frontpage_section': (promo.frontpage_section or '').split('/')[-1],
                     'themepage_section': (promo.themepage_section or '').split('/')[-1],
-                    'imgtag' : getMultiAdapter((obj, obj.REQUEST), name='imgtag'),
+                    'imgtag': getMultiAdapter((obj, obj.REQUEST), name='imgtag'),
                     'active': promo.active,
                     'is_external': promo.is_external}
             ret.append(info)

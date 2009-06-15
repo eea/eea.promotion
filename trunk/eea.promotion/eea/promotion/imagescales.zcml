@@ -3,6 +3,14 @@
     xmlns:browser="http://namespaces.zope.org/browser">
 
     <browser:page
+        for="Products.ATContentTypes.interface.folder.IATFolder"
+        name="promo_imglink"
+        class=".imagescales.ImageLink"
+        permission="zope.Public"
+        allowed_interface="valentine.imagescales.browser.interfaces.IImageLink"
+        />
+
+    <browser:page
         for="Products.ATContentTypes.interface.image.IATImage"
         name="promo_imglink"
         class=".imagescales.ImageLink"

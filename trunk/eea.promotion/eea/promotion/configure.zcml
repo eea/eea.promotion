@@ -27,11 +27,17 @@
       name="Promotion Locations"
       />
 
-  <class class="Products.ATContentTypes.content.document.ATDocument">
+  <!-- Promotable types -->
+
+  <class class="Products.ATContentTypes.interface.news.IATNewsItem">
       <implements interface="eea.promotion.interfaces.IPromotable" />
   </class>
 
-  <class class="Products.ATContentTypes.content.file.ATFile">
+  <class class="Products.ATContentTypes.interface.folder.IATFolder">
+      <implements interface="eea.promotion.interfaces.IPromotable" />
+  </class>
+
+  <class class="Products.ATContentTypes.interface.file.IATFile">
       <implements interface="eea.promotion.interfaces.IPromotable" />
   </class>
 
