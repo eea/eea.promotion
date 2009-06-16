@@ -29,15 +29,15 @@
 
   <!-- Promotable types -->
 
-  <class class="Products.ATContentTypes.interface.news.IATNewsItem">
+  <class class="Products.ATContentTypes.content.newsitem.ATNewsItem">
       <implements interface="eea.promotion.interfaces.IPromotable" />
   </class>
 
-  <class class="Products.ATContentTypes.interface.folder.IATFolder">
+  <class class="Products.ATContentTypes.content.folder.ATFolder">
       <implements interface="eea.promotion.interfaces.IPromotable" />
   </class>
 
-  <class class="Products.ATContentTypes.interface.file.IATFile">
+  <class class="Products.ATContentTypes.content.file.ATFile">
       <implements interface="eea.promotion.interfaces.IPromotable" />
   </class>
 
