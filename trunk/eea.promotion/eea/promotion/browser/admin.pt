@@ -13,7 +13,7 @@
 <metal:main metal:fill-slot="main">
 <tal:main-macro metal:define-macro="main">
 
-    <table class="listing">
+    <table id="promoListing" class="listing">
         <thead>
         <tr>
             <th>Image</th>
