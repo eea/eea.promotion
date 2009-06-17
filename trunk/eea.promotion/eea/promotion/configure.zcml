@@ -17,6 +17,14 @@
       class=".catalog.FrontpageSectionIndex"
       />
 
+  <browser:page
+      for="*"
+      name="globalPromotion"
+      class=".global.GlobalPromotion"
+      permission="zope.Public"
+      allowed_attributes="global_promotion"
+      />
+
   <subscriber
       for=".interfaces.IPromoted zope.app.container.interfaces.IObjectModifiedEvent"
       handler=".browser.form.promotion_modified"

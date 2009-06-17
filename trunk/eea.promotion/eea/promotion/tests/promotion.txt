@@ -2,14 +2,13 @@
 Promotions
 ==========
 
-First we create a news item and mark it as promotable:
+We have been given an ATNewsItem. If eea.promotion has been installed
+correctly, this type should be marked as IPromotable.
 
-  >>> self.setRoles(['Manager'])
-  >>> id = portal.invokeFactory('News Item', id='test')
-  >>> item = portal[id]
+  >>> item = self.item
   >>> from eea.promotion.interfaces import IPromotable
-  >>> from zope.interface import alsoProvides
-  >>> alsoProvides(item, IPromotable)
+  >>> IPromotable.providedBy(item)
+  True
 
 When making a promotion out of it, the createPromotion action sets the marker
 interface and redirects us to the edit form:
@@ -58,6 +57,41 @@ User selects only Front Page as new site location:
   >>> browser.getControl(name='form.actions.apply').click()
   >>> promotion.frontpage_section
   '/plone/SITE/quicklinks/spotlight'
+
+
+Global Promotions
+-----------------
+
+A global promotion is one in the 'spotlight' frontpage section that also have
+the 'Global' location checked:
+
+  >>> promotion.display_globally
+  False
+
+  >>> browser.getControl(name='form.locations').value = "'Global'"
+  >>> browser.getControl(name='form.actions.apply').click()
+  >>> promotion.display_globally
+  True
+
+The 'globalPromotion' adapters finds the global promotion for us. It's in the
+form of a list. This is so that it can be sent to the same macro that renders
+the regular promtions:
+
+  >>> item.reindexObject()
+  >>> adapter = self.portal.restrictedTraverse('@@globalPromotion')
+  >>> gpromo = adapter.global_promotion()
+  >>> gpromo = gpromo[0]
+  >>> gpromo['id'] == item.id
+  True
+
+When we move the promotion to another front page section, it isn't global any
+more. Only promotions in the spotlight can be global.
+
+  >>> browser.getControl(name='form.frontpage_section').value = ['Multimedia']
+  >>> browser.getControl(name='form.actions.apply').click()
+  >>> promotion.display_globally
+  False
+
 
 Deactivation
 ------------

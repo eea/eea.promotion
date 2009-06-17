@@ -14,7 +14,8 @@ class FrontPageSectionsVocabulary(object):
     implements(IVocabularyFactory)
 
     def __call__(self, context):
-        sections = {'Spotlight': '/plone/SITE/quicklinks/spotlight'}
+        sections = {'Spotlight': '/plone/SITE/quicklinks/spotlight',
+                    'Multimedia': '/plone/SITE/quicklinks/multimedia'}
         return SimpleVocabulary.fromItems(sections.items())
 
 
@@ -28,10 +29,19 @@ class ThemepageSectionsVocabulary(object):
 class Test(EEAPromotionTestCase):
 
     def afterSetUp(self):
+        from eea.promotion.interfaces import IPromotable
+        from zope.interface import alsoProvides
+        portal = self.portal
         self.setRoles(['Manager'])
-        setupATVocabularies(self.portal)
+
+        setupATVocabularies(portal)
         provideUtility(ThemepageSectionsVocabulary(), name=u'Themepage Promotion Sections')
         provideUtility(FrontPageSectionsVocabulary(), name=u'Frontpage Promotion Sections')
+
+        id = portal.invokeFactory('News Item', id='test')
+        self.item = portal[id]
+        portal.portal_workflow.doActionFor(self.item, 'publish') 
+        alsoProvides(self.item, IPromotable)
 
 
 def test_suite():
