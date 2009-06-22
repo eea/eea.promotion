@@ -48,10 +48,10 @@ def setupQuicklinks(context):
         c.setValue(u'/'.join(i.getPhysicalPath()))
 
     catalog = portal.portal_catalog
-    result = catalog.searchResults({'portal_type': 'Promotion'})
+    result = catalog.searchResults({'portal_type': 'Promotion', 'Language': 'all'})
     for i in result:
         i.getObject().reindexObject()
-    result = catalog.searchResults({'object_provides': 'eea.promotion.interfaces.IPromoted'})
+    result = catalog.searchResults({'object_provides': 'eea.promotion.interfaces.IPromoted', 'Language': 'all'})
     for i in result:
         i.getObject().reindexObject()
 
