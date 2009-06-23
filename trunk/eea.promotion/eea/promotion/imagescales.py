@@ -13,11 +13,14 @@ class ImageLink(BaseImageLink):
     """
 
     def link(self, imgtag):
+        utitle = self.title.decode('utf-8')
+        udesc = self.desc.decode('utf-8')
+
         a1 = ET.Element('a')
-        a1.set('title', self.desc)
+        a1.set('title', udesc)
         a1.set('class', ' '.join(self.classnames + ['portletHeader']))
         a1.set('href', self.url)
-        a1.text = self.title
+        a1.text = utitle
 
         br = ET.SubElement(a1, 'br')
         br.set('clear', 'all')
@@ -32,10 +35,10 @@ class ImageLink(BaseImageLink):
         a3 = ET.Element('a')
         a3.set('href', self.url)
         a3.set('class', ' '.join(self.classnames))
-        a3.set('title', self.desc or 'description not available')
+        a3.set('title', udesc or 'description not available')
         a3.append(img)
 
-        return ET.tostring(a1) + ET.tostring(a2) + ET.tostring(a3)
+        return ''.join(ET.tostring(i, 'utf-8') for i in (a1, a2, a3))
 
 
 class VideoImageLink(ImageLink):

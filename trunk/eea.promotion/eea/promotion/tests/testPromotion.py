@@ -26,7 +26,7 @@ class ThemepageSectionsVocabulary(object):
         return SimpleVocabulary.fromValues([u'Left', u'Center', u'Right'])
 
 
-class Test(EEAPromotionTestCase):
+class TestPromotion(EEAPromotionTestCase):
 
     def afterSetUp(self):
         from eea.promotion.interfaces import IPromotable
@@ -40,15 +40,43 @@ class Test(EEAPromotionTestCase):
 
         id = portal.invokeFactory('News Item', id='test')
         self.item = portal[id]
-        portal.portal_workflow.doActionFor(self.item, 'publish') 
+        portal.portal_workflow.doActionFor(self.item, 'publish')
         alsoProvides(self.item, IPromotable)
+
+
+class TestImageLink(EEAPromotionTestCase):
+
+    def afterSetUp(self):
+        import eea.promotion
+        import os.path
+        from zope.interface import alsoProvides
+        from OFS.Image import Image
+        from p4a.video.interfaces import IVideo, IVideoEnhanced
+        portal = self.portal
+        self.setRoles(['Manager'])
+
+        id = portal.invokeFactory('News Item', id='test')
+        self.item = portal[id]
+
+        id = self.portal.invokeFactory('File', id='testfile')
+        self.vid = portal[id]
+        alsoProvides(self.vid, IVideoEnhanced)
+
+        path = os.path.join(eea.promotion.__path__[0], 'tests', 'data', 'test.png')
+        self.img_file = open(path, 'rb')
+        IVideo(self.vid).video_image = Image('foobar', 'Foobar', self.img_file)
 
 
 def test_suite():
     suite = unittest.TestSuite((
         FunctionalDocFileSuite('promotion.txt',
-                     test_class=Test,
+                     test_class=TestPromotion,
                      package = 'eea.promotion.tests',
+                     optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS|doctest.REPORT_ONLY_FIRST_FAILURE
+                     ),
+        FunctionalDocFileSuite('imagescales.txt',
+                     test_class=TestImageLink,
+                     package = 'eea.promotion',
                      optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS|doctest.REPORT_ONLY_FIRST_FAILURE
                      ),
         ))
