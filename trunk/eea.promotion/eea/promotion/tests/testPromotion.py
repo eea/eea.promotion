@@ -44,6 +44,19 @@ class TestPromotion(EEAPromotionTestCase):
         alsoProvides(self.item, IPromotable)
 
 
+class TestBugs(EEAPromotionTestCase):
+
+    def afterSetUp(self):
+        from eea.promotion.interfaces import IPromotable
+        from zope.interface import alsoProvides
+        portal = self.portal
+        self.setRoles(['Manager'])
+        id = portal.invokeFactory('News Item', id='test')
+        self.item = portal[id]
+        portal.portal_workflow.doActionFor(self.item, 'publish')
+        alsoProvides(self.item, IPromotable)
+
+
 class TestImageLink(EEAPromotionTestCase):
 
     def afterSetUp(self):
@@ -77,6 +90,11 @@ def test_suite():
         FunctionalDocFileSuite('imagescales.txt',
                      test_class=TestImageLink,
                      package = 'eea.promotion',
+                     optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS|doctest.REPORT_ONLY_FIRST_FAILURE
+                     ),
+        FunctionalDocFileSuite('bugs.txt',
+                     test_class=TestBugs,
+                     package = 'eea.promotion.tests',
                      optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS|doctest.REPORT_ONLY_FIRST_FAILURE
                      ),
         ))

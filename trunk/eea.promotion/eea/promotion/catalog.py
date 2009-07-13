@@ -17,3 +17,4 @@ class FrontpageSectionIndex(object):
         promo = IPromotion(self.context)
         if promo.display_on_frontpage:
             return promo.frontpage_section
+        return u''
