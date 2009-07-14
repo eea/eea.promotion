@@ -7,6 +7,9 @@ $(document).ready(function() {
         $('input[name=category]').change(function() {
             save();
             //disable();
+            if ($(this).attr('value') == 'Global') {
+                $('#form\\.frontpage_section').attr('value', 'spotlight');
+            }
         });
 });
 
