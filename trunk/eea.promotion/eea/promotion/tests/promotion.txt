@@ -2,6 +2,25 @@
 Promotions
 ==========
 
+Permissions
+-----------
+
+To add promotions to the site, you must have the 'Manage promotions'
+permission. This is applied to the 'Manager' and 'PromotionManager' roles:
+
+  >>> 'PromotionManager' in self.portal.validRoles()
+  True
+  >>> 'Manage promotions' in [i['name'] for i in
+  ...      self.portal.permissionsOfRole('PromotionManager') if i['selected']]
+  True
+  >>> 'Manage promotions' in [i['name'] for i in
+  ...      self.portal.permissionsOfRole('Manager') if i['selected']]
+  True
+
+
+Adding Promotions
+-----------------
+
 We have been given an ATNewsItem. If eea.promotion has been installed
 correctly, this type should be marked as IPromotable.
 

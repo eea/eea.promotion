@@ -5,28 +5,28 @@
       for="*"
       name="promotion_admin_view"
       class=".admin.AdminView"
-      permission="cmf.ModifyPortalContent"
+      permission="eea.promotion.ManagePromotions"
       allowed_interface=".interfaces.IAdminView"
       />
 
   <browser:page
       for="eea.promotion.interfaces.IPromoted"
       name="promotion_edit.html"
-      permission="cmf.ModifyPortalContent"
+      permission="eea.promotion.ManagePromotions"
       class=".form.EditForm"
       />
 
   <browser:page
       for="eea.promotion.interfaces.IPromotable"
       name="createPromotion"
-      permission="cmf.ModifyPortalContent"
+      permission="eea.promotion.ManagePromotions"
       class=".actions.CreatePromotion"
       />
 
   <browser:page
       for="eea.promotion.interfaces.IPromoted"
       name="removePromotion"
-      permission="cmf.ModifyPortalContent"
+      permission="eea.promotion.ManagePromotions"
       class=".actions.RemovePromotion"
       />
 
@@ -35,7 +35,7 @@
       menu="object"
       title="Promotions"
       action="${object_url}/promotion_edit.html"
-      permission="cmf.ModifyPortalContent"
+      permission="eea.promotion.ManagePromotions"
       />
 
    <browser:menuItem
@@ -44,7 +44,7 @@
       title="Create Promotion"
       action="${object_url}/@@createPromotion"
       description="Create a promotion for this item"
-      permission="cmf.ModifyPortalContent"
+      permission="eea.promotion.ManagePromotions"
       />
 
    <browser:menuItem
@@ -53,19 +53,19 @@
       title="Remove Promotion"
       action="${object_url}/@@removePromotion"
       description="Remove all promotions for this item"
-      permission="cmf.ModifyPortalContent"
+      permission="eea.promotion.ManagePromotions"
       />
 
    <browser:resource
       name="promotion_form.js"
       file="form.js"
-      permission="zope.Public"
+      permission="eea.promotion.ManagePromotions"
       />
 
    <browser:resource
       name="promotion_form.css"
       file="form.css"
-      permission="zope.Public"
+      permission="eea.promotion.ManagePromotions"
       />
 
 </configure>
