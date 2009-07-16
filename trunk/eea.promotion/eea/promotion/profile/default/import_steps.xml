@@ -13,4 +13,10 @@
   <dependency step="catalog"/>
     Setup Quicklinks Folders
  </import-step>
+ <import-step id="add_our_roles"
+              version="20090715-01"
+              handler="eea.promotion.setuphandlers.addOurRoles"
+              title="eea.promotion: Add Our Roles">
+    Add Custom Roles for eea.promotion
+ </import-step>
 </import-steps>

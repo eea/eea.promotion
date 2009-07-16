@@ -55,3 +55,20 @@ def setupQuicklinks(context):
     for i in result:
         i.getObject().reindexObject()
 
+
+def addOurRoles(context):
+   """Add our extra roles to Plone.
+
+   Part of this is done through GenericSetup, but adding roles to the
+   PlonePAS role manager does not work there.
+
+   Note: in Plone 3.0 (beta) this function is not needed, in Plone
+   2.5 it is.
+   """
+   portal = context.getSite()
+   role_manager = portal.acl_users.portal_role_manager
+   pas_roles = role_manager.listRoleIds()
+   role = 'PromotionManager'
+   if role not in pas_roles:
+       role_manager.addRole(role)
+
