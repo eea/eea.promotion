@@ -1,17 +1,27 @@
 $(document).ready(function() {
-        // Temporarily disabled the grey-out/inactivation of disabled inputs.
-        // IE7 doesn't redisplay the inputs when we apply the new style in
-        // the disable function. #2425
         load();
-        //disable();
-        $('input[name=category]').change(function() {
+        updateView();
+        $('input[name=category]').click(function() {
+            updateView();
             save();
-            //disable();
-            if ($(this).attr('value') == 'Global') {
-                $('#form\\.frontpage_section').attr('value', 'spotlight');
-            }
         });
 });
+
+
+// If a promotion is global, it should be placed on the frontpage in the
+// spotlight section. Otherwise it wouldn't show there at all. Also themes
+// should be deactivated to avoid duplicate promotions.
+function updateView() {
+    if ($('#global input[name=category]').attr('checked') == true) {
+        var input = $('#form\\.frontpage_section');
+        input.attr('value', 'spotlight');
+        $('#frontpage input[name=category]').attr('checked', true);
+        $('#themes input[name=category]').removeAttr('checked');
+        $("#frontpage, #themes").hide('slow');
+    } else {
+        $("#frontpage, #themes").show('slow');
+    }
+}
 
 
 // Parse hidden locations field and check corresponding checkboxes.
@@ -36,33 +46,4 @@ function save() {
     // remove the trailing ', '
     output_val = output_val.slice(0, output_val.length - 2);
     $('input[name=form\\.locations]').attr('value', output_val);
-}
-
-
-// Disable columns that aren't marked as active.
-function disable() {
-    $('input[name=category]').each(function() {
-        var inputs = Array();
-        switch ($(this).attr('value')) {
-            case 'Front Page':
-            inputs.push($('#form\\.frontpage_section'));
-            break;
-            case 'Themes':
-            inputs.push($('#form\\.themepage_section'));
-            inputs.push($('#form\\.themes\\.from'));
-            inputs.push($('#form\\.themes\\.to'));
-            inputs.push($('.ordered-selection-field button'));
-            break;
-        }
-        var disabled = $(this).attr('checked') == false;
-        for (i = 0; i < inputs.length; i++) {
-            var input = inputs[i];
-            input.attr('disabled', disabled);
-            if (disabled) {
-                input.addClass('disabled');
-            } else if (input.hasClass('disabled')) {
-                input.removeClass('disabled');
-            }
-        }
-    });
 }

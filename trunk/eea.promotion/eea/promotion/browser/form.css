@@ -1,4 +1,4 @@
-.col {
+#frontpage, #themes {
     float: left;
     margin-right: 2em;
 }
@@ -24,4 +24,8 @@ label {
 
 .error {
     display: block;
+}
+
+#global {
+    clear: both;
 }
