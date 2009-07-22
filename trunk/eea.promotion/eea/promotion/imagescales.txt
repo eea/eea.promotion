@@ -63,8 +63,28 @@ The third anchor holds the actual image:
   'Plain English Description'
 
 
-UTF-8 Encoding
---------------
+#2567: Shortened Titles
+-----------------------
+
+If the title of the promoted item is too long, it should be shortened due to
+restricted view space. If the title contains a long dash sign, it's chopped
+at this point:
+
+  >>> self.item.setTitle(u'Fish out of water — marine management in a changing climate')
+  >>> adapter = self.item.restrictedTraverse('@@promo_imglink')
+  >>> adapter.short_title
+  'Fish out of water'
+
+If it doesn't contain this sign, it's chopped after the fixed max title length:
+
+  >>> self.item.setTitle(u'Fish out of water marine management in a changing climate')
+  >>> adapter = self.item.restrictedTraverse('@@promo_imglink')
+  >>> adapter.short_title
+  'Fish out of water marine manag...'
+
+
+#2536: UTF-8 Encoding
+---------------------
 
 What happends when the title and description contains unicode characters?
 
@@ -95,4 +115,3 @@ in a thickbox pop-up.
 
   >>> xml.findall('a')[2].get('class')
   'thickbox'
-

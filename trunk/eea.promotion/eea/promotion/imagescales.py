@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from valentine.imagescales.browser.base import BaseImageLink
 from elementtree import ElementTree as ET
 
@@ -5,15 +7,24 @@ from elementtree import ElementTree as ET
 class ImageLink(BaseImageLink):
     """ImageLink for items in the promotion side bar
 
-
     The markup mimics the template markup that was before. It's highly coupled
     with the logic of promotion.js.dtml.
 
     See #2118.
     """
 
+    @property
+    def short_title(self):
+        maxlen = 30
+        if len(self.title) > maxlen:
+            delimiter = u' — '.encode('utf-8') # note: long dash sign
+            if delimiter in self.title:
+                return self.title.split(delimiter)[0].strip()
+            return self.title[:maxlen] + '...'
+        return self.title
+
     def link(self, imgtag):
-        utitle = self.title.decode('utf-8')
+        utitle = self.short_title.decode('utf-8')
         udesc = self.desc.decode('utf-8')
 
         a1 = ET.Element('a')
