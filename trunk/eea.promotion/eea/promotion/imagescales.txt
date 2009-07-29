@@ -73,14 +73,14 @@ at this point:
   >>> self.item.setTitle(u'Fish out of water — marine management in a changing climate')
   >>> adapter = self.item.restrictedTraverse('@@promo_imglink')
   >>> adapter.short_title
-  'Fish out of water'
+  u'Fish out of water'
 
 If it doesn't contain this sign, it's chopped after the fixed max title length:
 
   >>> self.item.setTitle(u'Fish out of water marine management in a changing climate')
   >>> adapter = self.item.restrictedTraverse('@@promo_imglink')
   >>> adapter.short_title
-  'Fish out of water marine manag...'
+  u'Fish out of water marine manag...'
 
 
 #2536: UTF-8 Encoding

@@ -15,16 +15,17 @@ class ImageLink(BaseImageLink):
 
     @property
     def short_title(self):
+        utitle = self.title.decode('utf-8')
         maxlen = 30
-        if len(self.title) > maxlen:
-            delimiter = u' — '.encode('utf-8') # note: long dash sign
-            if delimiter in self.title:
-                return self.title.split(delimiter)[0].strip()
-            return self.title[:maxlen] + '...'
-        return self.title
+        if len(utitle) > maxlen:
+            delimiter = u' — ' # note: long dash sign
+            if delimiter in utitle:
+                return utitle.split(delimiter)[0].strip()
+            return utitle[:maxlen] + u'...'
+        return utitle
 
     def link(self, imgtag):
-        utitle = self.short_title.decode('utf-8')
+        utitle = self.short_title # short_title already returns unicode
         udesc = self.desc.decode('utf-8')
 
         a1 = ET.Element('a')
