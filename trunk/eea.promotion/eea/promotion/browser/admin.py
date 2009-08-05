@@ -5,7 +5,7 @@ from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from eea.promotion.interfaces import IPromoted, IPromotion
 from eea.promotion.browser.interfaces import IAdminView
-
+from DateTime.DateTime import DateTime
 
 class AdminView(BrowserView):
     implements(IAdminView)
@@ -16,9 +16,12 @@ class AdminView(BrowserView):
 
     def find_promotions(self):
         ret = []
+        now = DateTime()
         catalog = getToolByName(self.context, 'portal_catalog')
         query = {'object_provides': ['eea.promotion.interfaces.IPromoted',
-                 'Products.EEAContentTypes.content.interfaces.IExternalPromotion']}
+                 'Products.EEAContentTypes.content.interfaces.IExternalPromotion'],
+                 'review_state': 'published',
+                 'effectiveRange' : now}
         result = catalog.searchResults(query)
         for i in result:
             obj = i.getObject()
