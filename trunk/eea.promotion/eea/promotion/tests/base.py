@@ -4,7 +4,7 @@ from Products.Five import zcml
 from Products.Five import fiveconfigure
 
 
-PRODUCTS = ['ATVocabularyManager', 'FiveSite', 'eea.promotion']
+PRODUCTS = ['ATVocabularyManager', 'FiveSite', 'eea.vocab', 'eea.promotion']
 
 
 @onsetup

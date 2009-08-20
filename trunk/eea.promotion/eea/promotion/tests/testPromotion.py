@@ -7,7 +7,6 @@ from zope.schema.vocabulary import SimpleVocabulary
 from Products.CMFCore.utils import getToolByName
 from Testing.ZopeTestCase import FunctionalDocFileSuite
 from base import EEAPromotionTestCase
-from eea.promotion.tests.EEAContentTypes import setupATVocabularies
 
 
 class FrontPageSectionsVocabulary(object):
@@ -34,7 +33,6 @@ class TestPromotion(EEAPromotionTestCase):
         portal = self.portal
         self.setRoles(['Manager'])
 
-        setupATVocabularies(portal)
         provideUtility(ThemepageSectionsVocabulary(), name=u'Themepage Promotion Sections')
         provideUtility(FrontPageSectionsVocabulary(), name=u'Frontpage Promotion Sections')
 
