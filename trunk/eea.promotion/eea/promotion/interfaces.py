@@ -29,7 +29,9 @@ class IPromotion(Interface):
     themes = List(
         title = u"Themes",
         description = u"List of themes that this content object should be "
-                       "associated with",
+                       "associated with. If this promotion should be visible "
+                       "on theme pages, this list is used to determine on "
+                       "which themes.",
         required = False,
         max_length = 3,
         value_type = Choice(
