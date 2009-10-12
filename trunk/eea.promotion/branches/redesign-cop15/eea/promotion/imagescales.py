@@ -39,18 +39,13 @@ class ImageLink(BaseImageLink):
 
         img = ET.XML(imgtag)
 
-        # This anchor is just to be read by showImage in promotion.js.dtml
-        a2 = ET.Element('a')
-        a2.set('style', 'display: none')
-        a2.set('href', img.get('src'))
-
         a3 = ET.Element('a')
         a3.set('href', self.url)
         a3.set('class', ' '.join(self.classnames))
         a3.set('title', udesc or 'description not available')
         a3.append(img)
 
-        return ''.join(ET.tostring(i, 'utf-8') for i in (a1, a2, a3))
+        return ''.join(ET.tostring(i, 'utf-8') for i in (a3, a1))
 
 
 class VideoImageLink(ImageLink):
