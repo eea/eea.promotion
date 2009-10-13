@@ -5,7 +5,7 @@ from elementtree import ElementTree as ET
 
 
 class ImageLink(BaseImageLink):
-    """ImageLink for items in the promotion side bar
+    """Promotion portlet ImageLink
 
     The markup mimics the template markup that was before. It's highly coupled
     with the logic of promotion.js.dtml.
@@ -33,11 +33,15 @@ class ImageLink(BaseImageLink):
         a1.set('class', ' '.join(self.classnames + ['portletHeader']))
         a1.set('href', self.url)
         a1.text = utitle
-
         br = ET.SubElement(a1, 'br')
         br.set('clear', 'all')
 
         img = ET.XML(imgtag)
+
+        # This anchor is just to be read by showImage in promotion.js.dtml 
+        a2 = ET.Element('a') 
+        a2.set('style', 'display: none') 
+        a2.set('href', img.get('src')) 
 
         a3 = ET.Element('a')
         a3.set('href', self.url)
@@ -45,7 +49,7 @@ class ImageLink(BaseImageLink):
         a3.set('title', udesc or 'description not available')
         a3.append(img)
 
-        return ''.join(ET.tostring(i, 'utf-8') for i in (a3, a1))
+        return ''.join(ET.tostring(i, 'utf-8') for i in (a3, a1, a2))
 
 
 class VideoImageLink(ImageLink):
