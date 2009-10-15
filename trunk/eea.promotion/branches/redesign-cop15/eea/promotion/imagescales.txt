@@ -29,9 +29,18 @@ It's built up of three separate anchors:
   >>> len(xml.findall('a'))
   3
 
-The first one holds the title:
+The first anchor holds the actual image:
 
   >>> a = xml.findall('a')[0]
+  >>> a.find('img').get('src')
+  'http://nohost/plone/test/image_thumb'
+
+  >>> a.get('title')
+  'Plain English Description'
+
+The second one holds the title:
+
+  >>> a = xml.findall('a')[1]
   >>> a.get('title')
   'Plain English Description'
 
@@ -44,23 +53,14 @@ The first one holds the title:
   >>> a.get('href')
   'http://nohost/plone/test'
 
-The second anchor is hidden and only used by the promotion javascript slider:
+The third anchor is hidden and only used by the promotion javascript slider:
 
-  >>> a = xml.findall('a')[1]
+  >>> a = xml.findall('a')[2]
   >>> a.get('style')
   'display: none'
 
   >>> a.get('href')
   'http://nohost/plone/test/image_thumb'
-
-The third anchor holds the actual image:
-
-  >>> a = xml.findall('a')[2]
-  >>> a.find('img').get('src')
-  'http://nohost/plone/test/image_thumb'
-
-  >>> a.get('title')
-  'Plain English Description'
 
 
 #2567: Shortened Titles
@@ -110,8 +110,8 @@ in a thickbox pop-up.
   >>> output = '<root>' + adapter('thumb') + '</root>'
   >>> xml = ET.XML(output)
 
-  >>> xml.findall('a')[0].get('class')
+  >>> xml.findall('a')[1].get('class')
   'thickbox portletHeader'
 
-  >>> xml.findall('a')[2].get('class')
+  >>> xml.findall('a')[0].get('class')
   'thickbox'
