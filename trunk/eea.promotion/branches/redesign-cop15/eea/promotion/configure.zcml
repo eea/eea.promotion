@@ -23,7 +23,6 @@
       name="globalPromotion"
       class=".global.GlobalPromotion"
       permission="zope.Public"
-      allowed_attributes="global_promotion"
       />
 
   <subscriber

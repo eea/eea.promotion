@@ -98,18 +98,9 @@ the regular promtions:
 
   >>> item.reindexObject()
   >>> adapter = self.portal.restrictedTraverse('@@globalPromotion')
-  >>> gpromo = adapter.global_promotion()
-  >>> gpromo = gpromo[0]
+  >>> gpromo = adapter()[0]
   >>> gpromo['id'] == item.id
   True
-
-When we move the promotion to another front page section, it isn't global any
-more. Only promotions in the spotlight can be global.
-
-  >>> browser.getControl(name='form.frontpage_section').value = ['Multimedia']
-  >>> browser.getControl(name='form.actions.apply').click()
-  >>> promotion.display_globally
-  False
 
 
 Deactivation

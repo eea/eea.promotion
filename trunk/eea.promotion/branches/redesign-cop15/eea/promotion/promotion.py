@@ -68,9 +68,7 @@ class Promotion(object):
 
     @property
     def display_globally(self):
-        if not (u'Global' in self.locations):
-            return False
-        if self.frontpage_section.split('/')[-1] == 'spotlight':
+        if (u'Global' in self.locations):
             return True
         return False
 

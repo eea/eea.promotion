@@ -85,3 +85,7 @@ class IPromotable(Interface):
 class IFrontpageSectionIndex(Interface):
 
     """Returns which frontpage section the promotion is in"""
+
+class IGlobalPromotion(Interface):
+    
+    """Returns the first global promotion found"""
