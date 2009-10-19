@@ -13,47 +13,8 @@ def setupQuicklinks(context):
     # flag to check that we actually meant for this import step to be run.
     # The file is found in profiles/default.
     
-    if context.readDataFile('eea.promotion_various.txt') is None:
-        return
-
-    portal = context.getSite()
-
-    # If portal/SITE does not exist, we're probably in some unrelated test
-    # environment:
-    if not hasattr(portal, 'SITE'):
-        return
-
-    # The quicklinks subfolders get their locally allowed types by aquisition,
-    # that is from quicklinks.
-    quicklinks = portal.SITE.quicklinks
-    allowed = list(quicklinks.getLocallyAllowedTypes())
-    if not 'RichTopic' in allowed:
-        allowed.append('RichTopic')
-    quicklinks.setLocallyAllowedTypes(allowed)
-
-    folders = [i for i in quicklinks.listFolderContents() if (i != quicklinks) and (i.portal_type == 'Folder')]
-    for i in  folders:
-        id = '%s_internal_promotions' % i.id
-        if hasattr(i, id):
-            i.manage_delObjects(id)
-
-        i.invokeFactory('RichTopic', id=id)
-        rt = getattr(i, id)
-        rt.selectViewTemplate('folder_summary_view')
-        rt.setTitle(i.Title())
-        i.setDefaultPage(rt.getId())
-        portal.portal_workflow.doActionFor(rt, 'publish')
-
-        c = rt.addCriterion('frontpage_section', 'ATSelectionCriterion')
-        c.setValue(u'/'.join(i.getPhysicalPath()))
-
-    catalog = portal.portal_catalog
-    result = catalog.searchResults({'portal_type': 'Promotion', 'Language': 'all'})
-    for i in result:
-        i.getObject().reindexObject()
-    result = catalog.searchResults({'object_provides': 'eea.promotion.interfaces.IPromoted', 'Language': 'all'})
-    for i in result:
-        i.getObject().reindexObject()
+    # Not using quicklink folders anymore. See #2728
+    pass
 
 
 def addOurRoles(context):

@@ -12,13 +12,6 @@
   <adapter factory=".promotion.Promotion" />
 
   <browser:page
-      for="eea.promotion.interfaces.IPromoted"
-      name="frontpage_category"
-      permission="zope.Public"
-      class=".catalog.FrontpageSectionIndex"
-      />
-
-  <browser:page
       for="*"
       name="globalPromotion"
       class=".global.GlobalPromotion"

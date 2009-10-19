@@ -12,13 +12,6 @@ class IPromotion(Interface):
             required = False,
         )
 
-    frontpage_section = Choice(
-            title = u"Front Page Section",
-            description = u"Which page section to put this promotion in.",
-            required = False,
-            vocabulary = u"Frontpage Promotion Sections"
-        )
-
     themepage_section = Choice(
             title = u"Theme Page Section",
             description = u"Which page section to put this promotion in.",
