@@ -1,0 +1,28 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+<body>
+
+<div metal:define-macro="portlet"
+       i18n:domain="plone"
+       tal:omit-tag=""
+       tal:define="view context/@@themes_navigation_view;
+                   root view/navigationRoot;
+                   title view/title">
+
+<dl class="portlet" id="portlet-navigation-tree"
+    tal:condition="view/display">
+
+    <tal:globalpromo define="promotions here/@@globalPromotion;
+                             category python:{'id': 'globalpromo'}">
+      <dd class="portletItem menuPromotion" tal:condition="promotions">
+            <metal:portlet use-macro="here/portlet_promotions/macros/portlet" />
+      </dd>
+    </tal:globalpromo>
+
+</dl>
+<div class="visualClear"><!-- &nbsp;--></div>
+</div>
+</body>
+</html>
+
