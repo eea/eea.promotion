@@ -28,8 +28,10 @@
         <tbody>
         <tal:promotions tal:define="promotions view/find_promotions"
             tal:repeat="promo promotions">
-            <tr tal:define="imgtag nocall:promo/imgtag">
-                <td tal:content="structure python:imgtag('thumb')">image</td>
+            <tr>
+                <td>
+                    <img alt="" tal:attributes="src string:${promo/absolute_url}/image_tile" />
+                </td>
                 <td tal:content="structure promo/active" class=""
                     tal:attributes="class promo/active">
                     active

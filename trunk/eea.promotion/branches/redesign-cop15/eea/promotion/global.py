@@ -1,7 +1,7 @@
 from zope.interface import implements
-from zope.component import getMultiAdapter
 from DateTime.DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
+from p4a.video.interfaces import IVideoEnhanced
 from interfaces import IPromotion
 from interfaces import IGlobalPromotion
 
@@ -36,9 +36,7 @@ class GlobalPromotion(object):
                     'Description' : brain.Description,
                     'Title' : brain.Title,
                     'url' : promo.url,
-                    'style' : 'display: none;',
-                    'imglink' : getMultiAdapter((obj, obj.REQUEST),
-                         name='promo_imglink')('thumb'),
-                    'image' : brain.getURL() + '/image',
+                    'absolute_url' : brain.getURL(),
+                    'is_video' : IVideoEnhanced.providedBy(obj),
                 }]
 

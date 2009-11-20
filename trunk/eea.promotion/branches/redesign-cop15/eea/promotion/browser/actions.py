@@ -19,8 +19,8 @@ class CreatePromotion(object):
         Promotions that don't have an promo_imglink adapter are blocked from this action.
         This is because this adapter is required for their listing.
         """
-        if queryMultiAdapter((self.context, self.request), name='promo_imglink') == None:
-            raise Exception, u"Sorry, no promo_imglink adapter available for object at " + self.context.absolute_url()
+        if queryMultiAdapter((self.context, self.request), name='imgview') == None:
+            raise Exception, u"Sorry, no imgview adapter available for object at " + self.context.absolute_url()
         alsoProvides(self.context, IPromoted) 
         notify(ObjectModifiedEvent(self.context))
         self.context.reindexObject()

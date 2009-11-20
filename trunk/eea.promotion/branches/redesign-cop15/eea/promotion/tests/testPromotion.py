@@ -51,11 +51,6 @@ def test_suite():
                      package = 'eea.promotion.tests',
                      optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS|doctest.REPORT_ONLY_FIRST_FAILURE
                      ),
-        FunctionalDocFileSuite('imagescales.txt',
-                     test_class=TestImageLink,
-                     package = 'eea.promotion',
-                     optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS|doctest.REPORT_ONLY_FIRST_FAILURE
-                     ),
         FunctionalDocFileSuite('bugs.txt',
                      test_class=TestPromotion,
                      package = 'eea.promotion.tests',

@@ -4,7 +4,6 @@
 
   <five:registerPackage package="." />
   <include file="profiles.zcml" />
-  <include file="imagescales.zcml" />
   <include file="permissions.zcml" />
 
   <include package=".browser" />
@@ -39,6 +38,10 @@
   </class>
 
   <class class="Products.ATContentTypes.content.file.ATFile">
+      <implements interface="eea.promotion.interfaces.IPromotable" />
+  </class>
+
+  <class class="Products.ATContentTypes.content.topic.ATTopic">
       <implements interface="eea.promotion.interfaces.IPromotable" />
   </class>
 

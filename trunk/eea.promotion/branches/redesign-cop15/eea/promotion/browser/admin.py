@@ -1,4 +1,3 @@
-from zope.component import getMultiAdapter
 from zope.interface import implements
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
@@ -39,7 +38,8 @@ class AdminView(BrowserView):
                 'locations': u', '.join(promo.locations), 
                 'themes': u', '.join(promo.themes),
                 'themepage_section': (promo.themepage_section or '').split('/')[-1],
-                'imgtag': getMultiAdapter((obj, obj.REQUEST), name='imgtag'),
+                'url' : promo.url,
+                'absolute_url' : brain.getURL(),
                 'active': promo.active,
                 'is_external': promo.is_external,
             })
