@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1 - (Unreleased)
+1.1 - (2009-12-04)
 ------------------
 
 * Removed imagelink/imagetag adapters. #2805 [thuliper]
