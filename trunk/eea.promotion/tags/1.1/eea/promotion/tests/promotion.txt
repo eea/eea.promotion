@@ -1,0 +1,112 @@
+==========
+Promotions
+==========
+
+Permissions
+-----------
+
+To add promotions to the site, you must have the 'Manage promotions'
+permission. This is applied to the 'Manager' and 'PromotionManager' roles:
+
+  >>> 'PromotionManager' in self.portal.validRoles()
+  True
+  >>> 'Manage promotions' in [i['name'] for i in
+  ...      self.portal.permissionsOfRole('PromotionManager') if i['selected']]
+  True
+  >>> 'Manage promotions' in [i['name'] for i in
+  ...      self.portal.permissionsOfRole('Manager') if i['selected']]
+  True
+
+
+Adding Promotions
+-----------------
+
+We have been given an ATNewsItem. If eea.promotion has been installed
+correctly, this type should be marked as IPromotable.
+
+  >>> item = self.item
+  >>> from eea.promotion.interfaces import IPromotable
+  >>> IPromotable.providedBy(item)
+  True
+
+When making a promotion out of it, the createPromotion action sets the marker
+interface and redirects us to the edit form:
+
+  >>> edit_form_url = item.restrictedTraverse("@@createPromotion")()
+  >>> from eea.promotion.interfaces import IPromoted
+  >>> IPromoted.providedBy(item)
+  True
+
+Now we can create a promotion of it:
+
+  >>> from eea.promotion.interfaces import IPromotion
+  >>> promotion = IPromotion(item)
+  >>> promotion.locations = [u'Front Page', u'Themes']
+
+Let's log in:
+
+  >>> from Products.Five.testbrowser import Browser
+  >>> from Products.PloneTestCase.setup import portal_owner, default_password
+  >>> browser = Browser()
+  >>> browser.handleErrors = False
+  >>> browser.open(self.portal.absolute_url())
+  >>> browser.getControl(name='__ac_name').value = portal_owner
+  >>> browser.getControl(name='__ac_password').value = default_password
+  >>> browser.getControl(name='submit').click()
+
+Now we can enter our edit form...
+
+  >>> browser.open(edit_form_url)
+  >>> browser.url == edit_form_url
+  True
+
+... and verify that our input fields have the values we applied above:
+
+  >>> browser.getControl(name='form.locations').value
+  'Front Page, Themes'
+
+User selects only Front Page as new site location:
+
+  >>> browser.getControl(name='form.locations').value = "'Front Page'"
+  >>> browser.getControl(name='form.actions.apply').click()
+  >>> promotion.locations
+  [u'Front Page']
+
+
+Global Promotions
+-----------------
+
+A global promotion has the 'Global' location checked:
+
+  >>> promotion.display_globally
+  False
+
+  >>> browser.getControl(name='form.locations').value = "'Global'"
+  >>> browser.getControl(name='form.actions.apply').click()
+  >>> promotion.display_globally
+  True
+
+The 'globalPromotion' adapters finds the global promotion for us. It's in the
+form of a list. This is so that it can be sent to the same macro that renders
+the regular promtions:
+
+  >>> item.reindexObject()
+  >>> adapter = self.portal.restrictedTraverse('@@globalPromotion')
+  >>> gpromo = adapter()[0]
+  >>> gpromo['id'] == item.id
+  True
+
+
+Deactivation
+------------
+
+To deactivate a promotion, simply uncheck all locations:
+
+  >>> promotion.active
+  True
+
+  >>> browser.getControl(name='form.locations').value = ''
+  >>> browser.getControl(name='form.actions.apply').click()
+  >>> promotion.active
+  False
+

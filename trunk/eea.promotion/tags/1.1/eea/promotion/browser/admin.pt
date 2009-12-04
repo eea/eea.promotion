@@ -1,0 +1,54 @@
+<metal:block use-macro="here/global_defines/macros/defines" />
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+    <title>Promotions Admin Panel</title>
+</head>
+
+<body>
+
+<metal:main metal:fill-slot="main">
+<tal:main-macro metal:define-macro="main">
+
+    <table id="promoListing" class="listing">
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>Active</th>
+            <th>External</th>
+            <th>Title</th>
+            <th>Locations</th>
+            <th>Themepage Section</th>
+            <th>Themes</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tal:promotions tal:define="promotions view/find_promotions"
+            tal:repeat="promo promotions">
+            <tr>
+                <td>
+                    <img alt="" tal:attributes="src string:${promo/absolute_url}/image_tile" />
+                </td>
+                <td tal:content="structure promo/active" class=""
+                    tal:attributes="class promo/active">
+                    active
+                </td>
+                <td tal:content="promo/is_external">is_external</td>
+                <td><a href="#" tal:attributes="href promo/href" tal:content="promo/title"></a></td>
+                <td tal:content="promo/locations">locations</td>
+                <td tal:content="promo/themepage_section">themepage_section</td>
+                <td tal:content="promo/themes">themes</td>
+            </tr>
+        </tal:promotions>
+        </tbody>
+    </table>
+
+
+</tal:main-macro>
+</metal:main>
+
+</body>
+</html>
