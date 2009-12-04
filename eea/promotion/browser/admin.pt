@@ -21,7 +21,6 @@
             <th>External</th>
             <th>Title</th>
             <th>Locations</th>
-            <th>Frontpage Section</th>
             <th>Themepage Section</th>
             <th>Themes</th>
         </tr>
@@ -29,8 +28,10 @@
         <tbody>
         <tal:promotions tal:define="promotions view/find_promotions"
             tal:repeat="promo promotions">
-            <tr tal:define="imgtag nocall:promo/imgtag">
-                <td tal:content="structure python:imgtag('thumb')">image</td>
+            <tr>
+                <td>
+                    <img alt="" tal:attributes="src string:${promo/absolute_url}/image_tile" />
+                </td>
                 <td tal:content="structure promo/active" class=""
                     tal:attributes="class promo/active">
                     active
@@ -38,7 +39,6 @@
                 <td tal:content="promo/is_external">is_external</td>
                 <td><a href="#" tal:attributes="href promo/href" tal:content="promo/title"></a></td>
                 <td tal:content="promo/locations">locations</td>
-                <td tal:content="promo/frontpage_section">frontpage_section</td>
                 <td tal:content="promo/themepage_section">themepage_section</td>
                 <td tal:content="promo/themes">themes</td>
             </tr>

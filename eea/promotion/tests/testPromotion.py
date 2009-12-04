@@ -9,22 +9,6 @@ from Testing.ZopeTestCase import FunctionalDocFileSuite
 from base import EEAPromotionTestCase
 
 
-class FrontPageSectionsVocabulary(object):
-    implements(IVocabularyFactory)
-
-    def __call__(self, context):
-        sections = {'Spotlight': '/plone/SITE/quicklinks/spotlight',
-                    'Multimedia': '/plone/SITE/quicklinks/multimedia'}
-        return SimpleVocabulary.fromItems(sections.items())
-
-
-class ThemepageSectionsVocabulary(object):
-    implements(IVocabularyFactory)
-
-    def __call__(self, context):
-        return SimpleVocabulary.fromValues([u'Left', u'Center', u'Right'])
-
-
 class TestPromotion(EEAPromotionTestCase):
 
     def afterSetUp(self):
@@ -32,25 +16,7 @@ class TestPromotion(EEAPromotionTestCase):
         from zope.interface import alsoProvides
         portal = self.portal
         self.setRoles(['Manager'])
-
-        provideUtility(ThemepageSectionsVocabulary(), name=u'Themepage Promotion Sections')
-        provideUtility(FrontPageSectionsVocabulary(), name=u'Frontpage Promotion Sections')
-
-        id = portal.invokeFactory('News Item', id='test')
-        self.item = portal[id]
-        portal.portal_workflow.doActionFor(self.item, 'publish')
-        alsoProvides(self.item, IPromotable)
-
-
-class TestBugs(EEAPromotionTestCase):
-
-    def afterSetUp(self):
-        from eea.promotion.interfaces import IPromotable
-        from zope.interface import alsoProvides
-        portal = self.portal
-        self.setRoles(['Manager'])
-        id = portal.invokeFactory('News Item', id='test')
-        self.item = portal[id]
+        self.item = self.portal[portal.invokeFactory('News Item', id='test')]
         portal.portal_workflow.doActionFor(self.item, 'publish')
         alsoProvides(self.item, IPromotable)
 
@@ -85,13 +51,8 @@ def test_suite():
                      package = 'eea.promotion.tests',
                      optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS|doctest.REPORT_ONLY_FIRST_FAILURE
                      ),
-        FunctionalDocFileSuite('imagescales.txt',
-                     test_class=TestImageLink,
-                     package = 'eea.promotion',
-                     optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS|doctest.REPORT_ONLY_FIRST_FAILURE
-                     ),
         FunctionalDocFileSuite('bugs.txt',
-                     test_class=TestBugs,
+                     test_class=TestPromotion,
                      package = 'eea.promotion.tests',
                      optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS|doctest.REPORT_ONLY_FIRST_FAILURE
                      ),

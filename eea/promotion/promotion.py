@@ -3,6 +3,8 @@ from zope.component import adapts
 from interfaces import IPromoted, IPromotion
 from zope.app.annotation.interfaces import IAnnotations
 from persistent.dict import PersistentDict
+from eea.themecentre.interfaces import IThemeTagging
+from Products.NavigationManager.sections import INavigationSectionPosition
 
 
 KEY = 'eea.promotion'
@@ -17,11 +19,7 @@ class Promotion(object):
         annotations = IAnnotations(context)
         mapping = annotations.get(KEY)
         if mapping is None:
-            d = {'locations': [],
-                 'frontpage_section': u'',
-                 'themepage_section': None,
-                 'themes': []}
-            mapping = annotations[KEY] = PersistentDict(d)
+            mapping = annotations[KEY] = PersistentDict({'locations': []})
         self.mapping = mapping
         self.is_external = False
         self.url = context.absolute_url()
@@ -38,21 +36,9 @@ class Promotion(object):
         return property(get, set)
     locations = locations()
 
-    def themepage_section():
-        def get(self):
-            return self.mapping.get('themepage_section')
-        def set(self, val):
-            self.mapping['themepage_section'] = val
-        return property(get, set)
-    themepage_section = themepage_section()
-
-    def frontpage_section():
-        def get(self):
-            return self.mapping.get('frontpage_section')
-        def set(self, val):
-            self.mapping['frontpage_section'] = val
-        return property(get, set)
-    frontpage_section = frontpage_section()
+    @property
+    def themepage_section(self):
+        return INavigationSectionPosition(self.context).section
 
     @property
     def active(self):
@@ -68,19 +54,13 @@ class Promotion(object):
 
     @property
     def display_globally(self):
-        if not (u'Global' in self.locations):
-            return False
-        if self.frontpage_section.split('/')[-1] == 'spotlight':
+        if u'Global' in self.locations:
             return True
         return False
 
-    def themes():
-        def get(self):
-            return self.mapping.get('themes')
-        def set(self, val):
-            self.mapping['themes'] = val
-        return property(get, set)
-    themes = themes()
+    @property
+    def themes(self):
+        return IThemeTagging(self.context).tags
 
     @property
     def edit_url(self):

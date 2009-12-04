@@ -30,7 +30,7 @@ If the promotion is visible in the themes section, we might want to see which th
 visible in:
 
   >>> p['themes']
-  u'Agriculture, Air'
+  u'agriculture, air'
 
 The active flag signals if the promotion is at alive or dead, i.e. if it's actually shown
 anywhere on the site.
