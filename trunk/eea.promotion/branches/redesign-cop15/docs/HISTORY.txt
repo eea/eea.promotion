@@ -4,7 +4,8 @@ Changelog
 1.2 - (Unreleased)
 ------------------
 
-* Require that an image is uploaded / can be generated when promoting an item [thuliper] 
+* More informative labeling in admin_view. [thuliper]
+* Require that an image is uploaded / can be generated when promoting an item. [thuliper] 
 
 1.1 - (2009-12-04)
 ------------------
