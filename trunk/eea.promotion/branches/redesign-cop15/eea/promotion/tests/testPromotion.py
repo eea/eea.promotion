@@ -1,12 +1,9 @@
 import unittest
+import os.path
 from zope.testing import doctest
-from zope.interface import implements
-from zope.component import provideUtility, queryUtility
-from zope.app.schema.vocabulary import IVocabularyFactory
-from zope.schema.vocabulary import SimpleVocabulary
-from Products.CMFCore.utils import getToolByName
 from Testing.ZopeTestCase import FunctionalDocFileSuite
 from base import EEAPromotionTestCase
+import eea.promotion
 
 
 class TestPromotion(EEAPromotionTestCase):
@@ -20,28 +17,8 @@ class TestPromotion(EEAPromotionTestCase):
         portal.portal_workflow.doActionFor(self.item, 'publish')
         alsoProvides(self.item, IPromotable)
 
-
-class TestImageLink(EEAPromotionTestCase):
-
-    def afterSetUp(self):
-        import eea.promotion
-        import os.path
-        from zope.interface import alsoProvides
-        from OFS.Image import Image
-        from p4a.video.interfaces import IVideo, IVideoEnhanced
-        portal = self.portal
-        self.setRoles(['Manager'])
-
-        id = portal.invokeFactory('News Item', id='test')
-        self.item = portal[id]
-
-        id = self.portal.invokeFactory('File', id='testfile')
-        self.vid = portal[id]
-        alsoProvides(self.vid, IVideoEnhanced)
-
         path = os.path.join(eea.promotion.__path__[0], 'tests', 'data', 'test.png')
-        self.img_file = open(path, 'rb')
-        IVideo(self.vid).video_image = Image('foobar', 'Foobar', self.img_file)
+        self.img = open(path, 'rb').read()
 
 
 def test_suite():

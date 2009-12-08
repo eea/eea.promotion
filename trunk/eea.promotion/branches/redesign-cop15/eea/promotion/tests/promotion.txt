@@ -29,6 +29,10 @@ correctly, this type should be marked as IPromotable.
   >>> IPromotable.providedBy(item)
   True
 
+Before we can make a promotion out of it, we have to upload an image
+
+  >>> item.setImage(self.img)
+
 When making a promotion out of it, the createPromotion action sets the marker
 interface and redirects us to the edit form:
 
