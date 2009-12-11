@@ -26,6 +26,10 @@ def addOurRoles(context):
     Note: in Plone 3.0 (beta) this function is not needed, in Plone
     2.5 it is.
     """
+    # only run this step if we are in eea.design profile
+    if context.readDataFile('eea.promotion_various.txt') is None:
+        return
+
     portal = context.getSite()
     role_manager = portal.acl_users.portal_role_manager
     pas_roles = role_manager.listRoleIds()
