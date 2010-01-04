@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2 - (Unreleased)
+1.2 - (2010-01-04)
 ------------------
 
 * ATTopic is now promotable. #2622 [thuliper]
