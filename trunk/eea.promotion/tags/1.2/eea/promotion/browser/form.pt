@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+<metal:block metal:fill-slot="javascript_head_slot" >
+    <style type="text/css" tal:content="string:@import url(++resource++promotion_form.css);"></style>
+    <script type="text/javascript" src="sectionwidget.js"
+        tal:attributes="src string:++resource++promotion_form.js">
+    </script>
+</metal:block>
+</head>
+
+<body>
+<div metal:fill-slot="main">
+
+    <h1 tal:content="view/label">Edit Promotion</h1>
+    <div class="summary" tal:condition="view/status" tal:content="view/status">Status</div>
+
+    <form class="edit-form" enctype="multipart/form-data" method="post" action="." tal:attributes="action request/URL">
+
+        <div tal:define="widget nocall:view/widgets/locations" tal:condition="widget/error" tal:content="widget/error">
+        </div>
+        <input tal:define="widget nocall:view/widgets/locations" tal:replace="structure widget" />
+
+        <div class="col" id="frontpage">
+            <input class="category" name="category" type="checkbox" value="Front Page" />
+            <span class="location">Front Page</span>
+            <br/>
+        </div>
+
+        <div class="col" id="themes">
+            <input class="category" name="category" type="checkbox" value="Themes" />
+            <span class="location">Themes</span>
+            <br/>
+        </div>
+
+        <div class="col" id="global">
+            <input class="category" name="category" type="checkbox" value="Global" />
+            <span class="location">Global</span>
+            <br/>
+            <div class="formHelp">If checked, the promotion is shown at the top in navigation menu on all pages.</div>
+        </div>
+
+        <div class="visualClear"><!-- --></div>
+
+        <span class="actionButtons" tal:condition="view/availableActions">
+            <input tal:repeat="action view/actions" tal:replace="structure action/render" />
+        </span>
+
+    </form>
+
+</div>
+</body>
+</html>

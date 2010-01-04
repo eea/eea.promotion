@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<import-steps>
+ <import-step id="controlpanel" version="20060213-01"
+              handler="Products.CMFPlone.exportimport.controlpanel.importControlPanel"
+              title="Control Panel">
+    Import Plone control panel actions.
+ </import-step>
+ <import-step id="promotion_quicklinks"
+              version="20090515-01"
+              handler="eea.promotion.setuphandlers.setupQuicklinks"
+              title="eea.promotion: Quicklinks">
+  <dependency step="skins"/>
+  <dependency step="catalog"/>
+    Setup Quicklinks Folders
+ </import-step>
+ <import-step id="add_our_roles"
+              version="20090715-01"
+              handler="eea.promotion.setuphandlers.addOurRoles"
+              title="eea.promotion: Add Our Roles">
+    Add Custom Roles for eea.promotion
+ </import-step>
+</import-steps>

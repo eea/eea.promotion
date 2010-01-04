@@ -1,0 +1,14 @@
+#2562 Content can't be promoted if no frontpage section is selected
+-------------------------------------------------------------------
+
+This problem occured when a promotion was only marked as global and no frontpage
+section was set. This resulted in that frontpage_section was None and crashed the
+display_globally property.
+
+  >>> from eea.promotion.interfaces import IPromotion, IPromotable
+  >>> self.item.setImage(self.img)
+  >>> foo = self.item.restrictedTraverse("@@createPromotion")()
+  >>> promotion = IPromotion(self.item)
+  >>> promotion.locations = [u'Global']
+  >>> foo = promotion.display_globally
+
