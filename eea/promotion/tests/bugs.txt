@@ -6,6 +6,7 @@ section was set. This resulted in that frontpage_section was None and crashed th
 display_globally property.
 
   >>> from eea.promotion.interfaces import IPromotion, IPromotable
+  >>> self.item.setImage(self.img)
   >>> foo = self.item.restrictedTraverse("@@createPromotion")()
   >>> promotion = IPromotion(self.item)
   >>> promotion.locations = [u'Global']

@@ -27,57 +27,19 @@
             <input class="category" name="category" type="checkbox" value="Front Page" />
             <span class="location">Front Page</span>
             <br/>
-
-            <div tal:omit-tag="" tal:define="widget nocall:view/widgets/frontpage_section">
-                <label for="field.name" title="Widget Hint" id="field.name_label"
-                    tal:attributes="for widget/name; id string:${widget/name}_label; title widget/hint"
-                    tal:content="widget/label">
-                    Label
-                </label>
-                <div tal:condition="widget/error" tal:replace="structure widget/error">
-                    Error
-                </div>
-                <input tal:replace="structure widget" />
-            </div>
-
         </div>
 
         <div class="col" id="themes">
             <input class="category" name="category" type="checkbox" value="Themes" />
             <span class="location">Themes</span>
             <br/>
-
-            <div tal:omit-tag="" tal:define="widget nocall:view/widgets/themepage_section">
-                <label for="field.name" title="Widget Hint" id="field.name_label"
-                    tal:attributes="for widget/name; id string:${widget/name}_label; title widget/hint"
-                    tal:content="widget/label">
-                    Label
-                </label>
-                <div tal:condition="widget/error" tal:replace="structure widget/error">
-                    Error
-                </div>
-                <input tal:replace="structure widget" />
-            </div>
-
-            <div tal:omit-tag="" tal:define="widget nocall:view/widgets/themes">
-                <label for="field.name" title="Widget Hint" id="field.name_label"
-                    tal:attributes="for widget/name; id string:${widget/name}_label; title widget/hint"
-                    tal:content="widget/label">
-                    Label
-                </label>
-                <div tal:condition="widget/error" tal:replace="structure widget/error">
-                    Error
-                </div>
-                <input tal:replace="structure widget" />
-            </div>
-
         </div>
 
         <div class="col" id="global">
             <input class="category" name="category" type="checkbox" value="Global" />
             <span class="location">Global</span>
             <br/>
-            <div class="formHelp">If checked, the promotion is placed on the frontpage in the spotlight section, and shown at the top of all other pages.</div>
+            <div class="formHelp">If checked, the promotion is shown at the top in navigation menu on all pages.</div>
         </div>
 
         <div class="visualClear"><!-- --></div>

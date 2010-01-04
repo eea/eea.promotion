@@ -29,6 +29,10 @@ correctly, this type should be marked as IPromotable.
   >>> IPromotable.providedBy(item)
   True
 
+Before we can make a promotion out of it, we have to upload an image
+
+  >>> item.setImage(self.img)
+
 When making a promotion out of it, the createPromotion action sets the marker
 interface and redirects us to the edit form:
 
@@ -72,17 +76,11 @@ User selects only Front Page as new site location:
   >>> promotion.locations
   [u'Front Page']
 
-  >>> browser.getControl(name='form.frontpage_section').value = ['Spotlight']
-  >>> browser.getControl(name='form.actions.apply').click()
-  >>> promotion.frontpage_section
-  '/plone/SITE/quicklinks/spotlight'
-
 
 Global Promotions
 -----------------
 
-A global promotion is one in the 'spotlight' frontpage section that also have
-the 'Global' location checked:
+A global promotion has the 'Global' location checked:
 
   >>> promotion.display_globally
   False
@@ -98,18 +96,9 @@ the regular promtions:
 
   >>> item.reindexObject()
   >>> adapter = self.portal.restrictedTraverse('@@globalPromotion')
-  >>> gpromo = adapter.global_promotion()
-  >>> gpromo = gpromo[0]
+  >>> gpromo = adapter()[0]
   >>> gpromo['id'] == item.id
   True
-
-When we move the promotion to another front page section, it isn't global any
-more. Only promotions in the spotlight can be global.
-
-  >>> browser.getControl(name='form.frontpage_section').value = ['Multimedia']
-  >>> browser.getControl(name='form.actions.apply').click()
-  >>> promotion.display_globally
-  False
 
 
 Deactivation

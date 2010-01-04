@@ -13,8 +13,7 @@
 <dl class="portlet" id="portlet-navigation-tree"
     tal:condition="view/display">
 
-    <tal:globalpromo define="gpromo here/@@globalPromotion;
-                             promotions gpromo/global_promotion;
+    <tal:globalpromo define="promotions here/@@globalPromotion;
                              category python:{'id': 'globalpromo'}">
       <dd class="portletItem menuPromotion" tal:condition="promotions">
             <metal:portlet use-macro="here/portlet_promotions/macros/portlet" />
@@ -26,3 +25,4 @@
 </div>
 </body>
 </html>
+
