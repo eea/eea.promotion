@@ -16,7 +16,7 @@ class Promotion(object):
 
     def __init__(self, context):
         self.context = context
-        annotations = IAnnotations(context)
+        annotations = IAnnotations(context.getCanonical())
         mapping = annotations.get(KEY)
         if mapping is None:
             mapping = annotations[KEY] = PersistentDict({'locations': []})
@@ -25,7 +25,7 @@ class Promotion(object):
         self.url = context.absolute_url()
 
     def remove(self):
-        annotations = IAnnotations(self.context)
+        annotations = IAnnotations(self.context.getCanonical())
         del annotations[KEY]
 
     def locations():

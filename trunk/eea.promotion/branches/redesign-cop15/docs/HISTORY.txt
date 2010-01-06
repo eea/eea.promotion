@@ -4,6 +4,8 @@ Changelog
 1.3 - (Unreleased)
 ------------------
 
+* Promotion settings are now synced with translations [thuliper #2565]
+
 1.2 - (2010-01-04)
 ------------------
 
