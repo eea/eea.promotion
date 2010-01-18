@@ -1,34 +1,42 @@
-from zope.component import getMultiAdapter
+from zope.interface import implements
 from DateTime.DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
+from p4a.video.interfaces import IVideoEnhanced
 from interfaces import IPromotion
+from interfaces import IGlobalPromotion
 
 
 class GlobalPromotion(object):
     """ """
+    implements(IGlobalPromotion)
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
         self.now = DateTime()
 
-    def global_promotion(self):
-        """ """
+    def __call__(self):
+        """Return first gloabl promotion found
+        
+        An image with id 'campaign-banner' has to be found.
+        """
         catalog = getToolByName(self.context, 'portal_catalog')
-        query = {'object_provides': 'eea.promotion.interfaces.IPromoted',
-                 'review_state': 'published',
-                 'effectiveRange' : self.now}
-        result = catalog.searchResults(query)
-        for t in result:
-            obj = t.getObject()
+        result = catalog({
+            'object_provides': 'eea.promotion.interfaces.IPromoted',
+            'review_state': 'published',
+            'effectiveRange' : self.now,
+        })
+
+        for brain in result:
+            obj = brain.getObject()
             promo = IPromotion(obj)
             if promo.display_globally:
-                info = {'id' : t.getId,
-                        'Description' : t.Description,
-                        'Title' : t.Title,
-                        'url' : promo.url,
-                        'style' : 'display: none;',
-                        'imglink' : getMultiAdapter((obj, obj.REQUEST),
-                             name='promo_imglink')('thumb'),
-                        'image' : t.getURL() + '/image' }
-                return [info]
+                return [{
+                    'id' : brain.getId,
+                    'Description' : brain.Description,
+                    'Title' : brain.Title,
+                    'url' : promo.url,
+                    'absolute_url' : brain.getURL(),
+                    'is_video' : IVideoEnhanced.providedBy(obj),
+                }]
+

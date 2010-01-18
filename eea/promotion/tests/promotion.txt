@@ -2,6 +2,7 @@
 Promotions
 ==========
 
+
 Permissions
 -----------
 
@@ -29,6 +30,20 @@ correctly, this type should be marked as IPromotable.
   >>> IPromotable.providedBy(item)
   True
 
+Before we can make a promotion out of it, we have to upload an image
+
+  >>> item.setImage(self.img)
+
+Let's also make a swedish translation of the item. When the canonical is
+promoted, this translation to be promoted as well:
+
+  >>> from Products.CMFCore.utils import getToolByName
+  >>> lt = getToolByName(self.portal, 'portal_languages')
+  >>> lt.manage_setLanguageSettings('en', ['en', 'sv', 'pl'])
+  >>> item.addTranslation('sv')
+  >>> item_sv = item.getTranslation('sv')
+  >>> item_sv.reindexObject()
+
 When making a promotion out of it, the createPromotion action sets the marker
 interface and redirects us to the edit form:
 
@@ -37,58 +52,44 @@ interface and redirects us to the edit form:
   >>> IPromoted.providedBy(item)
   True
 
-Now we can create a promotion of it:
+The translations are promoted as well:
+
+  >>> IPromoted.providedBy(item_sv)
+  True
+
+Now we can edit its promotion settings:
 
   >>> from eea.promotion.interfaces import IPromotion
   >>> promotion = IPromotion(item)
   >>> promotion.locations = [u'Front Page', u'Themes']
 
-Let's log in:
+The settings for the translated objects are the same:
 
-  >>> from Products.Five.testbrowser import Browser
-  >>> from Products.PloneTestCase.setup import portal_owner, default_password
-  >>> browser = Browser()
-  >>> browser.handleErrors = False
-  >>> browser.open(self.portal.absolute_url())
-  >>> browser.getControl(name='__ac_name').value = portal_owner
-  >>> browser.getControl(name='__ac_password').value = default_password
-  >>> browser.getControl(name='submit').click()
+  >>> IPromotion(item_sv).locations
+  [u'Front Page', u'Themes']
 
-Now we can enter our edit form...
+If we make another translation afterwards, we can synchronize the promotion
+settings with the syncPromotions action:
 
-  >>> browser.open(edit_form_url)
-  >>> browser.url == edit_form_url
+  >>> item.addTranslation('pl')
+  >>> item_pl = item.getTranslation('pl')
+  >>> item_pl.reindexObject()
+  >>> IPromoted.providedBy(item_pl)
+  False
+  >>> _ = item.restrictedTraverse("@@promoteTranslations")()
+  >>> IPromoted.providedBy(item_pl)
   True
-
-... and verify that our input fields have the values we applied above:
-
-  >>> browser.getControl(name='form.locations').value
-  'Front Page, Themes'
-
-User selects only Front Page as new site location:
-
-  >>> browser.getControl(name='form.locations').value = "'Front Page'"
-  >>> browser.getControl(name='form.actions.apply').click()
-  >>> promotion.locations
-  [u'Front Page']
-
-  >>> browser.getControl(name='form.frontpage_section').value = ['Spotlight']
-  >>> browser.getControl(name='form.actions.apply').click()
-  >>> promotion.frontpage_section
-  '/plone/SITE/quicklinks/spotlight'
 
 
 Global Promotions
 -----------------
 
-A global promotion is one in the 'spotlight' frontpage section that also have
-the 'Global' location checked:
+A global promotion has the 'Global' location checked:
 
   >>> promotion.display_globally
   False
 
-  >>> browser.getControl(name='form.locations').value = "'Global'"
-  >>> browser.getControl(name='form.actions.apply').click()
+  >>> promotion.locations = [u'Global']
   >>> promotion.display_globally
   True
 
@@ -98,30 +99,35 @@ the regular promtions:
 
   >>> item.reindexObject()
   >>> adapter = self.portal.restrictedTraverse('@@globalPromotion')
-  >>> gpromo = adapter.global_promotion()
-  >>> gpromo = gpromo[0]
+  >>> gpromo = adapter()[0]
   >>> gpromo['id'] == item.id
   True
-
-When we move the promotion to another front page section, it isn't global any
-more. Only promotions in the spotlight can be global.
-
-  >>> browser.getControl(name='form.frontpage_section').value = ['Multimedia']
-  >>> browser.getControl(name='form.actions.apply').click()
-  >>> promotion.display_globally
-  False
 
 
 Deactivation
 ------------
 
-To deactivate a promotion, simply uncheck all locations:
+To deactivate a promotion, simply uncheck all locations. It will not show
+anywhere:
 
   >>> promotion.active
   True
-
-  >>> browser.getControl(name='form.locations').value = ''
-  >>> browser.getControl(name='form.actions.apply').click()
+  >>> promotion.locations = []
   >>> promotion.active
+  False
+
+
+Removing Promotions
+-------------------
+
+To unmark the IPromoted interface and completely remove the promotion
+settings, use the removePromotion action:
+
+  >>> _ = item.restrictedTraverse("@@removePromotion")()
+  >>> IPromoted.providedBy(item)
+  False
+  >>> IPromoted.providedBy(item_sv)
+  False
+  >>> IPromoted.providedBy(item_pl)
   False
 
