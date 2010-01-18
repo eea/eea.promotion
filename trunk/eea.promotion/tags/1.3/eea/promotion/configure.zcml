@@ -1,0 +1,48 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+  <five:registerPackage package="." />
+  <include file="profiles.zcml" />
+  <include file="permissions.zcml" />
+
+  <include package=".browser" />
+
+  <adapter factory=".promotion.Promotion" />
+
+  <browser:page
+      for="*"
+      name="globalPromotion"
+      class=".global.GlobalPromotion"
+      permission="zope.Public"
+      />
+
+  <subscriber
+      for=".interfaces.IPromoted zope.app.container.interfaces.IObjectModifiedEvent"
+      handler=".browser.form.promotion_modified"
+      />
+
+  <utility
+      component=".vocabulary.LocationsVocabularyFactory"
+      name="Promotion Locations"
+      />
+
+  <!-- Promotable types -->
+
+  <class class="Products.ATContentTypes.content.newsitem.ATNewsItem">
+      <implements interface="eea.promotion.interfaces.IPromotable" />
+  </class>
+
+  <class class="Products.ATContentTypes.content.folder.ATFolder">
+      <implements interface="eea.promotion.interfaces.IPromotable" />
+  </class>
+
+  <class class="Products.ATContentTypes.content.file.ATFile">
+      <implements interface="eea.promotion.interfaces.IPromotable" />
+  </class>
+
+  <class class="Products.ATContentTypes.content.topic.ATTopic">
+      <implements interface="eea.promotion.interfaces.IPromotable" />
+  </class>
+
+</configure>
