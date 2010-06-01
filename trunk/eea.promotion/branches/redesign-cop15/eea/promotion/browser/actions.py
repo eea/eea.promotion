@@ -1,4 +1,3 @@
-from zope.component import queryMultiAdapter
 from zope.app.event.objectevent import ObjectModifiedEvent
 from zope.event import notify
 from zope.interface import alsoProvides, directlyProvides, directlyProvidedBy
@@ -19,11 +18,6 @@ class CreatePromotion(object):
         Promotions that don't have an promo_imglink adapter are blocked from this action.
         This is because this adapter is required for their listing.
         """
-        imgview = queryMultiAdapter((self.context, self.request), name='imgview')
-        if imgview == None:
-            raise Exception, u"Sorry, no imgview adapter available for object at " + self.context.absolute_url()
-        elif imgview.display() == False:
-            raise Exception, u"There's no image uploaded or generated for object at " + self.context.absolute_url()
         for obj in [self.context] + [i[0] for i in self.context.getTranslations().values()]:
             alsoProvides(obj, IPromoted) 
             notify(ObjectModifiedEvent(obj))

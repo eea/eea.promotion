@@ -4,6 +4,8 @@ Changelog
 1.4 - (Unreleased)
 ------------------
 
+* Enabled promotions for all portal types [thuliper, #3399]
+
 1.3 - (2010-01-18)
 ------------------
 

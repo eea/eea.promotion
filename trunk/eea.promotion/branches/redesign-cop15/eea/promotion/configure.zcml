@@ -29,19 +29,7 @@
 
   <!-- Promotable types -->
 
-  <class class="Products.ATContentTypes.content.newsitem.ATNewsItem">
-      <implements interface="eea.promotion.interfaces.IPromotable" />
-  </class>
-
-  <class class="Products.ATContentTypes.content.folder.ATFolder">
-      <implements interface="eea.promotion.interfaces.IPromotable" />
-  </class>
-
-  <class class="Products.ATContentTypes.content.file.ATFile">
-      <implements interface="eea.promotion.interfaces.IPromotable" />
-  </class>
-
-  <class class="Products.ATContentTypes.content.topic.ATTopic">
+  <class class="Products.Archetypes.public.BaseContent">
       <implements interface="eea.promotion.interfaces.IPromotable" />
   </class>
 
