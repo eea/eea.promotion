@@ -6,23 +6,18 @@
 <div metal:define-macro="portlet"
        i18n:domain="plone"
        tal:omit-tag=""
-       tal:define="view context/@@themes_navigation_view;
-                   root view/navigationRoot;
-                   title view/title">
+       tal:define="promotions here/@@globalPromotion;
+                   category python:{'id': 'globalpromo'};
+                   display python: promotions and promotions[0]['id'] != context.getId()">
 
 <dl class="portlet" id="portlet-navigation-tree"
-    tal:condition="view/display">
-
-    <tal:globalpromo define="gpromo here/@@globalPromotion;
-                             promotions gpromo/global_promotion;
-                             category python:{'id': 'globalpromo'}">
+    tal:condition="display">
       <dd class="portletItem menuPromotion" tal:condition="promotions">
             <metal:portlet use-macro="here/portlet_promotions/macros/portlet" />
       </dd>
-    </tal:globalpromo>
-
 </dl>
 <div class="visualClear"><!-- &nbsp;--></div>
 </div>
 </body>
 </html>
+
