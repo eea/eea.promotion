@@ -4,6 +4,7 @@ Changelog
 1.4-dev - (Unreleased)
 ------------------
 * Enabled promotions for all portal types [thuliper, #3399]
+* Cleaned up portlet_globalpromotion and add a check to not display it context is the promoted one, refs #3829 [vincisas]
 
 1.3 - (2010-01-18)
 ------------------
