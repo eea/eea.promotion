@@ -25,6 +25,8 @@ class GlobalPromotion(object):
             'object_provides': 'eea.promotion.interfaces.IPromoted',
             'review_state': 'published',
             'effectiveRange' : self.now,
+            'sort_on': 'effective',
+            'sort_order' : 'reverse',
         })
 
         for brain in result:
