@@ -1,6 +1,9 @@
 Changelog
 =========
 
+1.5-dev - (Unreleased)
+----------------------
+
 1.4 - (2010-11-10)
 ------------------
 * Enabled promotions for all portal types [thuliper, #3399]
