@@ -8,7 +8,7 @@
        tal:omit-tag=""
        tal:define="promotions here/@@globalPromotion;
                    category python:{'id': 'globalpromo'};
-                   display python: promotions and promotions[0]['id'] != context.getId()">
+                   display python: promotions and not context.absolute_url().startswith(promotions[0]['url'])">
 
 <dl class="portlet" id="portlet-navigation-tree"
     tal:condition="display">

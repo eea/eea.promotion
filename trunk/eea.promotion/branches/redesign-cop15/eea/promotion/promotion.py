@@ -5,7 +5,7 @@ from zope.app.annotation.interfaces import IAnnotations
 from persistent.dict import PersistentDict
 from eea.themecentre.interfaces import IThemeTagging
 from Products.NavigationManager.sections import INavigationSectionPosition
-
+from Products.CMFPlone.utils import isDefaultPage, parent
 
 KEY = 'eea.promotion'
 
@@ -22,7 +22,10 @@ class Promotion(object):
             mapping = annotations[KEY] = PersistentDict({'locations': []})
         self.mapping = mapping
         self.is_external = False
-        self.url = context.absolute_url()
+        if isDefaultPage(context, context.REQUEST):
+            self.url = parent(context).absolute_url()
+        else:
+            self.url = context.absolute_url()
 
     def remove(self):
         annotations = IAnnotations(self.context.getCanonical())
