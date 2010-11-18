@@ -1,6 +1,9 @@
 Changelog
 =========
 
+1.6-dev - (Unreleased)
+----------------------
+
 1.5 - (2010-11-18)
 ------------------
 * Bug fix: double logo with global promotion, better url filtering #3878, [vincisas]
