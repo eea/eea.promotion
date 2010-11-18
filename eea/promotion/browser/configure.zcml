@@ -30,6 +30,13 @@
       class=".actions.RemovePromotion"
       />
 
+  <browser:page
+      for="eea.promotion.interfaces.IPromoted"
+      name="promoteTranslations"
+      permission="eea.promotion.ManagePromotions"
+      class=".actions.PromoteTranslations"
+      />
+
   <browser:menuItem
       for="eea.promotion.interfaces.IPromoted"
       menu="object"
@@ -53,6 +60,15 @@
       title="Remove Promotion"
       action="${object_url}/@@removePromotion"
       description="Remove all promotions for this item"
+      permission="eea.promotion.ManagePromotions"
+      />
+
+   <browser:menuItem
+      for="eea.promotion.interfaces.IPromoted"
+      menu="object_buttons"
+      title="Promote Translations"
+      action="${object_url}/@@promoteTranslations"
+      description="If translations of this item have been made after it was first promoted, this action promotes the new translations"
       permission="eea.promotion.ManagePromotions"
       />
 
