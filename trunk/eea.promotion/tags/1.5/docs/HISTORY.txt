@@ -1,0 +1,29 @@
+Changelog
+=========
+
+1.5 - (2010-11-18)
+------------------
+* Bug fix: double logo with global promotion, better url filtering #3878, [vincisas]
+
+1.4 - (2010-11-10)
+------------------
+* Enabled promotions for all portal types [thuliper, #3399]
+* Cleaned up portlet_globalpromotion and add a check to not display it context is the promoted one, refs #3829 [vincisas]
+
+1.3 - (2010-01-18)
+------------------
+* Promotion settings are now synced with translations [thuliper #2565]
+
+1.2 - (2010-01-04)
+------------------
+* ATTopic is now promotable. #2622 [thuliper]
+* More informative labeling in admin_view. [thuliper]
+* Require that an image is uploaded / can be generated when promoting an item. [thuliper] 
+
+1.1 - (2009-12-04)
+------------------
+* Removed imagelink/imagetag adapters. #2805 [thuliper]
+
+1.0 - (2009-11-10)
+----------------
+* Initial release
