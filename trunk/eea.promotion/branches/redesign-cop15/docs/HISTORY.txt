@@ -3,6 +3,7 @@ Changelog
 
 1.6-dev - (Unreleased)
 ----------------------
+* Bug fix: Fixed jslint warnings [voineali #3821]
 
 1.5 - (2010-11-18)
 ------------------

@@ -9,10 +9,10 @@ $(document).ready(function() {
 
         $('input[name=category]').click(function() {
             // Update hidden locations field with enabled checkboxes.
-            var output_val = ''
+            var output_val = '';
             $('input[name=category]').each(function() {
-                if ($(this).attr('checked') == true) {
-                    output_val += "'" + $(this).attr('value') + "', "
+                if ($(this).attr('checked') === true) {
+                    output_val += "'" + $(this).attr('value') + "', ";
                 }
             });
             // remove the trailing ', '
