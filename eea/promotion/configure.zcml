@@ -4,7 +4,6 @@
 
   <five:registerPackage package="." />
   <include file="profiles.zcml" />
-  <include file="imagescales.zcml" />
   <include file="permissions.zcml" />
 
   <include package=".browser" />
@@ -12,18 +11,10 @@
   <adapter factory=".promotion.Promotion" />
 
   <browser:page
-      for="eea.promotion.interfaces.IPromoted"
-      name="frontpage_category"
-      permission="zope.Public"
-      class=".catalog.FrontpageSectionIndex"
-      />
-
-  <browser:page
       for="*"
       name="globalPromotion"
       class=".global.GlobalPromotion"
       permission="zope.Public"
-      allowed_attributes="global_promotion"
       />
 
   <subscriber
@@ -38,15 +29,7 @@
 
   <!-- Promotable types -->
 
-  <class class="Products.ATContentTypes.content.newsitem.ATNewsItem">
-      <implements interface="eea.promotion.interfaces.IPromotable" />
-  </class>
-
-  <class class="Products.ATContentTypes.content.folder.ATFolder">
-      <implements interface="eea.promotion.interfaces.IPromotable" />
-  </class>
-
-  <class class="Products.ATContentTypes.content.file.ATFile">
+  <class class="Products.Archetypes.public.BaseContent">
       <implements interface="eea.promotion.interfaces.IPromotable" />
   </class>
 

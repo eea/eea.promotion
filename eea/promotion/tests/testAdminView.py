@@ -7,13 +7,14 @@ from Products.PloneTestCase.layer import onsetup
 from eea.promotion.setuphandlers import setupQuicklinks
 from eea.promotion.interfaces import IPromoted, IPromotion
 from eea.promotion.promotion import Promotion
-from eea.promotion.catalog import FrontpageSectionIndex
+from eea.themecentre.interfaces import IThemeTagging
+from eea.promotion.tests.base import EEAPromotionTestCase
 
 
 PloneTestCase.setupPloneSite()
 
 
-class Test(PloneTestCase.FunctionalTestCase):
+class Test(EEAPromotionTestCase):
 
     def afterSetUp(self):
         self.setRoles(['Manager'])
@@ -21,12 +22,11 @@ class Test(PloneTestCase.FunctionalTestCase):
         for i in range(0, 3):
             id = 'test' + str(i)
             title = u'Test Item ' + str(i)
-            portal.invokeFactory('News Item', title=title, id=id)
-            item = portal[id]
+            item = portal[portal.invokeFactory('News Item', title=title, id=id)]
+            IThemeTagging(item).tags = [u'agriculture', u'air']
             alsoProvides(item, IPromoted)
             promo = Promotion(item)
             promo.locations = [u'Front Page', u'Themes']
-            promo.themes = [u'Agriculture', u'Air']
             item.reindexObject()
             portal.portal_workflow.doActionFor(item, 'publish')
 

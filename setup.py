@@ -1,7 +1,10 @@
 from setuptools import setup, find_packages
 import os
+from os.path import join
 
-version = '1.0'
+name = 'eea.promotion'
+path = name.split('.') + ['version.txt']
+version = open(join(*path)).read().strip()
 
 setup(name='eea.promotion',
       version=version,
@@ -13,10 +16,10 @@ setup(name='eea.promotion',
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
-      keywords='',
-      author='',
-      author_email='',
-      url='',
+      keywords='eea design plone zope',
+      author="European Environment Agency",
+      author_email='webadmin@eea.europa.eu',
+      url='http://svn.eionet.europa.eu/projects/Zope',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['eea'],
