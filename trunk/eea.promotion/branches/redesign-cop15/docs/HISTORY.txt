@@ -3,6 +3,7 @@ Changelog
 
 1.7-dev - (unreleased)
 ----------------------
+* Bug fix: Added translation domain to ZCML files [voineali #4139]
 
 1.6 - (2010-12-13)
 ------------------
@@ -25,7 +26,7 @@ Changelog
 ------------------
 * ATTopic is now promotable. #2622 [thuliper]
 * More informative labeling in admin_view. [thuliper]
-* Require that an image is uploaded / can be generated when promoting an item. [thuliper] 
+* Require that an image is uploaded / can be generated when promoting an item. [thuliper]
 
 1.1 - (2009-12-04)
 ------------------
