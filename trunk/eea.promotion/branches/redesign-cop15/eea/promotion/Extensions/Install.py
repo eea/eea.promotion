@@ -1,4 +1,4 @@
-import transaction
+#import transaction
 from Products.CMFCore.utils import getToolByName
 
 

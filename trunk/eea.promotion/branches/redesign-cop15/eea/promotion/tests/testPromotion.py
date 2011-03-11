@@ -2,7 +2,7 @@ import unittest
 import os.path
 from zope.testing import doctest
 from Testing.ZopeTestCase import FunctionalDocFileSuite
-from base import EEAPromotionTestCase
+from eea.promotion.tests.base import EEAPromotionTestCase
 import eea.promotion
 
 

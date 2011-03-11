@@ -1,5 +1,5 @@
 from zope.interface import implements
-from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
+from zope.schema.vocabulary import SimpleVocabulary #,SimpleTerm 
 from zope.app.schema.vocabulary import IVocabularyFactory
 
 

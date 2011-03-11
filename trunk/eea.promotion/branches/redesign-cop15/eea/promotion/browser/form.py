@@ -10,10 +10,10 @@ class LocationsWidget(SimpleInputWidget):
     def __call__(self):
         return '<input name="%s" type="hidden" value="%s" />' % (self.name, self._getFormValue())
 
-    def _toFieldValue(self, input):
-        if input == None or input == u'':
+    def _toFieldValue(self, linput):
+        if linput == None or linput == u'':
             return []
-        return input.replace("'", "").split(', ')
+        return linput.replace("'", "").split(', ')
     
     def _toFormValue(self, value):
         return u', '.join(value)

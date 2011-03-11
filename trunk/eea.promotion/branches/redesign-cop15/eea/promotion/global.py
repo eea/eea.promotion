@@ -2,8 +2,8 @@ from zope.interface import implements
 from DateTime.DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
 from p4a.video.interfaces import IVideoEnhanced
-from interfaces import IPromotion
-from interfaces import IGlobalPromotion
+from eea.promotion.interfaces import IPromotion
+from eea.promotion.interfaces import IGlobalPromotion
 
 
 class GlobalPromotion(object):

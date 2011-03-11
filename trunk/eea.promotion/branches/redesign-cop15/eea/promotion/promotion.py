@@ -1,6 +1,6 @@
 from zope.interface import implements
 from zope.component import adapts
-from interfaces import IPromoted, IPromotion
+from eea.promotion.interfaces import IPromoted, IPromotion
 from zope.app.annotation.interfaces import IAnnotations
 from persistent.dict import PersistentDict
 from eea.themecentre.interfaces import IThemeTagging
@@ -31,13 +31,13 @@ class Promotion(object):
         annotations = IAnnotations(self.context.getCanonical())
         del annotations[KEY]
 
-    def locations():
-        def get(self):
-            return self.mapping.get('locations')
-        def set(self, val):
-            self.mapping['locations'] = val
-        return property(get, set)
-    locations = locations()
+    #def locations():
+    def getl(self):
+        return self.mapping.get('locations')
+    def setl(self, val):
+        self.mapping['locations'] = val
+    #return property(get, set)
+    locations = property(getl, setl)
 
     @property
     def themepage_section(self):

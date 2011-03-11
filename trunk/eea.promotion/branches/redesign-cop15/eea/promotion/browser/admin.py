@@ -2,7 +2,7 @@ from zope.interface import implements
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from eea.promotion.interfaces import IPromoted, IPromotion
+from eea.promotion.interfaces import IPromotion #IPromoted 
 from eea.promotion.browser.interfaces import IAdminView
 from DateTime.DateTime import DateTime
 
@@ -11,6 +11,7 @@ class AdminView(BrowserView):
     implements(IAdminView)
 
     def __init__(self, context, request):
+        BrowserView.__init__(self, context, request)
         self.context = context
         self.request = request
 
@@ -30,7 +31,7 @@ class AdminView(BrowserView):
             obj = brain.getObject()
             try:
                 promo = IPromotion(obj)
-            except:
+            except Exception:
                 continue
             ret.append({
                 'title': brain.Title,

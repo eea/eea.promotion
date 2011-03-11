@@ -1,5 +1,5 @@
 from zope.interface import Interface, Attribute
-from zope.schema import Choice, Bool, Set, List
+from zope.schema import Choice, Bool, List #,Set
 
 
 class IPromotion(Interface):
@@ -56,13 +56,14 @@ class IPromotion(Interface):
                     on all pages",
         )
 
-    remove = Attribute("Remove all annotations stored in this promotion")
-
     edit_url = Attribute("URL to edit this promotion")
 
     is_external  = Attribute("Is this an external or internal promotion?")
 
     url = Attribute("Get the URL to this promotion")
+
+    def remove():  #pylint: disable-msg = E0211
+        """Remove all annotations stored in this promotion"""
 
 
 class IPromoted(Interface):
