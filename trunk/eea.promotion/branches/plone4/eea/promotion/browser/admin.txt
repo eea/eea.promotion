@@ -1,0 +1,40 @@
+====================
+Promotion Admin View
+====================
+
+The promotion admin view gives an overview of the internal promotions available on the
+site. We have a few promotions set up for us. They should be found by the admin view:
+
+  >>> from eea.promotion.browser.admin import AdminView
+  >>> from zope.publisher.browser import TestRequest
+  >>> request = TestRequest()
+  >>> admin = AdminView(self.portal, request)
+  >>> promos = admin.find_promotions()
+  >>> len(promos)
+  3
+
+  >>> p = promos[0]
+
+This is the title of the promotions context object:
+
+  >>> p['title']
+  'Test Item 0'
+
+A promotion can be placed in more than one location. This far only Front Page
+and Themes are implemented:
+
+  >>> p['locations']
+  u'Front Page, Themes'
+
+If the promotion is visible in the themes section, we might want to see which themes it's
+visible in:
+
+  >>> p['themes']
+  u'agriculture, air'
+
+The active flag signals if the promotion is at alive or dead, i.e. if it's actually shown
+anywhere on the site.
+
+  >>> p['active']
+  True
+

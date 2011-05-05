@@ -1,0 +1,133 @@
+==========
+Promotions
+==========
+
+
+Permissions
+-----------
+
+To add promotions to the site, you must have the 'Manage promotions'
+permission. This is applied to the 'Manager' and 'PromotionManager' roles:
+
+  >>> 'PromotionManager' in self.portal.validRoles()
+  True
+  >>> 'Manage promotions' in [i['name'] for i in
+  ...      self.portal.permissionsOfRole('PromotionManager') if i['selected']]
+  True
+  >>> 'Manage promotions' in [i['name'] for i in
+  ...      self.portal.permissionsOfRole('Manager') if i['selected']]
+  True
+
+
+Adding Promotions
+-----------------
+
+We have been given an ATNewsItem. If eea.promotion has been installed
+correctly, this type should be marked as IPromotable.
+
+  >>> item = self.item
+  >>> from eea.promotion.interfaces import IPromotable
+  >>> IPromotable.providedBy(item)
+  True
+
+Before we can make a promotion out of it, we have to upload an image
+
+  >>> item.setImage(self.img)
+
+Let's also make a swedish translation of the item. When the canonical is
+promoted, this translation to be promoted as well:
+
+  >>> from Products.CMFCore.utils import getToolByName
+  >>> lt = getToolByName(self.portal, 'portal_languages')
+  >>> lt.manage_setLanguageSettings('en', ['en', 'sv', 'pl'])
+  >>> item.addTranslation('sv')
+  >>> item_sv = item.getTranslation('sv')
+  >>> item_sv.reindexObject()
+
+When making a promotion out of it, the createPromotion action sets the marker
+interface and redirects us to the edit form:
+
+  >>> edit_form_url = item.restrictedTraverse("@@createPromotion")()
+  >>> from eea.promotion.interfaces import IPromoted
+  >>> IPromoted.providedBy(item)
+  True
+
+The translations are promoted as well:
+
+  >>> IPromoted.providedBy(item_sv)
+  True
+
+Now we can edit its promotion settings:
+
+  >>> from eea.promotion.interfaces import IPromotion
+  >>> promotion = IPromotion(item)
+  >>> promotion.locations = [u'Front Page', u'Themes']
+
+The settings for the translated objects are the same:
+
+  >>> IPromotion(item_sv).locations
+  [u'Front Page', u'Themes']
+
+If we make another translation afterwards, we can synchronize the promotion
+settings with the syncPromotions action:
+
+  >>> item.addTranslation('pl')
+  >>> item_pl = item.getTranslation('pl')
+  >>> item_pl.reindexObject()
+  >>> IPromoted.providedBy(item_pl)
+  False
+  >>> _ = item.restrictedTraverse("@@promoteTranslations")()
+  >>> IPromoted.providedBy(item_pl)
+  True
+
+
+Global Promotions
+-----------------
+
+A global promotion has the 'Global' location checked:
+
+  >>> promotion.display_globally
+  False
+
+  >>> promotion.locations = [u'Global']
+  >>> promotion.display_globally
+  True
+
+The 'globalPromotion' adapters finds the global promotion for us. It's in the
+form of a list. This is so that it can be sent to the same macro that renders
+the regular promtions:
+
+  >>> item.reindexObject()
+  >>> adapter = self.portal.restrictedTraverse('@@globalPromotion')
+  >>> gpromo = adapter()[0]
+  >>> gpromo['id'] == item.id
+  True
+
+
+Deactivation
+------------
+
+To deactivate a promotion, simply uncheck all locations. It will not show
+anywhere:
+
+  >>> promotion.active
+  True
+  >>> promotion.locations = []
+  >>> promotion.active
+  False
+
+
+Removing Promotions
+-------------------
+
+To unmark the IPromoted interface and completely remove the promotion
+settings, use the removePromotion action:
+
+  >>> _ = item.restrictedTraverse("@@removePromotion")()
+  >>> IPromoted.providedBy(item)
+  False
+  >>> IPromoted.providedBy(item_sv)
+  False
+  >>> IPromoted.providedBy(item_pl)
+  False
+
