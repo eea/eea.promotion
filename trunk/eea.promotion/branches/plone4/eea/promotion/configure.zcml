@@ -1,10 +1,9 @@
 <configure xmlns="http://namespaces.zope.org/zope"
-           xmlns:five="http://namespaces.zope.org/five"
            xmlns:browser="http://namespaces.zope.org/browser"
-           i18n_domain="eea.promotion">
+           i18n_domain="eea">
 
-  <five:registerPackage package="." />
   <include file="profiles.zcml" />
+  <include file="skins.zcml" />
   <include file="permissions.zcml" />
 
   <include package=".browser" />
@@ -19,7 +18,7 @@
       />
 
   <subscriber
-      for=".interfaces.IPromoted zope.app.container.interfaces.IObjectModifiedEvent"
+      for=".interfaces.IPromoted zope.lifecycleevent.interfaces.IObjectModifiedEvent"
       handler=".browser.form.promotion_modified"
       />
 

@@ -1,33 +1,34 @@
-from setuptools import setup, find_packages
+""" EEA Promotion installer
+"""
 import os
-from os.path import join
+from setuptools import setup, find_packages
 
 name = 'eea.promotion'
 path = name.split('.') + ['version.txt']
-version = open(join(*path)).read().strip()
+version = open(os.path.join(*path)).read().strip()
 
-setup(name='eea.promotion',
+setup(name=name,
       version=version,
-      description="",
+      description="EEA Promotion",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
+        "Framework :: Plone",
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
-      keywords='eea design plone zope',
+      keywords='eea promotion',
       author="European Environment Agency",
       author_email='webadmin@eea.europa.eu',
-      url='http://svn.eionet.europa.eu/projects/Zope',
+      url="https://svn.eionet.europa.eu/projects/"
+          "Zope/browser/trunk/eea.promotion",
       license='GPL',
-      packages=find_packages(exclude=['ez_setup']),
+      packages=find_packages(exclude=['ez_setup', 'tests']),
       namespace_packages=['eea'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
           'setuptools',
-          # -*- Extra requirements: -*-
       ],
       entry_points="""
       # -*- Entry points: -*-

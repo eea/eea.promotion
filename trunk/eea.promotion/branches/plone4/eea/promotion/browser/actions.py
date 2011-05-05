@@ -1,4 +1,4 @@
-from zope.app.event.objectevent import ObjectModifiedEvent
+from zope.lifecycleevent import ObjectModifiedEvent
 from zope.event import notify
 from zope.interface import alsoProvides, directlyProvides, directlyProvidedBy
 from eea.promotion.interfaces import IPromoted, IPromotion
@@ -19,7 +19,7 @@ class CreatePromotion(object):
         This is because this adapter is required for their listing.
         """
         for obj in [self.context] + [i[0] for i in self.context.getTranslations().values()]:
-            alsoProvides(obj, IPromoted) 
+            alsoProvides(obj, IPromoted)
             notify(ObjectModifiedEvent(obj))
             obj.reindexObject()
         return self.request.RESPONSE.redirect(self.context.absolute_url() + '/promotion_edit.html')
@@ -57,7 +57,7 @@ class PromoteTranslations(object):
         for trans in self.context.getTranslations().values():
             obj = trans[0]
             if not IPromoted.providedBy(obj):
-                alsoProvides(obj, IPromoted) 
+                alsoProvides(obj, IPromoted)
                 notify(ObjectModifiedEvent(obj))
                 obj.reindexObject()
         return self.request.RESPONSE.redirect(self.context.absolute_url() + '/edit?portal_status_message=Translations was promoted')

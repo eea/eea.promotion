@@ -1,11 +1,18 @@
 from zope.interface import implements
 from zope.component import adapts
 from eea.promotion.interfaces import IPromoted, IPromotion
-from zope.app.annotation.interfaces import IAnnotations
+from zope.annotation.interfaces import IAnnotations
 from persistent.dict import PersistentDict
 from eea.themecentre.interfaces import IThemeTagging
-from Products.NavigationManager.sections import INavigationSectionPosition
 from Products.CMFPlone.utils import isDefaultPage, parent
+#TODO: fix me, plone4
+#from Products.NavigationManager.sections import INavigationSectionPosition
+#TODO: fix me, plone4
+# - just delete the dummy interface
+from zope.interface import Interface
+class INavigationSectionPosition(Interface):
+    """ Dummy interface
+    """
 
 KEY = 'eea.promotion'
 
