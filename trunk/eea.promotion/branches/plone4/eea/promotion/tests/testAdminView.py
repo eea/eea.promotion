@@ -1,20 +1,18 @@
-import unittest
+""" Test admin view
+"""
+from unittest import TestSuite
 import doctest
 from zope.interface import alsoProvides
 from Testing.ZopeTestCase import FunctionalDocFileSuite
 from Products.PloneTestCase import PloneTestCase
-#from Products.PloneTestCase.layer import onsetup
-#from eea.promotion.setuphandlers import setupQuicklinks
-from eea.promotion.interfaces import IPromoted #, IPromotion
+from eea.promotion.interfaces import IPromoted
 from eea.promotion.promotion import Promotion
 from eea.themecentre.interfaces import IThemeTagging
 from eea.promotion.tests.base import EEAPromotionTestCase
 
 
-PloneTestCase.setupPloneSite()
-
-
 class Test(EEAPromotionTestCase):
+    """ Test """
 
     def afterSetUp(self):
         self.setRoles(['Manager'])
@@ -30,10 +28,8 @@ class Test(EEAPromotionTestCase):
             item.reindexObject()
             portal.portal_workflow.doActionFor(item, 'publish')
 
-
 def test_suite():
-    #from unittest import TestSuite, makeSuite
-    suite = unittest.TestSuite((
+    suite = TestSuite((
         FunctionalDocFileSuite('admin.txt',
                      test_class=Test,
                      package='eea.promotion.browser',
@@ -41,7 +37,3 @@ def test_suite():
                      ),
         ))
     return suite
-
-
-if __name__ == '__main__':
-    unittest.main(defaultTest='test_suite')

@@ -2,9 +2,4 @@
 <metadata>
  <description>EEA Promotion profile</description>
  <version>1</version>
- <dependencies>
-  <dependency>profile-Products.NavigationManager:default</dependency>
-  <dependency>profile-p4a.video:default</dependency>
-  <dependency>profile-eea.themecentre:default</dependency>
- </dependencies>
 </metadata>

@@ -1,16 +1,19 @@
-import unittest
+""" Test promotion
+"""
+from unittest import TestSuite
 import os.path
-from zope.testing import doctest
+import doctest
 from Testing.ZopeTestCase import FunctionalDocFileSuite
 from eea.promotion.tests.base import EEAPromotionTestCase
 import eea.promotion
+from eea.promotion.interfaces import IPromotable
+from zope.interface import alsoProvides
 
 
 class TestPromotion(EEAPromotionTestCase):
+    """ Test promotion """
 
     def afterSetUp(self):
-        from eea.promotion.interfaces import IPromotable
-        from zope.interface import alsoProvides
         portal = self.portal
         self.setRoles(['Manager'])
         self.item = self.portal[portal.invokeFactory('News Item', id='test')]
@@ -20,9 +23,8 @@ class TestPromotion(EEAPromotionTestCase):
         path = os.path.join(eea.promotion.__path__[0], 'tests', 'data', 'test.png')
         self.img = open(path, 'rb').read()
 
-
 def test_suite():
-    suite = unittest.TestSuite((
+    suite = TestSuite((
         FunctionalDocFileSuite('promotion.txt',
                      test_class=TestPromotion,
                      package = 'eea.promotion.tests',
@@ -35,6 +37,3 @@ def test_suite():
                      ),
         ))
     return suite
-
-if __name__ == '__main__':
-    unittest.main(defaultTest='test_suite')
