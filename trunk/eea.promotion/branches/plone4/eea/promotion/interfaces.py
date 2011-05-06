@@ -1,11 +1,12 @@
+""" Interfaces
+"""
 from zope.interface import Interface, Attribute
-from zope.schema import Choice, Bool, List #,Set
+from zope.schema import Choice, Bool, List
 
 
 class IPromotion(Interface):
-     
     """A promoted item can have a number of promotions"""
-    
+
     locations = List(
             title = u"Website locations",
             description = u"Where on the site to display this promotion.",
@@ -67,19 +68,14 @@ class IPromotion(Interface):
 
 
 class IPromoted(Interface):
-
     """Marker interface for promoted items"""
 
-
 class IPromotable(Interface):
-
     """Marker interface for promotable content types"""
 
 
 class IFrontpageSectionIndex(Interface):
-
     """Returns which frontpage section the promotion is in"""
 
 class IGlobalPromotion(Interface):
-    
     """Returns the first global promotion found"""

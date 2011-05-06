@@ -1,3 +1,5 @@
+""" Global
+"""
 from zope.interface import implements
 from DateTime.DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
@@ -7,7 +9,7 @@ from eea.promotion.interfaces import IGlobalPromotion
 
 
 class GlobalPromotion(object):
-    """ """
+    """ Global Promotion """
     implements(IGlobalPromotion)
 
     def __init__(self, context, request):
@@ -17,7 +19,7 @@ class GlobalPromotion(object):
 
     def __call__(self):
         """Return first gloabl promotion found
-        
+
         An image with id 'campaign-banner' has to be found.
         """
         catalog = getToolByName(self.context, 'portal_catalog')
@@ -41,4 +43,3 @@ class GlobalPromotion(object):
                     'absolute_url' : brain.getURL(),
                     'is_video' : IVideoEnhanced.providedBy(obj),
                 }]
-

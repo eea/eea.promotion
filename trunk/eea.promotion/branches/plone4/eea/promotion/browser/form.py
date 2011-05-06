@@ -1,3 +1,5 @@
+""" Form
+"""
 from zope.formlib.form import Fields
 from Products.Five.formlib.formbase import EditForm as BaseEditForm
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -14,7 +16,7 @@ class LocationsWidget(SimpleInputWidget):
         if linput == None or linput == u'':
             return []
         return linput.replace("'", "").split(', ')
-    
+
     def _toFormValue(self, value):
         return u', '.join(value)
 

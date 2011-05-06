@@ -1,3 +1,5 @@
+""" Promotion
+"""
 from zope.interface import implements
 from zope.component import adapts
 from eea.promotion.interfaces import IPromoted, IPromotion
@@ -5,19 +7,13 @@ from zope.annotation.interfaces import IAnnotations
 from persistent.dict import PersistentDict
 from eea.themecentre.interfaces import IThemeTagging
 from Products.CMFPlone.utils import isDefaultPage, parent
-#TODO: fix me, plone4
-#from Products.NavigationManager.sections import INavigationSectionPosition
-#TODO: fix me, plone4
-# - just delete the dummy interface
-from zope.interface import Interface
-class INavigationSectionPosition(Interface):
-    """ Dummy interface
-    """
+from Products.NavigationManager.sections import INavigationSectionPosition
+
 
 KEY = 'eea.promotion'
 
-
 class Promotion(object):
+    """ Promotion """
     implements(IPromotion)
     adapts(IPromoted)
 
@@ -38,12 +34,12 @@ class Promotion(object):
         annotations = IAnnotations(self.context.getCanonical())
         del annotations[KEY]
 
-    #def locations():
     def getl(self):
         return self.mapping.get('locations')
+
     def setl(self, val):
         self.mapping['locations'] = val
-    #return property(get, set)
+
     locations = property(getl, setl)
 
     @property

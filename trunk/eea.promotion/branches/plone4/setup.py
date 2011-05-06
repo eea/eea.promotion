@@ -29,13 +29,13 @@ setup(name=name,
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'p4a.video',
+          'eea.themecentre',
+          'Products.NavigationManager',
 
           #TODO: fix me, plone4
-          #'p4a.video',
-          #'Products.NavigationManager',
-          #'eea.themecentre',
-
           #TODO: just for tests
+
           #'ATVocabularyManager',
           #'eea.vocab',
           #'Products.LinguaPlone'

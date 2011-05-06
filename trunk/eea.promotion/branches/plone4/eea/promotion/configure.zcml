@@ -2,6 +2,10 @@
            xmlns:browser="http://namespaces.zope.org/browser"
            i18n_domain="eea">
 
+  <include package="Products.NavigationManager" />
+  <include package="p4a.video" />
+  <include package="eea.themecentre" />
+
   <include file="profiles.zcml" />
   <include file="skins.zcml" />
   <include file="permissions.zcml" />

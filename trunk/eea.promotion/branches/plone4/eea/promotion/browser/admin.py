@@ -1,8 +1,10 @@
+""" Admin
+"""
 from zope.interface import implements
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from eea.promotion.interfaces import IPromotion #IPromoted 
+from eea.promotion.interfaces import IPromotion #IPromoted
 from eea.promotion.browser.interfaces import IAdminView
 from DateTime.DateTime import DateTime
 
@@ -36,7 +38,7 @@ class AdminView(BrowserView):
             ret.append({
                 'title': brain.Title,
                 'href': promo.edit_url,
-                'locations': u', '.join(promo.locations), 
+                'locations': u', '.join(promo.locations),
                 'themes': u', '.join(promo.themes),
                 'themepage_section': (promo.themepage_section or '').split('/')[-1],
                 'url' : promo.url,
