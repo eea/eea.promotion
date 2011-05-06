@@ -29,6 +29,17 @@ setup(name=name,
       zip_safe=False,
       install_requires=[
           'setuptools',
+
+          #TODO: fix me, plone4
+          #'p4a.video',
+          #'Products.NavigationManager',
+          #'eea.themecentre',
+
+          #TODO: just for tests
+          #'ATVocabularyManager',
+          #'eea.vocab',
+          #'Products.LinguaPlone'
+
       ],
       entry_points="""
       # -*- Entry points: -*-

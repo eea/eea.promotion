@@ -4,7 +4,7 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="eea.promotions"
+      title="EEA Promotions"
       directory="profiles/default"
       description="Extension profile for EEA Promotions"
       provides="Products.GenericSetup.interfaces.EXTENSION"
