@@ -21,7 +21,7 @@ def setup_promotion():
     PloneTestCase.installPackage('p4a.video')
 
 setup_promotion()
-PloneTestCase.setupPloneSite(extension_profiles=('eea.promotion:default'))
+PloneTestCase.setupPloneSite(extension_profiles=('eea.promotion:default',))
 
 class EEAPromotionTestCase(PloneTestCase.FunctionalTestCase):
     """ Test case class used for functional promotion tests. """

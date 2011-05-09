@@ -11,6 +11,10 @@ from eea.themecentre.interfaces import IThemeTagging
 from eea.promotion.tests.base import EEAPromotionTestCase
 
 
+optionflags =  (doctest.ELLIPSIS |
+                doctest.NORMALIZE_WHITESPACE |
+                doctest.REPORT_ONLY_FIRST_FAILURE)
+
 class Test(EEAPromotionTestCase):
     """ Test """
 
@@ -33,7 +37,6 @@ def test_suite():
         FunctionalDocFileSuite('admin.txt',
                      test_class=Test,
                      package='eea.promotion.browser',
-                     optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS|doctest.REPORT_ONLY_FIRST_FAILURE
-                     ),
+                     optionflags=optionflags),
         ))
     return suite

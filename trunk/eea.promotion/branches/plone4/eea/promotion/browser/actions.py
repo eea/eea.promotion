@@ -7,36 +7,36 @@ from eea.promotion.interfaces import IPromoted, IPromotion
 
 
 class CreatePromotion(object):
-
-    """ """
+    """ Create Promotion """
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
 
     def __call__(self):
-        """Marks context as IPromoted
-
-        Promotions that don't have an promo_imglink adapter are blocked from this action.
-        This is because this adapter is required for their listing.
+        """ Marks context as IPromoted.
+            Promotions that don't have an promo_imglink adapter are
+            blocked from this action.
+            This is because this adapter is required for their listing.
         """
-        for obj in [self.context] + [i[0] for i in self.context.getTranslations().values()]:
+        for obj in [self.context] + \
+                   [i[0] for i in self.context.getTranslations().values()]:
             alsoProvides(obj, IPromoted)
             notify(ObjectModifiedEvent(obj))
             obj.reindexObject()
-        return self.request.RESPONSE.redirect(self.context.absolute_url() + '/promotion_edit.html')
-
+        return self.request.RESPONSE.redirect(self.context.absolute_url() + \
+                                              '/promotion_edit.html')
 
 class RemovePromotion(object):
-
-    """ """
+    """ Remove Promotion """
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
 
     def __call__(self):
-        for obj in [self.context] + [i[0] for i in self.context.getTranslations().values()]:
+        for obj in [self.context] + \
+                   [i[0] for i in self.context.getTranslations().values()]:
             if IPromoted.providedBy(obj):
                 promo = IPromotion(obj)
                 if promo.display_on_frontpage:
@@ -44,12 +44,12 @@ class RemovePromotion(object):
                 promo.remove()
                 directlyProvides(obj, directlyProvidedBy(obj) - IPromoted)
                 obj.reindexObject()
-        return self.request.RESPONSE.redirect(self.context.absolute_url() + '/edit?portal_status_message=Promotions removed from item and its translations')
-
+        return self.request.RESPONSE.redirect(self.context.absolute_url() + \
+                      '/edit?portal_status_message=Promotions removed from '
+                      'item and its translations')
 
 class PromoteTranslations(object):
-
-    """ """
+    """ Promote Translations """
 
     def __init__(self, context, request):
         self.context = context
@@ -62,4 +62,5 @@ class PromoteTranslations(object):
                 alsoProvides(obj, IPromoted)
                 notify(ObjectModifiedEvent(obj))
                 obj.reindexObject()
-        return self.request.RESPONSE.redirect(self.context.absolute_url() + '/edit?portal_status_message=Translations was promoted')
+        return self.request.RESPONSE.redirect(self.context.absolute_url() + \
+                     '/edit?portal_status_message=Translations was promoted')

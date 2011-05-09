@@ -10,7 +10,8 @@ from eea.promotion.interfaces import IPromotion
 class LocationsWidget(SimpleInputWidget):
 
     def __call__(self):
-        return '<input name="%s" type="hidden" value="%s" />' % (self.name, self._getFormValue())
+        return '<input name="%s" type="hidden" value="%s" />' % \
+               (self.name, self._getFormValue())
 
     def _toFieldValue(self, linput):
         if linput == None or linput == u'':

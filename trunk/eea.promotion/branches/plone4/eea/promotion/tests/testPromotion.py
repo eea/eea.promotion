@@ -10,6 +10,10 @@ from eea.promotion.interfaces import IPromotable
 from zope.interface import alsoProvides
 
 
+optionflags =  (doctest.ELLIPSIS |
+                doctest.NORMALIZE_WHITESPACE |
+                doctest.REPORT_ONLY_FIRST_FAILURE)
+
 class TestPromotion(EEAPromotionTestCase):
     """ Test promotion """
 
@@ -20,7 +24,10 @@ class TestPromotion(EEAPromotionTestCase):
         portal.portal_workflow.doActionFor(self.item, 'publish')
         alsoProvides(self.item, IPromotable)
 
-        path = os.path.join(eea.promotion.__path__[0], 'tests', 'data', 'test.png')
+        path = os.path.join(eea.promotion.__path__[0],
+                            'tests',
+                            'data',
+                            'test.png')
         self.img = open(path, 'rb').read()
 
 def test_suite():
@@ -28,12 +35,10 @@ def test_suite():
         FunctionalDocFileSuite('promotion.txt',
                      test_class=TestPromotion,
                      package = 'eea.promotion.tests',
-                     optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS|doctest.REPORT_ONLY_FIRST_FAILURE
-                     ),
+                     optionflags=optionflags),
         FunctionalDocFileSuite('bugs.txt',
                      test_class=TestPromotion,
                      package = 'eea.promotion.tests',
-                     optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS|doctest.REPORT_ONLY_FIRST_FAILURE
-                     ),
+                     optionflags=optionflags),
         ))
     return suite

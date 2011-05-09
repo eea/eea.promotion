@@ -22,10 +22,10 @@ class AdminView(BrowserView):
         now = DateTime()
         catalog = getToolByName(self.context, 'portal_catalog')
         result = catalog({
-            'object_provides': [
-                'eea.promotion.interfaces.IPromoted',
-                'Products.EEAContentTypes.content.interfaces.IExternalPromotion',
-            ],
+          'object_provides': [
+            'eea.promotion.interfaces.IPromoted',
+            'Products.EEAContentTypes.content.interfaces.IExternalPromotion',
+          ],
             'review_state': 'published',
             'effectiveRange': now,
         })
@@ -40,7 +40,8 @@ class AdminView(BrowserView):
                 'href': promo.edit_url,
                 'locations': u', '.join(promo.locations),
                 'themes': u', '.join(promo.themes),
-                'themepage_section': (promo.themepage_section or '').split('/')[-1],
+                'themepage_section':
+                        (promo.themepage_section or '').split('/')[-1],
                 'url' : promo.url,
                 'absolute_url' : brain.getURL(),
                 'active': promo.active,

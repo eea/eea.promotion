@@ -129,4 +129,3 @@ settings, use the removePromotion action:
   False
   >>> IPromoted.providedBy(item_pl)
   False
-

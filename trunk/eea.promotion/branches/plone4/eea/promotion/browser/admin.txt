@@ -37,4 +37,3 @@ anywhere on the site.
 
   >>> p['active']
   True
-
