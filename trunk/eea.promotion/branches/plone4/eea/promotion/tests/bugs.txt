@@ -5,12 +5,9 @@ This problem occured when a promotion was only marked as global and no frontpage
 section was set. This resulted in that frontpage_section was None and crashed the
 display_globally property.
 
-  >>> import pdb; pdb.set_trace()
-
   >>> from eea.promotion.interfaces import IPromotion, IPromotable
   >>> self.item.setImage(self.img)
   >>> foo = self.item.restrictedTraverse("@@createPromotion")()
   >>> promotion = IPromotion(self.item)
   >>> promotion.locations = [u'Global']
   >>> foo = promotion.display_globally
-

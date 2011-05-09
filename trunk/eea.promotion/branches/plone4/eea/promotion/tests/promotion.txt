@@ -40,6 +40,7 @@ promoted, this translation to be promoted as well:
   >>> lt = getToolByName(self.portal, 'portal_languages')
   >>> lt.manage_setLanguageSettings('en', ['en', 'sv', 'pl'])
   >>> item.addTranslation('sv')
+  <ATNewsItem at /plone/test-sv>
   >>> item_sv = item.getTranslation('sv')
   >>> item_sv.reindexObject()
 
