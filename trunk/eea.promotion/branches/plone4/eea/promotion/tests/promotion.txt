@@ -42,8 +42,7 @@ promoted, this translation to be promoted as well:
   >>> item.addTranslation('sv')
   <ATNewsItem at /plone/test-sv>
   >>> item_sv = item.getTranslation('sv')
-  >>> item_sv.reindexObject()
-  None
+  >>> _ = item_sv.reindexObject()
 
 When making a promotion out of it, the createPromotion action sets the marker
 interface and redirects us to the edit form:
@@ -74,8 +73,7 @@ settings with the syncPromotions action:
 
   >>> item.addTranslation('pl')
   >>> item_pl = item.getTranslation('pl')
-  >>> item_pl.reindexObject()
-  None
+  >>> _ = item_pl.reindexObject()
   >>> IPromoted.providedBy(item_pl)
   False
   >>> _ = item.restrictedTraverse("@@promoteTranslations")()
@@ -99,8 +97,7 @@ The 'globalPromotion' adapters finds the global promotion for us. It's in the
 form of a list. This is so that it can be sent to the same macro that renders
 the regular promtions:
 
-  >>> item.reindexObject()
-  None
+  >>> _ = item.reindexObject()
   >>> adapter = self.portal.restrictedTraverse('@@globalPromotion')
   >>> gpromo = adapter()[0]
   >>> gpromo['id'] == item.id
