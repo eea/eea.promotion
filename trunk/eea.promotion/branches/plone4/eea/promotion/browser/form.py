@@ -8,17 +8,20 @@ from eea.promotion.interfaces import IPromotion
 
 
 class LocationsWidget(SimpleInputWidget):
+    """ Location widget """
 
     def __call__(self):
         return '<input name="%s" type="hidden" value="%s" />' % \
                (self.name, self._getFormValue())
 
     def _toFieldValue(self, linput):
+        """ To field """
         if linput == None or linput == u'':
             return []
         return linput.replace("'", "").split(', ')
 
     def _toFormValue(self, value):
+        """ From """
         return u', '.join(value)
 
 
@@ -35,5 +38,6 @@ class EditForm(BaseEditForm):
 
 
 def promotion_modified(obj, event):
-    # TODO only reindex from our promotion edit form...
+    """ Promotion modified """
+    #TODO: only reindex from our promotion edit form ...
     obj.reindexObject()

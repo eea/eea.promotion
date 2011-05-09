@@ -8,6 +8,7 @@ from zope.app.schema.vocabulary import IVocabularyFactory
 ALLOWED_LOCATIONS = [u'Front Page', u'Themes', u'Global']
 
 class LocationsVocabulary(object):
+    """ Locations Vocabulary """
     implements(IVocabularyFactory)
 
     def __call__(self, context):

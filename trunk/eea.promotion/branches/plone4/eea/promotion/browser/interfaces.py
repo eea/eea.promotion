@@ -9,4 +9,5 @@ class IAdminView(Interface):
         promotions on the site.
     """
 
-    def find_promotions(): pass #pylint: disable-msg = E0211
+    def find_promotions():
+        """ Find promotions """

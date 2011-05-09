@@ -10,6 +10,7 @@ from DateTime.DateTime import DateTime
 
 
 class AdminView(BrowserView):
+    """ Admin view """
     implements(IAdminView)
 
     def __init__(self, context, request):
@@ -18,6 +19,7 @@ class AdminView(BrowserView):
         self.request = request
 
     def find_promotions(self):
+        """ Find promotions """
         ret = []
         now = DateTime()
         catalog = getToolByName(self.context, 'portal_catalog')

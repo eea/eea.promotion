@@ -33,13 +33,6 @@ setup(name=name,
           'eea.themecentre',
           'Products.NavigationManager',
           'Products.LinguaPlone',
-
-          #TODO: fix me, plone4
-          #TODO: just for tests
-
-          #'ATVocabularyManager',
-          #'eea.vocab',
-
       ],
       entry_points="""
       # -*- Entry points: -*-

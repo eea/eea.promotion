@@ -31,43 +31,53 @@ class Promotion(object):
             self.url = context.absolute_url()
 
     def remove(self):
+        """ Remove """
         annotations = IAnnotations(self.context.getCanonical())
         del annotations[KEY]
 
     def getl(self):
+        """ Get location """
         return self.mapping.get('locations')
 
     def setl(self, val):
+        """ Set location """
         self.mapping['locations'] = val
 
     locations = property(getl, setl)
 
     @property
     def themepage_section(self):
+        """ Theme section """
         return INavigationSectionPosition(self.context).section
 
     @property
     def active(self):
+        """ Active """
         return len(self.locations) > 0
 
     @property
     def display_on_frontpage(self):
+        """ Display on frontpage """
         return u'Front Page' in self.locations
 
     @property
     def display_on_themepage(self):
+        """ Display on themepage """
         return u'Themes' in self.locations
 
     @property
     def display_globally(self):
+        """ Display globally """
         if u'Global' in self.locations:
             return True
         return False
 
     @property
     def themes(self):
+        """ Themes """
         return IThemeTagging(self.context).tags
 
     @property
     def edit_url(self):
+        """ Edit URL """
         return self.context.absolute_url() + '/promotion_edit.html'

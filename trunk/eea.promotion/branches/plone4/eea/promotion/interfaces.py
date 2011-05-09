@@ -5,7 +5,7 @@ from zope.schema import Choice, Bool, List
 
 
 class IPromotion(Interface):
-    """A promoted item can have a number of promotions"""
+    """ A promoted item can have a number of promotions """
 
     locations = List(
             title = u"Website locations",
@@ -63,19 +63,19 @@ class IPromotion(Interface):
 
     url = Attribute("Get the URL to this promotion")
 
-    def remove():  #pylint: disable-msg = E0211
-        """Remove all annotations stored in this promotion"""
+    def remove():
+        """ Remove all annotations stored in this promotion """
 
 
 class IPromoted(Interface):
-    """Marker interface for promoted items"""
+    """ Marker interface for promoted items """
 
 class IPromotable(Interface):
-    """Marker interface for promotable content types"""
+    """ Marker interface for promotable content types """
 
 
 class IFrontpageSectionIndex(Interface):
-    """Returns which frontpage section the promotion is in"""
+    """ Returns which frontpage section the promotion is in """
 
 class IGlobalPromotion(Interface):
-    """Returns the first global promotion found"""
+    """ Returns the first global promotion found """
