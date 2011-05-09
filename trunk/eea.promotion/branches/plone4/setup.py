@@ -32,13 +32,13 @@ setup(name=name,
           'p4a.video',
           'eea.themecentre',
           'Products.NavigationManager',
+          'Products.LinguaPlone',
 
           #TODO: fix me, plone4
           #TODO: just for tests
 
           #'ATVocabularyManager',
           #'eea.vocab',
-          #'Products.LinguaPlone'
 
       ],
       entry_points="""

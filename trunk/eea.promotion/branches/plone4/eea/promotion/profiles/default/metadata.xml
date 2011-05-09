@@ -2,4 +2,7 @@
 <metadata>
  <description>EEA Promotion profile</description>
  <version>1</version>
+ <dependencies>
+  <dependency>profile-Products.LinguaPlone:LinguaPlone</dependency>
+ </dependencies>
 </metadata>
