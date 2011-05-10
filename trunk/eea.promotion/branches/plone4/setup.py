@@ -29,7 +29,6 @@ setup(name=name,
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'p4a.video',
           'eea.themecentre',
           'Products.NavigationManager',
           'Products.LinguaPlone',

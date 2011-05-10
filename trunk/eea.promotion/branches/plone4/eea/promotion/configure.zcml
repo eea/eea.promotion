@@ -3,7 +3,6 @@
            i18n_domain="eea">
 
   <include package="Products.NavigationManager" />
-  <include package="p4a.video" />
   <include package="eea.themecentre" />
   <include package="Products.LinguaPlone" />
 

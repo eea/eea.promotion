@@ -17,7 +17,6 @@ def setup_promotion():
     fiveconfigure.debug_mode = False
 
     PloneTestCase.installPackage('eea.themecentre')
-    PloneTestCase.installPackage('p4a.video')
 
 setup_promotion()
 PloneTestCase.setupPloneSite(extension_profiles=('eea.promotion:default',))
