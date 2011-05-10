@@ -6,7 +6,8 @@ from Products.CMFCore.utils import getToolByName
 from eea.promotion.interfaces import IPromotion
 from eea.promotion.interfaces import IGlobalPromotion
 try:
-    from p4a.video.interfaces import IVideoEnhanced
+    from p4a.video import interfaces
+    IVideoEnhanced = interfaces.IVideoEnhanced
 except ImportError:
     from zope.interface import Interface
     class IVideoEnhanced(Interface):
