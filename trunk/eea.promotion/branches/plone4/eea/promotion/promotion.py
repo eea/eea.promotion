@@ -7,8 +7,7 @@ from zope.annotation.interfaces import IAnnotations
 from persistent.dict import PersistentDict
 from eea.themecentre.interfaces import IThemeTagging
 from Products.CMFPlone.utils import isDefaultPage, parent
-from Products.NavigationManager.sections import INavigationSectionPosition
-
+from Products.NavigationManager.sections.interfaces import INavigationSectionPosition
 
 KEY = 'eea.promotion'
 
