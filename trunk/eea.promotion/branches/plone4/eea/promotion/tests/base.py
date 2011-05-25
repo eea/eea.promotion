@@ -11,7 +11,8 @@ PloneTestCase.installProduct('Products.NavigationManager')
 
 @onsetup
 def setup_promotion():
-    """ Setup promotion """
+    """ Setup promotion
+    """
     fiveconfigure.debug_mode = True
     zcml.load_config('configure.zcml', eea.promotion)
     fiveconfigure.debug_mode = False
