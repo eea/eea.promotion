@@ -1,1 +1,2 @@
-""" eea.promotion package """
+""" eea.promotion package
+"""

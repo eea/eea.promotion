@@ -14,7 +14,6 @@ except ImportError:
         """ Dummy interface, not to make package dependent to p4a.video
         """
 
-
 class GlobalPromotion(object):
     """ Global Promotion
     """

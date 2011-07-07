@@ -5,9 +5,9 @@ from zope.event import notify
 from zope.interface import alsoProvides, directlyProvides, directlyProvidedBy
 from eea.promotion.interfaces import IPromoted, IPromotion
 
-
 class CreatePromotion(object):
-    """ Create Promotion """
+    """ Create Promotion
+    """
 
     def __init__(self, context, request):
         self.context = context
@@ -28,7 +28,8 @@ class CreatePromotion(object):
                                               '/promotion_edit.html')
 
 class RemovePromotion(object):
-    """ Remove Promotion """
+    """ Remove Promotion
+    """
 
     def __init__(self, context, request):
         self.context = context
@@ -49,7 +50,8 @@ class RemovePromotion(object):
                       'item and its translations')
 
 class PromoteTranslations(object):
-    """ Promote Translations """
+    """ Promote Translations
+    """
 
     def __init__(self, context, request):
         self.context = context

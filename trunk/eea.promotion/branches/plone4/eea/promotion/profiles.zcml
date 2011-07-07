@@ -6,7 +6,7 @@
       name="default"
       title="EEA Promotions"
       directory="profiles/default"
-      description="Extension profile for EEA Promotions"
+      description="Installs eea.promotions"
       provides="Products.GenericSetup.interfaces.EXTENSION" />
 
 </configure>

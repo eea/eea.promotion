@@ -12,7 +12,8 @@ from Products.NavigationManager.interfaces import INavigationSectionPosition
 KEY = 'eea.promotion'
 
 class Promotion(object):
-    """ Promotion """
+    """ Promotion
+    """
     implements(IPromotion)
     adapts(IPromoted)
 
@@ -30,53 +31,63 @@ class Promotion(object):
             self.url = context.absolute_url()
 
     def remove(self):
-        """ Remove """
+        """ Remove
+        """
         annotations = IAnnotations(self.context.getCanonical())
         del annotations[KEY]
 
     def getl(self):
-        """ Get location """
+        """ Get location
+        """
         return self.mapping.get('locations')
 
     def setl(self, val):
-        """ Set location """
+        """ Set location
+        """
         self.mapping['locations'] = val
 
     locations = property(getl, setl)
 
     @property
     def themepage_section(self):
-        """ Theme section """
+        """ Theme section
+        """
         return INavigationSectionPosition(self.context).section
 
     @property
     def active(self):
-        """ Active """
+        """ Active
+        """
         return len(self.locations) > 0
 
     @property
     def display_on_frontpage(self):
-        """ Display on frontpage """
+        """ Display on frontpage
+        """
         return u'Front Page' in self.locations
 
     @property
     def display_on_themepage(self):
-        """ Display on themepage """
+        """ Display on themepage
+        """
         return u'Themes' in self.locations
 
     @property
     def display_globally(self):
-        """ Display globally """
+        """ Display globally
+        """
         if u'Global' in self.locations:
             return True
         return False
 
     @property
     def themes(self):
-        """ Themes """
+        """ Themes
+        """
         return IThemeTagging(self.context).tags
 
     @property
     def edit_url(self):
-        """ Edit URL """
+        """ Edit URL
+        """
         return self.context.absolute_url() + '/promotion_edit.html'

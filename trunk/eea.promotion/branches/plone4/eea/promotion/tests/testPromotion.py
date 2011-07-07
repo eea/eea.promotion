@@ -9,16 +9,17 @@ import eea.promotion
 from eea.promotion.interfaces import IPromotable
 from zope.interface import alsoProvides
 
-
 optionflags =  (doctest.ELLIPSIS |
                 doctest.NORMALIZE_WHITESPACE |
                 doctest.REPORT_ONLY_FIRST_FAILURE)
 
 class TestPromotion(EEAPromotionTestCase):
-    """ Test promotion """
+    """ Test promotion
+    """
 
     def afterSetUp(self):
-        """ After setup """
+        """ After setup
+        """
         portal = self.portal
         self.setRoles(['Manager'])
         self.item = self.portal[portal.invokeFactory('News Item', id='test')]
@@ -32,7 +33,8 @@ class TestPromotion(EEAPromotionTestCase):
         self.img = open(path, 'rb').read()
 
 def test_suite():
-    """ Test suite """
+    """ Test suite
+    """
     suite = TestSuite((
         FunctionalDocFileSuite('promotion.txt',
                      test_class=TestPromotion,

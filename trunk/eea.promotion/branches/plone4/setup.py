@@ -3,12 +3,12 @@
 import os
 from setuptools import setup, find_packages
 
-name = 'eea.promotion'
-path = name.split('.') + ['version.txt']
-version = open(os.path.join(*path)).read().strip()
+NAME = 'eea.promotion'
+PATH = NAME.split('.') + ['version.txt']
+VERSION = open(os.path.join(*PATH)).read().strip()
 
-setup(name=name,
-      version=version,
+setup(name=NAME,
+      version=VERSION,
       description="EEA Promotion",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),

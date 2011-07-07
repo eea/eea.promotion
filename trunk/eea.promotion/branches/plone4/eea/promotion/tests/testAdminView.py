@@ -9,16 +9,17 @@ from eea.promotion.promotion import Promotion
 from eea.themecentre.interfaces import IThemeTagging
 from eea.promotion.tests.base import EEAPromotionTestCase
 
-
 optionflags =  (doctest.ELLIPSIS |
                 doctest.NORMALIZE_WHITESPACE |
                 doctest.REPORT_ONLY_FIRST_FAILURE)
 
 class Test(EEAPromotionTestCase):
-    """ Test """
+    """ Test
+    """
 
     def afterSetUp(self):
-        """ After setup """
+        """ After setup
+        """
         self.setRoles(['Manager'])
         portal = self.portal
         for i in range(0, 3):
@@ -35,7 +36,8 @@ class Test(EEAPromotionTestCase):
             portal.portal_workflow.doActionFor(item, 'publish')
 
 def test_suite():
-    """ Test suite """
+    """ Test suite
+    """
     suite = TestSuite((
         FunctionalDocFileSuite('admin.txt',
                      test_class=Test,
