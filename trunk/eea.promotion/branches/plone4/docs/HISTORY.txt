@@ -4,6 +4,8 @@ Changelog
 
 4.0-dev - (unreleased)
 ----------------------
+* Feature: added "Spotlight" promotion type
+  [szabozo0 #4425]
 
 * Cleaned: pylint violations warnings
   [ichimdav #4140]

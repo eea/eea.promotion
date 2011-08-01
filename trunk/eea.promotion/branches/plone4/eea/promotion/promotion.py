@@ -81,6 +81,14 @@ class Promotion(object):
         return False
 
     @property
+    def display_in_spotlight(self):
+        """ Display in spotlight
+        """
+        if u'Spotlight' in self.locations:
+            return True
+        return False
+
+    @property
     def themes(self):
         """ Themes
         """

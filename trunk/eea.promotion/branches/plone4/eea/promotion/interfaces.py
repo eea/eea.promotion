@@ -57,6 +57,12 @@ class IPromotion(Interface):
                     on all pages",
         )
 
+    display_in_spotlight = Bool(
+            title = u"Display In Spotlight",
+            description = u"Whether or not this promotion should be visible \
+                    in spotlight",
+        )
+
     edit_url = Attribute("URL to edit this promotion")
 
     is_external  = Attribute("Is this an external or internal promotion?")
