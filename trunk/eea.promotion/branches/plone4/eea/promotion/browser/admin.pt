@@ -10,8 +10,8 @@
 
 <body>
 
-<metal:main metal:fill-slot="main">
-<tal:main-macro metal:define-macro="main">
+ <metal:main metal:fill-slot="main">
+  <tal:main-macro metal:define-macro="main">
 
     <table id="promoListing" class="listing">
         <thead>
@@ -27,14 +27,16 @@
         </thead>
         <tbody>
         <tal:promotions tal:define="promotions view/find_promotions"
-            tal:repeat="promo promotions">
+                        tal:repeat="promo promotions">
             <tr>
                 <td>
                     <img alt="" tal:attributes="src string:${promo/absolute_url}/image_tile" />
                 </td>
                 <td tal:content="python:promo['active'] and 'Active' or 'Inactive'">active</td>
                 <td tal:content="python:promo['is_external'] and 'External' or 'Internal'">is_external</td>
-                <td><a href="#" tal:attributes="href promo/href" tal:content="promo/title"></a></td>
+                <td>
+                   <a href="#" tal:attributes="href promo/href" tal:content="promo/title"></a>
+                </td>
                 <td tal:content="promo/locations">locations</td>
                 <td tal:content="promo/themepage_section">themepage_section</td>
                 <td tal:content="promo/themes">themes</td>
@@ -43,9 +45,8 @@
         </tbody>
     </table>
 
-
-</tal:main-macro>
-</metal:main>
+  </tal:main-macro>
+ </metal:main>
 
 </body>
 </html>
