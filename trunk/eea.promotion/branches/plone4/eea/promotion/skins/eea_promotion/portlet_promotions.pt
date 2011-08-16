@@ -24,7 +24,7 @@
         <a href="" title="" class="portletHeader"
            tal:attributes="href promo/url;
                            title promo/Description">
-        <tal:title tal:content="promo/Title">Title</tal:title><br clear="all" /></a>
+        <tal:title tal:content="promo/Title">Title</tal:title><br /></a>
     </dd>
     </tal:promotions>
 </dl>
@@ -52,7 +52,7 @@
         <a href="" title="" class="portletHeader"
            tal:attributes="href promo/url;
                            title promo/Description">
-        <tal:title tal:content="promo/Title">Title</tal:title><br clear="all" />
+        <tal:title tal:content="promo/Title">Title</tal:title><br />
         <img src="http://www.eea.europa.eu/images/epeadiabox.jpg" alt=""
              tal:attributes="src promo/image;
                              alt promo/imageCaption|promo/Title;"
@@ -110,7 +110,7 @@
                                class python:test(promo['is_video'], 'portletHeader video-fancybox', 'portletHeader')"
                tal:content="promo/Title">
                 [Promo Title]
-                <br clear="all" />
+                <br />
             </a>
             <a style="display: none;" tal:attributes="href imgurl">
                 Image link
