@@ -10,11 +10,9 @@
                  category python:{'id': 'globalpromo'};
                  display python: promotions and not context.absolute_url().startswith(promotions[0]['url'])">
 
-<dl class="portlet" id="portlet-navigation-tree" tal:condition="display">
-      <dd class="portletItem menuPromotion" tal:condition="promotions">
+<div class="shortcut-light" tal:condition="display">
             <metal:portlet use-macro="here/portlet_promotions/macros/portlet" />
-      </dd>
-</dl>
+</div>
 <div class="visualClear"><!-- &nbsp;--></div>
 </div>
 </body>
