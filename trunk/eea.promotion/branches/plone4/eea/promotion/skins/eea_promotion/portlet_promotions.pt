@@ -124,9 +124,6 @@
 <metal:portlet define-macro="hardcoded_promotions">
     <div class="portlet-promotions">
 
-        <div class="portletHeader">
-            <a href="http://www.eea.europa.eu/themes/air">Air pollution</a>
-        </div>
 
         <dl id="air-portlet" class="portlet promo-nav-portlet">
 
@@ -139,6 +136,9 @@
                 <a href="http://www.eea.europa.eu/themes/air/theme_image/image_preview" style="display: none;" title="">
                     Image link
                 </a>
+        <div class="portletHeader">
+            <a href="http://www.eea.europa.eu/themes/air">Air pollution</a>
+        </div>
             </dd>
 
         </dl>
@@ -146,9 +146,6 @@
 
     <div class="portlet-promotions">
 
-        <div class="portletHeader">
-            <a href="http://www.eea.europa.eu/themes/biodiversity">Biodiversity</a>
-        </div>
 
         <dl id="biodiversity-portlet" class="portlet promo-nav-portlet">
 
@@ -161,6 +158,9 @@
                 <a href="http://www.eea.europa.eu/themes/biodiversity/theme_image" style="display: none;" title="">
                     Image link
                 </a>
+                <div class="portletHeader">
+                    <a href="http://www.eea.europa.eu/themes/biodiversity">Biodiversity</a>
+                </div>
             </dd>
 
         </dl>
@@ -168,9 +168,6 @@
 
     <div class="portlet-promotions">
 
-        <div class="portletHeader">
-            <a href="http://www.eea.europa.eu/themes/climate">Climate change</a>
-        </div>
 
         <dl id="climate-portlet" class="portlet promo-nav-portlet">
 
@@ -183,6 +180,9 @@
                 <a href="http://www.eea.europa.eu/themes/climate/theme_image/image_preview" style="display: none;" title="">
                     Image link
                 </a>
+                <div class="portletHeader">
+                    <a href="http://www.eea.europa.eu/themes/climate">Climate change</a>
+                </div>
             </dd>
 
         </dl>
@@ -190,9 +190,6 @@
 
     <div class="portlet-promotions">
 
-        <div class="portletHeader">
-            <a href="http://www.eea.europa.eu/themes/landuse">Land use</a>
-        </div>
 
         <dl id="landuse-portlet" class="portlet promo-nav-portlet">
 
@@ -205,16 +202,15 @@
                 <a href="http://www.eea.europa.eu/themes/landuse/theme_image/image_preview" style="display: none;" title="">
                     Image link
                 </a>
+                <div class="portletHeader">
+                    <a href="http://www.eea.europa.eu/themes/landuse">Land use</a>
+                </div>
             </dd>
 
         </dl>
     </div>
 
     <div class="portlet-promotions">
-
-        <div class="portletHeader">
-            <a href="http://www.eea.europa.eu/themes/water">Water</a>
-        </div>
 
         <dl id="water-portlet" class="portlet promo-nav-portlet">
 
@@ -227,6 +223,9 @@
                 <a href="http://www.eea.europa.eu/themes/water/theme_image/image_preview" style="display: none;" title="">
                     Image link
                 </a>
+                <div class="portletHeader">
+                    <a href="http://www.eea.europa.eu/themes/water">Water</a>
+                </div>
             </dd>
 
         </dl>
