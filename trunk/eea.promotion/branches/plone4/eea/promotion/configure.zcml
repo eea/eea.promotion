@@ -31,4 +31,8 @@
       <implements interface="eea.promotion.interfaces.IPromotable" />
   </class>
 
+  <class class="Products.Archetypes.public.BaseFolder">
+    <implements interface="eea.promotion.interfaces.IPromotable" />
+  </class>
+
 </configure>
