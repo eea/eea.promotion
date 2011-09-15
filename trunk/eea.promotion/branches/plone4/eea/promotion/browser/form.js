@@ -1,4 +1,4 @@
-$(document).ready(function() {
+jQuery(document).ready(function($) {
         // Parse hidden locations field and check corresponding checkboxes.
         var input = $('input[name=form\\.locations]').attr('value');
         $('input[name=category]').each(function() {
