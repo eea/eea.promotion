@@ -4,6 +4,8 @@ Changelog
 
 4.0-dev - (unreleased)
 ----------------------
+* Bug fix: fixed action registration for Create Promotion [tiberich #4560]
+
 * Bugfix: Fixed IE JS errors, fixed code that uses jQuery to avoid conflicts
   with other JS frameworks [szabozo0 #4542]
 
