@@ -19,7 +19,7 @@
       <property name="title" i18n:translate="">Create Promotion</property>
       <property name="description" i18n:translate="">Create a promotion for this item</property>
       <property name="url_expr">string:${object_url}/@@createPromotion</property>
-      <property name="available_expr">python:('eea.promotion.interfaces.IPromotable' in object.restrictedTraverse('@@get_interfaces')()) and ('eea.promotion.interfaces.IPromoted' not in object.restrictedTravers('@@get_interfaces')())</property>
+      <property name="available_expr">python:('eea.promotion.interfaces.IPromotable' in object.restrictedTraverse('@@get_interfaces')()) and ('eea.promotion.interfaces.IPromoted' not in object.restrictedTraverse('@@get_interfaces')())</property>
       <property name="permissions">
         <element value="Manage promotions"/>
       </property>
