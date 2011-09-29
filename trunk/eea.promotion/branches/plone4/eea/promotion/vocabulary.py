@@ -2,7 +2,7 @@
 """
 from zope.interface import implements
 from zope.schema.vocabulary import SimpleVocabulary
-from zope.app.schema.vocabulary import IVocabularyFactory
+from zope.schema.interfaces import IVocabularyFactory
 
 ALLOWED_LOCATIONS = [u'Front Page', u'Themes', u'Global', u'Spotlight' ]
 
