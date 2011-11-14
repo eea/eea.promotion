@@ -1,0 +1,71 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+  <browser:page
+      for="*"
+      name="promotion_admin_view"
+      class=".admin.AdminView"
+      permission="eea.promotion.ManagePromotions"
+      allowed_interface=".interfaces.IAdminView"
+      />
+
+  <browser:page
+      for="eea.promotion.interfaces.IPromoted"
+      name="promotion_edit.html"
+      permission="eea.promotion.ManagePromotions"
+      class=".form.EditForm"
+      />
+
+  <browser:page
+      for="eea.promotion.interfaces.IPromotable"
+      name="createPromotion"
+      permission="eea.promotion.ManagePromotions"
+      class=".actions.CreatePromotion"
+      />
+
+  <browser:page
+      for="eea.promotion.interfaces.IPromoted"
+      name="removePromotion"
+      permission="eea.promotion.ManagePromotions"
+      class=".actions.RemovePromotion"
+      />
+
+  <browser:menuItem
+      for="eea.promotion.interfaces.IPromoted"
+      menu="object"
+      title="Promotions"
+      action="${object_url}/promotion_edit.html"
+      permission="eea.promotion.ManagePromotions"
+      />
+
+   <browser:menuItem
+      for="eea.promotion.interfaces.IPromotable"
+      menu="object_buttons"
+      title="Create Promotion"
+      action="${object_url}/@@createPromotion"
+      description="Create a promotion for this item"
+      permission="eea.promotion.ManagePromotions"
+      />
+
+   <browser:menuItem
+      for="eea.promotion.interfaces.IPromoted"
+      menu="object_buttons"
+      title="Remove Promotion"
+      action="${object_url}/@@removePromotion"
+      description="Remove all promotions for this item"
+      permission="eea.promotion.ManagePromotions"
+      />
+
+   <browser:resource
+      name="promotion_form.js"
+      file="form.js"
+      permission="eea.promotion.ManagePromotions"
+      />
+
+   <browser:resource
+      name="promotion_form.css"
+      file="form.css"
+      permission="eea.promotion.ManagePromotions"
+      />
+
+</configure>
