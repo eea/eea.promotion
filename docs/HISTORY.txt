@@ -1,6 +1,9 @@
 Changelog
 =========
 
+4.1-dev - (unreleased)
+----------------------
+
 4.0 - (2011-11-18)
 ------------------
 * Bug fix: fixed action registration for Create Promotion [tiberich #4560]
