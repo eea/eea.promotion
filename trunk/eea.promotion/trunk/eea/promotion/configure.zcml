@@ -20,7 +20,8 @@
                 class=".global.GlobalPromotion"
                 permission="zope.Public" />
 
-  <subscriber for=".interfaces.IPromoted zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+  <subscriber for=".interfaces.IPromoted
+                   zope.lifecycleevent.interfaces.IObjectModifiedEvent"
               handler=".browser.form.promotion_modified" />
 
   <utility component=".vocabulary.LocationsVocabularyFactory"
