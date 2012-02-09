@@ -76,17 +76,19 @@ class Promotion(object):
     def display_globally(self):
         """ Display globally
         """
-        if u'Global' in self.locations:
-            return True
-        return False
+        return u'Global' in self.locations
 
     @property
     def display_in_spotlight(self):
         """ Display in spotlight
         """
-        if u'Spotlight' in self.locations:
-            return True
-        return False
+        return u'Spotlight' in self.locations
+
+    @property
+    def display_on_datacentre(self):
+        """ Display in datacentre
+        """
+        return u'Datacentre' in self.locations
 
     @property
     def themes(self):
