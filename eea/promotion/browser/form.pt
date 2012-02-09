@@ -22,30 +22,36 @@
         <div tal:define="widget nocall:view/widgets/locations" tal:condition="widget/error" tal:content="widget/error">
         </div>
         <input tal:define="widget nocall:view/widgets/locations" tal:replace="structure widget" />
+        <div id="promotion-types">
+            <div class="col">
+                <input class="category" name="category" type="checkbox" value="Front Page" />
+                <span class="location">Front Page</span>
+                <br/>
+            </div>
 
-        <div class="col" id="frontpage">
-            <input class="category" name="category" type="checkbox" value="Front Page" />
-            <span class="location">Front Page</span>
-            <br/>
-        </div>
+            <div class="col">
+                <input class="category" name="category" type="checkbox" value="Themes" />
+                <span class="location">Themes</span>
+                <br/>
+            </div>
 
-        <div class="col" id="themes">
-            <input class="category" name="category" type="checkbox" value="Themes" />
-            <span class="location">Themes</span>
-            <br/>
-        </div>
+            <div class="col">
+                <input class="category" name="category" type="checkbox" value="Spotlight" />
+                <span class="location">Spotlight</span>
+                <br/>
+            </div>
 
-        <div class="col" id="spotlight">
-            <input class="category" name="category" type="checkbox" value="Spotlight" />
-            <span class="location">Spotlight</span>
-            <br/>
-        </div>
-
-        <div class="col" id="global">
-            <input class="category" name="category" type="checkbox" value="Global" />
-            <span class="location">Global</span>
-            <br/>
-            <div class="formHelp">If checked, the promotion is shown at the top in navigation menu on all pages.</div>
+            <div class="col">
+                <input class="category" name="category" type="checkbox" value="Datacentre" />
+                <span class="location">Datacentre</span>
+                <br/>
+            </div>
+            <div class="col">
+                <input class="category" name="category" type="checkbox" value="Global" />
+                <span class="location">Global</span>
+                <br/>
+                <div class="formHelp">If checked, the promotion is shown at the top in navigation menu on all pages.</div>
+            </div>
         </div>
 
 

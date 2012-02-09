@@ -63,6 +63,12 @@ class IPromotion(Interface):
                     in spotlight",
         )
 
+    display_on_datacentre = Bool(
+            title = u"Display In Datacentre",
+            description = u"Whether or not this promotion should be visible \
+                    on datacentres",
+        )
+
     edit_url = Attribute("URL to edit this promotion")
 
     is_external  = Attribute("Is this an external or internal promotion?")

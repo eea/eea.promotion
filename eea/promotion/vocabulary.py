@@ -4,7 +4,8 @@ from zope.interface import implements
 from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.interfaces import IVocabularyFactory
 
-ALLOWED_LOCATIONS = [u'Front Page', u'Themes', u'Global', u'Spotlight' ]
+ALLOWED_LOCATIONS = [u'Front Page', u'Themes', u'Global', u'Spotlight',
+                                                        u'Datacentre' ]
 
 class LocationsVocabulary(object):
     """ Locations Vocabulary """
