@@ -3,7 +3,7 @@ Changelog
 
 4.2-dev - (unreleased)
 ----------------------
- * Feature: added "Datacentre" promotuon type [ichimdav #4936]
+ * Feature: added "Datacentre" promotion type [ichimdav #4936]
 
 4.1 - (2011-11-18)
 ------------------
