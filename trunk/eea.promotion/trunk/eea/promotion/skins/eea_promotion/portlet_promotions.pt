@@ -26,7 +26,7 @@
             <a href="" title="" class="portletHeader"
                tal:attributes="href promo/url;
                                title promo/Description">
-            <tal:title tal:content="promo/Title">Title</tal:title><br /></a>
+            <tal:title tal:content="promo/Title"></tal:title><br /></a>
         </dd>
         </tal:promotions>
     </dl>
@@ -54,7 +54,7 @@
             <a href="" title="" class="portletHeader"
                tal:attributes="href promo/url;
                                title promo/Description">
-            <tal:title tal:content="promo/Title">Title</tal:title><br />
+            <tal:title tal:content="promo/Title"></tal:title><br />
             <img src="http://www.eea.europa.eu/images/epeadiabox.jpg" alt=""
                  tal:attributes="src promo/image;
                                  alt promo/imageCaption|promo/Title;"
@@ -277,11 +277,9 @@
                 <a href="#">3</a>
             </dt>
             <dd class="portletItem" id="portletitem-rectis">
-                Some text
             </dd>
             <dd class="portletItem selected" id="portletitem-skovis">
-                <img src="agents.gif" alt="Eco agents logo" />
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+                <img src="agents.gif" alt="Eco agents logo" i18n:attributes="alt"/>
             </dd>
         </dl>
     </metal:portlet>
