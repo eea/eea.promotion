@@ -3,11 +3,12 @@ Changelog
 
 4.3-dev - (unreleased)
 ----------------------
+* Bug fix: Fix translation errors in eea.promotion [prospchr refs #5159]
 
 4.2 - (2012-02-15)
 ------------------
- * Feature: added "Datacentre" promotion type [ichimdav #4936]
- * Change: Change code in eea.promotion to fix translation problem
+* Feature: added "Datacentre" promotion type [ichimdav #4936]
+* Change: Change code in eea.promotion to fix translation problem
    [prospchr refs #5159] 
 
 4.1 - (2011-11-18)
