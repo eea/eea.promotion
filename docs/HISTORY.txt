@@ -1,13 +1,17 @@
-Changelog
+﻿Changelog
 =========
 
 4.3-dev - (unreleased)
 ----------------------
-* Bug fix: Fix translation errors in eea.promotion [prospchr refs #5159]
+* Bug fix: fixed markup of HISTORY.txt file
+  [ciobabog refs #5231]
+* Bug fix: Fix translation errors in eea.promotion
+  [prospchr refs #5159]
 
 4.2 - (2012-02-15)
 ------------------
-* Feature: added "Datacentre" promotion type [ichimdav #4936]
+* Feature: added "Datacentre" promotion type
+  [ichimdav #4936]
 * Change: Change code in eea.promotion to fix translation problem
    [prospchr refs #5159] 
 
@@ -17,9 +21,11 @@ Changelog
 
 4.0 - (2011-11-18)
 ------------------
-* Bug fix: fixed action registration for Create Promotion [tiberich #4560]
+* Bug fix: fixed action registration for Create Promotion
+  [tiberich #4560]
 * Bugfix: Fixed IE JS errors, fixed code that uses jQuery to avoid conflicts
-  with other JS frameworks [szabozo0 #4542]
+  with other JS frameworks
+  [szabozo0 #4542]
 * Feature: added "Spotlight" promotion type
   [szabozo0 #4425]
 * Cleaned: pylint violations warnings
