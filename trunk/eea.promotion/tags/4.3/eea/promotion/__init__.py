@@ -1,2 +1,0 @@
-""" eea.promotion package
-"""
