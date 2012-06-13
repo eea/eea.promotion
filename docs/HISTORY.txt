@@ -1,11 +1,7 @@
 ﻿Changelog
 =========
 
-4.4 - (2012-06-13)
-------------------
-* Rerelease egg, previous was not properly uploaded.
-
-4.3 - (2012-06-12)
+4.3-dev - (unreleased)
 ------------------
 * Bug fix: fixed markup of HISTORY.txt file
   [ciobabog refs #5231]
