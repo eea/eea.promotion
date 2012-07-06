@@ -139,7 +139,7 @@
                     <a title="Visit our air pollution website" 
                        i18n:attributes="title visit-pollution-website"
                        tal:attributes="href string:${portal_url}/themes/air" 
-                       class="portletHeader" i18n:translate="visit-pollution-website">Visit our air pollution site</a>
+                       class="portletHeader" i18n:translate="visit-pollution-website">Visit our air pollution website</a>
             <div class="portletHeader">
                 <a tal:attributes="href string:${portal_url}/themes/air" 
                     i18n:translate="air-pollution">Air pollution</a>
