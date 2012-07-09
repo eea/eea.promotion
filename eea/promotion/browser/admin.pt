@@ -5,7 +5,7 @@
       i18n:domain="eea">
 
 <head>
-    <title i18n:translate="Promotions_admin_panel">Promotions Admin Panel</title>
+    <title i18n:translate="">Promotions Admin Panel</title>
 </head>
 
 <body>

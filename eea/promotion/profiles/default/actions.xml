@@ -37,7 +37,7 @@
     </object>
     <object name="promotion_translations" meta_type="CMF Action" i18n:domain="eea">
       <property name="title" i18n:translate="">Promote Translations</property>
-      <property name="description" i18n:translate="">If translations of this item have been made after it was first promoted, this action promotes the new translations</property>
+      <property name="description" i18n:translate="promote-translation-action">If translations of this item have been made after it was first promoted, this action promotes the new translations</property>
       <property name="url_expr">string:${object_url}/@@promoteTranslations</property>
       <property name="available_expr">python:'eea.promotion.interfaces.IPromoted' in object.restrictedTraverse('@@get_interfaces')()</property>
       <property name="permissions">
