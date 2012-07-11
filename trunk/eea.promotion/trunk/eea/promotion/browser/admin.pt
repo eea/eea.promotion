@@ -16,13 +16,13 @@
     <table id="promoListing" class="listing">
         <thead>
         <tr>
-            <th i18n:translate="image">Image</th>
-            <th i18n:translate="active">Active</th>
-            <th i18n:translate="external">External</th>
+            <th i18n:translate="">Image</th>
+            <th i18n:translate="">Active</th>
+            <th i18n:translate="">External</th>
             <th i18n:translate="">Title</th>
-            <th i18n:translate="location">Locations</th>
-            <th i18n:translate="themepage-section">Themepage Section</th>
-            <th i18n:translate="themes">Themes</th>
+            <th i18n:translate="">Locations</th>
+            <th i18n:translate="">Themepage Section</th>
+            <th i18n:translate="">Themes</th>
         </tr>
         </thead>
         <tbody>

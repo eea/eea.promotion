@@ -139,10 +139,10 @@
                     <a title="Visit our air pollution website" 
                        i18n:attributes="title visit-pollution-website"
                        tal:attributes="href string:${portal_url}/themes/air" 
-                       class="portletHeader" i18n:translate="visit-pollution-website">Visit our air pollution website</a>
+                       class="portletHeader" i18n:translate="">Visit our air pollution website</a>
             <div class="portletHeader">
                 <a tal:attributes="href string:${portal_url}/themes/air" 
-                    i18n:translate="air-pollution">Air pollution</a>
+                    i18n:translate="">Air pollution</a>
             </div>
                 </dd>
 
@@ -167,11 +167,11 @@
                     <a title="Visit our biodiversity website" 
                        tal:attributes="href string:${portal_url}/themes/biodiversity"
                        i18n:attributes="title visit-biodiversity-website"                       
-                       i18n:translate="visit-biodiversity-website" 
+                       i18n:translate="" 
                        class="portletHeader">Visit our biodiversity website</a>
                     <div class="portletHeader">
                         <a tal:attributes="href string:${portal_url}/themes/biodiversity" 
-                           i18n:translate="biodiversity">Biodiversity</a>
+                           i18n:translate="">Biodiversity</a>
                     </div>
                 </dd>
 
@@ -197,10 +197,10 @@
                        tal:attributes="href string:${portal_url}/themes/climate" 
                        class="portletHeader"
                        i18n:attributes="title visit-climate-website"
-                       i18n:translate="visit-climate-website">Visit our climate change website</a>
+                       i18n:translate="">Visit our climate change website</a>
                     <div class="portletHeader">
                         <a tal:attributes="href string:${portal_url}/themes/climate"
-                           i18n:translate="climate-change">Climate change</a>
+                           i18n:translate="">Climate change</a>
                     </div>
                 </dd>
 
@@ -224,11 +224,11 @@
                     <a title="Visit our land use website" 
                        tal:attributes="href string:${portal_url}/themes/landuse"
                        i18n:attributes="title visit-land-use-website"
-                       i18n:translate="visit-land-use-website" 
+                       i18n:translate="" 
                        class="portletHeader">Visit our land use website</a>
                     <div class="portletHeader">
                         <a tal:attributes="href string:${portal_url}/themes/landuse" 
-                           i18n:translate="land-use" >Land use</a>
+                           i18n:translate="" >Land use</a>
                     </div>
                 </dd>
 
@@ -252,11 +252,11 @@
                     <a title="Visit our water website" 
                        tal:attributes="href string:${portal_url}/themes/water"
                        i18n:attributes="title visit-water-website"
-                       i18n:translate="visit-water-website" 
+                       i18n:translate="" 
                        class="portletHeader">Visit our water website</a>
                     <div class="portletHeader">
                         <a tal:attributes="href string:${portal_url}/themes/water"
-                           i18n:translate="water">Water</a>
+                           i18n:translate="">Water</a>
                     </div>
                 </dd>
 

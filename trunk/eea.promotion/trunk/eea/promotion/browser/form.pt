@@ -25,32 +25,32 @@
         <div id="promotion-types">
             <div class="col">
                 <input class="category" name="category" type="checkbox" value="Front Page" />
-                <span class="location" i18n:translate="front-page">Front Page</span>
+                <span class="location" i18n:translate="">Front Page</span>
                 <br/>
             </div>
 
             <div class="col">
                 <input class="category" name="category" type="checkbox" value="Themes" />
-                <span class="location" i18n:translate="themes">Themes</span>
+                <span class="location" i18n:translate="">Themes</span>
                 <br/>
             </div>
 
             <div class="col">
                 <input class="category" name="category" type="checkbox" value="Spotlight" />
-                <span class="location" i18n:translate="spotlight">Spotlight</span>
+                <span class="location" i18n:translate="">Spotlight</span>
                 <br/>
             </div>
 
             <div class="col">
                 <input class="category" name="category" type="checkbox" value="Datacentre" />
-                <span class="location" i18n:translate="datacentre">Datacentre</span>
+                <span class="location" i18n:translate="">Datacentre</span>
                 <br/>
             </div>
             <div class="col">
                 <input class="category" name="category" type="checkbox" value="Global" />
-                <span class="location" i18n:translate="global">Global</span>
+                <span class="location" i18n:translate="">Global</span>
                 <br/>
-                <div class="formHelp" i18n:translate="help-promotion-form">If checked, the promotion is shown at the top in navigation menu on all pages.</div>
+                <div class="formHelp" i18n:translate="">If checked, the promotion is shown at the top in navigation menu on all pages.</div>
             </div>
         </div>
 
