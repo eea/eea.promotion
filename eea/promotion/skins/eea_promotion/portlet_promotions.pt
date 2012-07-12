@@ -129,15 +129,15 @@
 
                 <dd id="not-just-hot-air" class="portletItem">
                     <a title="Visit our air pollution website" 
-                        i18n:attributes="title visit-pollution-website"
+                        i18n:attributes="title"
                         tal:attributes=" href string:${portal_url}/themes/air">
                         <img title="Visit our air pollution website" 
                              alt="Visit our air pollution website"
-                             i18n:attributes="alt visit-pollution-website; title visit-pollution-website" 
+                             i18n:attributes="alt; title" 
                              tal:attributes="src string:${portal_url}/themes/air/theme_image/image_mini"/>
                     </a>
                     <a title="Visit our air pollution website" 
-                       i18n:attributes="title visit-pollution-website"
+                       i18n:attributes="title"
                        tal:attributes="href string:${portal_url}/themes/air" 
                        class="portletHeader" i18n:translate="">Visit our air pollution website</a>
             <div class="portletHeader">
@@ -158,15 +158,15 @@
                 <dd id="assessing-biodiversity" class="portletItem">
                     <a title="Visit our biodiversity website" 
                        tal:attributes="href string:${portal_url}/themes/biodiversity"
-                       i18n:attributes="title visit-biodiversity-website">
+                       i18n:attributes="title">
                         <img title="Visit our biodiversity website" 
                              alt="Visit our biodiversity website" 
-                             i18n:attributes="alt visit-biodiversity-website; title visit-biodiversity-website"
+                             i18n:attributes="alt; title"
                              tal:attributes="src string:${portal_url}/themes/biodiversity/theme_image/image_mini"/>
                     </a>
                     <a title="Visit our biodiversity website" 
                        tal:attributes="href string:${portal_url}/themes/biodiversity"
-                       i18n:attributes="title visit-biodiversity-website"                       
+                       i18n:attributes="title"                       
                        i18n:translate="" 
                        class="portletHeader">Visit our biodiversity website</a>
                     <div class="portletHeader">
@@ -187,16 +187,16 @@
                 <dd id="new-estimates-confirm-the-declining-trend-in-eu-greenhouse-gas-emissions" class="portletItem">
                     <a title="Visit our climate change website" 
                        tal:attributes="href string:${portal_url}/themes/climate"
-                       i18n:attributes="title visit-climate-website">
+                       i18n:attributes="title">
                         <img title="Visit our climate change website" 
                              alt="Visit our climate change website"
-                             i18n:attributes="alt visit-climate-website; title visit-climate-website" 
+                             i18n:attributes="alt; title" 
                              tal:attributes="src string:${portal_url}/themes/climate/theme_image/image_mini"/>
                     </a>
                     <a title="Visit our climate change website" 
                        tal:attributes="href string:${portal_url}/themes/climate" 
                        class="portletHeader"
-                       i18n:attributes="title visit-climate-website"
+                       i18n:attributes="title"
                        i18n:translate="">Visit our climate change website</a>
                     <div class="portletHeader">
                         <a tal:attributes="href string:${portal_url}/themes/climate"
@@ -215,15 +215,15 @@
                 <dd id="discover-europe2019s-landscape-through-satellite-and-ground-level-pictures-1" class="portletItem">
                     <a title="Visit our land use website" 
                        tal:attributes="href string:${portal_url}/themes/landuse"
-                       i18n:attributes="title visit-land-use-website">
+                       i18n:attributes="title">
                         <img title="Visit our land use website" 
                              alt="Visit our land use website"
-                             i18n:attributes="alt visit-land-use-website; title visit-land-use-website"  
+                             i18n:attributes="alt; title"  
                              tal:attributes="src string:${portal_url}/themes/landuse/theme_image/image_mini"/>
                     </a>
                     <a title="Visit our land use website" 
                        tal:attributes="href string:${portal_url}/themes/landuse"
-                       i18n:attributes="title visit-land-use-website"
+                       i18n:attributes="title"
                        i18n:translate="" 
                        class="portletHeader">Visit our land use website</a>
                     <div class="portletHeader">
@@ -243,15 +243,15 @@
                 <dd id="heading-for-your-favourite-beach-is-the-bathing-water-clean" class="portletItem">
                     <a title="Visit our water website" 
                        tal:attributes="href string:${portal_url}/themes/water"
-                       i18n:attributes="title visit-water-website">
+                       i18n:attributes="title">
                         <img title="Visit our water website" 
                              alt="Visit our water website"
-                             i18n:attributes="alt visit-water-website; title visit-water-website" 
+                             i18n:attributes="alt; title" 
                              tal:attributes="src string:${portal_url}/themes/water/theme_image/image_mini"/>
                     </a>
                     <a title="Visit our water website" 
                        tal:attributes="href string:${portal_url}/themes/water"
-                       i18n:attributes="title visit-water-website"
+                       i18n:attributes="title"
                        i18n:translate="" 
                        class="portletHeader">Visit our water website</a>
                     <div class="portletHeader">
