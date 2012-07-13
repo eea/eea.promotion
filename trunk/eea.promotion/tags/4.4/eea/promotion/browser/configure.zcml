@@ -1,0 +1,39 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           i18n_domain="eea">
+
+  <browser:page for="*"
+                name="promotion_admin_view"
+                class=".admin.AdminView"
+                permission="eea.promotion.ManagePromotions"
+                allowed_interface=".interfaces.IAdminView" />
+
+  <browser:page for="eea.promotion.interfaces.IPromoted"
+                name="promotion_edit.html"
+                permission="eea.promotion.ManagePromotions"
+                class=".form.EditForm" />
+
+  <browser:page for="eea.promotion.interfaces.IPromotable"
+                name="createPromotion"
+                permission="eea.promotion.ManagePromotions"
+                class=".actions.CreatePromotion" />
+
+  <browser:page for="eea.promotion.interfaces.IPromoted"
+                name="removePromotion"
+                permission="eea.promotion.ManagePromotions"
+                class=".actions.RemovePromotion" />
+
+  <browser:page for="eea.promotion.interfaces.IPromoted"
+                name="promoteTranslations"
+                permission="eea.promotion.ManagePromotions"
+                class=".actions.PromoteTranslations" />
+
+   <browser:resource name="promotion_form.js"
+                file="form.js"
+                permission="eea.promotion.ManagePromotions" />
+
+   <browser:resource name="promotion_form.css"
+                file="form.css"
+                permission="eea.promotion.ManagePromotions" />
+
+</configure>
