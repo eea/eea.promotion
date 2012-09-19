@@ -6,11 +6,11 @@ from Products.CMFCore.utils import getToolByName
 from eea.promotion.interfaces import IPromotion
 from eea.promotion.interfaces import IGlobalPromotion
 try:
-    from p4a.video import interfaces
-    IVideoEnhanced = interfaces.IVideoEnhanced
+    from eea.mediacentre import interfaces
+    IVideo = interfaces.IVideo
 except ImportError:
     from zope.interface import Interface
-    class IVideoEnhanced(Interface):
+    class IVideo(Interface):
         """ Dummy interface, not to make package dependent to p4a.video
         """
 
@@ -47,5 +47,5 @@ class GlobalPromotion(object):
                     'Title' : brain.Title,
                     'url' : promo.url,
                     'absolute_url' : brain.getURL(),
-                    'is_video' : IVideoEnhanced.providedBy(obj),
+                    'is_video' : IVideo.providedBy(obj),
                 }]

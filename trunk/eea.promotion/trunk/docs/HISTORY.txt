@@ -3,6 +3,8 @@
 
 4.5-dev - (unreleased)
 ----------------------
+* Change: use IVideo when checking for videos
+  [ichimdav #5480]
 
 4.4 - (2012-07-13)
 ------------------
