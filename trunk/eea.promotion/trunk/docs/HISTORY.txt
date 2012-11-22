@@ -1,8 +1,8 @@
 ﻿Changelog
 =========
 
-4.5-dev - (unreleased)
-----------------------
+4.5 - (2012-11-22)
+------------------
 * Change: use IVideo when checking for videos
   [ichimdav #5480]
 
