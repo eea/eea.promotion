@@ -3,6 +3,8 @@ Changelog
 
 4.6-dev - (unreleased)
 ----------------------
+* Change: load portlet_globalpromotion only on the object view page
+  [ichimdav #13677]
 
 4.5 - (2012-11-22)
 ------------------
