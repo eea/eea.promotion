@@ -1,6 +1,9 @@
 Changelog
 =========
 
+4.7-dev - (unreleased)
+----------------------
+
 4.6 - (2013-01-28)
 ------------------
 * Change: load portlet_globalpromotion only on the object view page
