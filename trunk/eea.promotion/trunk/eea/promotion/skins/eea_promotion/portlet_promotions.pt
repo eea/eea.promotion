@@ -100,16 +100,24 @@
             <dd class="portletItem hide-promo" id=""
                 tal:attributes="id string:${catId}-${promo/id}"
                 tal:define="imgsize imgsize|string:image_thumb;
-                            imgurl string:${promo/absolute_url}/${imgsize}">
+                            imgurl string:${promo/absolute_url}/${imgsize};
+                            obj promo/obj;
+                            is_video python:promo['is_video'];
+                            css_class python: 'video-fancybox' if is_video else '';
+                            portal_type obj/portal_type;
+                            video python:'video-fancybox' if is_video and portal_type != 'FlashFile' else '';
+                            animation python:'animation-fancybox' if portal_type == 'FlashFile' else '';
+                            cloud python: 'video-fancybox cloudvideo' if portal_type == 'CloudVideo' else '';
+                            ">
                 <a tal:attributes="href promo/url;
                                    title promo/Description;
-                                   class python:test(promo['is_video'], 'video-fancybox', '')">
+                                   class python:cloud or video or animation">
                    <img tal:attributes="src imgurl; title promo/Title; alt promo/Title"/>
                 </a>
                 <a class="portletHeader"
                    tal:attributes="href promo/url;
                                    title promo/Description;
-                                   class python:test(promo['is_video'], 'portletHeader video-fancybox', 'portletHeader')"
+                                   class python:'portletHeader video-fancybox' if promo['is_video'] else 'portletHeader'"
                    tal:content="promo/Title">
                     [Promo Title]
                     <br />
@@ -128,15 +136,15 @@
 
 
                 <dd id="not-just-hot-air" class="portletItem">
-                    <a title="Visit our air pollution website" 
+                    <a title="Visit our air pollution website"
                         i18n:attributes="title"
                         tal:attributes=" href string:${portal_url}/themes/air">
-                        <img title="Visit our air pollution website" 
+                        <img title="Visit our air pollution website"
                              alt="Visit our air pollution website"
                              i18n:attributes="alt; title" 
                              tal:attributes="src string:${portal_url}/themes/air/theme_image/image_mini"/>
                     </a>
-                    <a title="Visit our air pollution website" 
+                    <a title="Visit our air pollution website"
                        i18n:attributes="title"
                        tal:attributes="href string:${portal_url}/themes/air" 
                        class="portletHeader" i18n:translate="">Visit our air pollution website</a>
@@ -156,15 +164,15 @@
 
 
                 <dd id="assessing-biodiversity" class="portletItem">
-                    <a title="Visit our biodiversity website" 
+                    <a title="Visit our biodiversity website"
                        tal:attributes="href string:${portal_url}/themes/biodiversity"
                        i18n:attributes="title">
-                        <img title="Visit our biodiversity website" 
-                             alt="Visit our biodiversity website" 
+                        <img title="Visit our biodiversity website"
+                             alt="Visit our biodiversity website"
                              i18n:attributes="alt; title"
                              tal:attributes="src string:${portal_url}/themes/biodiversity/theme_image/image_mini"/>
                     </a>
-                    <a title="Visit our biodiversity website" 
+                    <a title="Visit our biodiversity website"
                        tal:attributes="href string:${portal_url}/themes/biodiversity"
                        i18n:attributes="title"                       
                        i18n:translate="" 
@@ -185,15 +193,15 @@
 
 
                 <dd id="new-estimates-confirm-the-declining-trend-in-eu-greenhouse-gas-emissions" class="portletItem">
-                    <a title="Visit our climate change website" 
+                    <a title="Visit our climate change website"
                        tal:attributes="href string:${portal_url}/themes/climate"
                        i18n:attributes="title">
-                        <img title="Visit our climate change website" 
+                        <img title="Visit our climate change website"
                              alt="Visit our climate change website"
                              i18n:attributes="alt; title" 
                              tal:attributes="src string:${portal_url}/themes/climate/theme_image/image_mini"/>
                     </a>
-                    <a title="Visit our climate change website" 
+                    <a title="Visit our climate change website"
                        tal:attributes="href string:${portal_url}/themes/climate" 
                        class="portletHeader"
                        i18n:attributes="title"
@@ -213,15 +221,15 @@
             <dl id="landuse-portlet" class="portlet promo-nav-portlet">
 
                 <dd id="discover-europe2019s-landscape-through-satellite-and-ground-level-pictures-1" class="portletItem">
-                    <a title="Visit our land use website" 
+                    <a title="Visit our land use website"
                        tal:attributes="href string:${portal_url}/themes/landuse"
                        i18n:attributes="title">
-                        <img title="Visit our land use website" 
+                        <img title="Visit our land use website"
                              alt="Visit our land use website"
                              i18n:attributes="alt; title"  
                              tal:attributes="src string:${portal_url}/themes/landuse/theme_image/image_mini"/>
                     </a>
-                    <a title="Visit our land use website" 
+                    <a title="Visit our land use website"
                        tal:attributes="href string:${portal_url}/themes/landuse"
                        i18n:attributes="title"
                        i18n:translate="" 
@@ -241,15 +249,15 @@
 
 
                 <dd id="heading-for-your-favourite-beach-is-the-bathing-water-clean" class="portletItem">
-                    <a title="Visit our water website" 
+                    <a title="Visit our water website"
                        tal:attributes="href string:${portal_url}/themes/water"
                        i18n:attributes="title">
-                        <img title="Visit our water website" 
+                        <img title="Visit our water website"
                              alt="Visit our water website"
                              i18n:attributes="alt; title" 
                              tal:attributes="src string:${portal_url}/themes/water/theme_image/image_mini"/>
                     </a>
-                    <a title="Visit our water website" 
+                    <a title="Visit our water website"
                        tal:attributes="href string:${portal_url}/themes/water"
                        i18n:attributes="title"
                        i18n:translate="" 

@@ -3,6 +3,8 @@ Changelog
 
 4.7-dev - (unreleased)
 ----------------------
+* Bugfix: add extra classes for non File videos to avoid image displacement
+  [ichimdav #14672]
 
 4.6 - (2013-01-28)
 ------------------

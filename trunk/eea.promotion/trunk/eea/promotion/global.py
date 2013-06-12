@@ -48,4 +48,5 @@ class GlobalPromotion(object):
                     'url' : promo.url,
                     'absolute_url' : brain.getURL(),
                     'is_video' : IVideo.providedBy(obj),
+                    'obj': obj
                 }]
