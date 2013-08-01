@@ -44,6 +44,9 @@
         </tal:promotions>
         </tbody>
     </table>
+     <form method="POST" action="." tal:attributes="action here/REQUEST/URL" id="promo_disabling">
+        <input type="submit" name="submit" value="Disable inactive Promotions" i18n:attributes="value" />
+     </form>
 
   </tal:main-macro>
  </metal:main>
