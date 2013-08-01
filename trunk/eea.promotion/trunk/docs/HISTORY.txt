@@ -3,6 +3,9 @@ Changelog
 
 4.8-dev - (unreleased)
 ----------------------
+* Feature: added button to remove promotions for inactive promotions within
+  promotion_admin_view
+  [ichimdav #14863]
 
 4.7 - (2013-06-17)
 ------------------
