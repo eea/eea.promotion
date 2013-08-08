@@ -3,6 +3,9 @@ Changelog
 
 4.8-dev - (unreleased)
 ----------------------
+* Change: Removed dependency to eea.rdfrepository
+  [szabozo0 #14323]
+
 * Feature: added button to remove promotions for inactive promotions within
   promotion_admin_view
   [ichimdav #14863]
