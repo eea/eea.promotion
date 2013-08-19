@@ -29,7 +29,7 @@ Changelog
 
 4.4 - (2012-07-13)
 ------------------
-* Bug Fix: Fixed i18n:domain and duplicate keys in .pt 
+* Bug Fix: Fixed i18n:domain and duplicate keys in .pt
   [prospchr refs #5162]
 
 4.3 - (2012-06-13)
@@ -44,11 +44,11 @@ Changelog
 * Feature: added "Datacentre" promotion type
   [ichimdav #4936]
 * Change: Change code in eea.promotion to fix translation problem
-   [prospchr refs #5159] 
+   [prospchr refs #5159]
 
 4.1 - (2011-11-18)
 ------------------
-* Rerelease broken egg  
+* Rerelease broken egg
 
 4.0 - (2011-11-18)
 ------------------
