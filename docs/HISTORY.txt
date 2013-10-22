@@ -3,6 +3,9 @@ Changelog
 
 4.9-dev - (unreleased)
 ----------------------
+* Bug Fix: Changed translation domain to no.translation in
+  browser/admin.pt
+  [prospchr refs #17141]
 
 4.8 - (2013-08-09)
 ------------------
