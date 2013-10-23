@@ -3,6 +3,8 @@ Changelog
 
 5.0-dev - (unreleased)
 ----------------------
+* Bug fix: Fixed setting of promotions by using newer jQuery prop attribute
+  [ichimdav refs #17243]
 
 4.9 - (2013-10-22)
 ------------------
