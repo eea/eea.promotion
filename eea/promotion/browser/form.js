@@ -11,7 +11,7 @@ jQuery(document).ready(function($) {
             // Update hidden locations field with enabled checkboxes.
             var output_val = '';
             $('input[name=category]').each(function() {
-                if ($(this).attr('checked') === true) {
+                if ($(this).prop('checked') === true) {
                     output_val += "'" + $(this).attr('value') + "', ";
                 }
             });
