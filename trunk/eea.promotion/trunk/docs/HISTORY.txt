@@ -3,6 +3,8 @@ Changelog
 
 5.1-dev - (unreleased)
 ----------------------
+* Change: removed the dependecy to eea.locationwidget
+  [ghicaale refs #9155]
 
 5.0 - (2013-10-23)
 ------------------
