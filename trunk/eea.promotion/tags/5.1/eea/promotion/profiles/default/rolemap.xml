@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<rolemap>
+  <roles>
+    <role name="PromotionManager"/>
+  </roles>
+  <permissions>
+    <permission name="Manage promotions" acquire="True">
+      <role name="PromotionManager"/>
+      <role name="Manager"/>
+    </permission>
+  </permissions>
+</rolemap>
