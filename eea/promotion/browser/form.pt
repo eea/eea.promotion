@@ -46,12 +46,6 @@
                 <span class="location" i18n:translate="">Datacentre</span>
                 <br/>
             </div>
-            <div class="col">
-                <input class="category" name="category" type="checkbox" value="Global" />
-                <span class="location" i18n:translate="">Global</span>
-                <br/>
-                <div class="formHelp" i18n:translate="">If checked, the promotion is shown at the top in navigation menu on all pages.</div>
-            </div>
         </div>
 
 

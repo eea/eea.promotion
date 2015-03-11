@@ -40,9 +40,5 @@ def test_suite():
                      test_class=TestPromotion,
                      package = 'eea.promotion.tests',
                      optionflags=optionflags),
-        FunctionalDocFileSuite('bugs.txt',
-                     test_class=TestPromotion,
-                     package = 'eea.promotion.tests',
-                     optionflags=optionflags),
         ))
     return suite

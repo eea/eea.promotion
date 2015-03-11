@@ -51,12 +51,6 @@ class IPromotion(Interface):
                     on the themes page.",
         )
 
-    display_globally = Bool(
-            title = u"Display On All Pages",
-            description = u"Whether or not this promotion should be visible \
-                    on all pages",
-        )
-
     display_in_spotlight = Bool(
             title = u"Display In Spotlight",
             description = u"Whether or not this promotion should be visible \
@@ -89,8 +83,4 @@ class IPromotable(Interface):
 
 class IFrontpageSectionIndex(Interface):
     """ Returns which frontpage section the promotion is in
-    """
-
-class IGlobalPromotion(Interface):
-    """ Returns the first global promotion found
     """

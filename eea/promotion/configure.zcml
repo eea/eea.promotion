@@ -15,11 +15,6 @@
 
   <adapter factory=".promotion.Promotion" />
 
-  <browser:page for="*"
-                name="globalPromotion"
-                class=".global.GlobalPromotion"
-                permission="zope.Public" />
-
   <subscriber for=".interfaces.IPromoted
                    zope.lifecycleevent.interfaces.IObjectModifiedEvent"
               handler=".browser.form.promotion_modified" />
