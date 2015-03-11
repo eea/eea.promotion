@@ -73,12 +73,6 @@ class Promotion(object):
         return u'Themes' in self.locations
 
     @property
-    def display_globally(self):
-        """ Display globally
-        """
-        return u'Global' in self.locations
-
-    @property
     def display_in_spotlight(self):
         """ Display in spotlight
         """

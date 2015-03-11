@@ -80,29 +80,6 @@ settings with the syncPromotions action:
   True
 
 
-Global Promotions
------------------
-
-A global promotion has the 'Global' location checked:
-
-  >>> promotion.display_globally
-  False
-
-  >>> promotion.locations = [u'Global']
-  >>> promotion.display_globally
-  True
-
-The 'globalPromotion' adapters finds the global promotion for us. It's in the
-form of a list. This is so that it can be sent to the same macro that renders
-the regular promtions:
-
-  >>> _ = item.reindexObject()
-  >>> adapter = self.portal.restrictedTraverse('@@globalPromotion')
-  >>> gpromo = adapter()[0]
-  >>> gpromo['id'] == item.id
-  True
-
-
 Deactivation
 ------------
 
