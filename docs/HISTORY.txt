@@ -3,6 +3,11 @@ Changelog
 
 5.3.dev0 - (unreleased)
 -----------------------
+* Upgrade step: Within "Plone > Site setup > Add-ons" click on
+  upgrade button available for eea.promotion
+  [voineali refs #25901]
+* Cleanup: Removed frontpage_section catalog index
+  [voineali refs #25901]
 
 5.2 - (2015-03-17)
 ------------------

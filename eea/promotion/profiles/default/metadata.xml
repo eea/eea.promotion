@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <metadata>
  <description>EEA Promotion profile</description>
- <version>4.0</version>
+ <version>5.3</version>
  <dependencies>
   <dependency>profile-Products.LinguaPlone:LinguaPlone</dependency>
  </dependencies>
