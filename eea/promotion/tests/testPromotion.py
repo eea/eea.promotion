@@ -9,9 +9,9 @@ import eea.promotion
 from eea.promotion.interfaces import IPromotable
 from zope.interface import alsoProvides
 
-optionflags =  (doctest.ELLIPSIS |
-                doctest.NORMALIZE_WHITESPACE |
-                doctest.REPORT_ONLY_FIRST_FAILURE)
+optionflags = (doctest.ELLIPSIS |
+               doctest.NORMALIZE_WHITESPACE |
+               doctest.REPORT_ONLY_FIRST_FAILURE)
 
 class TestPromotion(EEAPromotionTestCase):
     """ Test promotion
@@ -38,7 +38,7 @@ def test_suite():
     suite = TestSuite((
         FunctionalDocFileSuite('promotion.txt',
                      test_class=TestPromotion,
-                     package = 'eea.promotion.tests',
+                     package='eea.promotion.tests',
                      optionflags=optionflags),
         ))
     return suite

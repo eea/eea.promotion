@@ -9,9 +9,9 @@ from eea.promotion.promotion import Promotion
 from eea.themecentre.interfaces import IThemeTagging
 from eea.promotion.tests.base import EEAPromotionTestCase
 
-optionflags =  (doctest.ELLIPSIS |
-                doctest.NORMALIZE_WHITESPACE |
-                doctest.REPORT_ONLY_FIRST_FAILURE)
+optionflags = (doctest.ELLIPSIS |
+               doctest.NORMALIZE_WHITESPACE |
+               doctest.REPORT_ONLY_FIRST_FAILURE)
 
 class Test(EEAPromotionTestCase):
     """ Test
