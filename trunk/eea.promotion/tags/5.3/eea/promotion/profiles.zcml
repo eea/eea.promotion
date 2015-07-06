@@ -1,0 +1,19 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+           i18n_domain="eea">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="EEA Promotions"
+      directory="profiles/default"
+      description="Installs eea.promotions"
+      provides="Products.GenericSetup.interfaces.EXTENSION" />
+
+  <genericsetup:registerProfile
+      name="upgrade_53"
+      title="Upgrade profile for EEA Promotions 5.3"
+      directory="profiles/upgrades/to_53"
+      description="This profile contains configuration changes for 5.3"
+      provides="Products.GenericSetup.interfaces.EXTENSION" />
+
+</configure>

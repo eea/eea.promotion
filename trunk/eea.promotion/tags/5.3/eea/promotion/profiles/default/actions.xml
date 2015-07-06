@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<object xmlns:i18n="http://xml.zope.org/namespaces/i18n" name="portal_actions">
+
+  <object name="object">
+    <object name="promotion_edit" meta_type="CMF Action" i18n:domain="eea">
+      <property name="title" i18n:translate="">Promotions</property>
+      <property name="description" i18n:translate=""/>
+      <property name="url_expr">string:${object_url}/promotion_edit.html</property>
+      <property name="available_expr">python:'eea.promotion.interfaces.IPromoted' in object.restrictedTraverse('@@get_interfaces')()</property>
+      <property name="permissions">
+        <element value="Manage promotions"/>
+      </property>
+      <property name="visible">True</property>
+    </object>
+  </object>
+
+  <object name="object_buttons">
+    <object name="promotion_add" meta_type="CMF Action" i18n:domain="eea">
+      <property name="title" i18n:translate="">Create Promotion</property>
+      <property name="description" i18n:translate="">Create a promotion for this item</property>
+      <property name="url_expr">string:${object_url}/@@createPromotion</property>
+      <property name="available_expr">python:('eea.promotion.interfaces.IPromotable' in object.restrictedTraverse('@@get_interfaces')()) and ('eea.promotion.interfaces.IPromoted' not in object.restrictedTraverse('@@get_interfaces')())</property>
+      <property name="permissions">
+        <element value="Manage promotions"/>
+      </property>
+      <property name="visible">True</property>
+    </object>
+    <object name="promotion_remove" meta_type="CMF Action" i18n:domain="eea">
+      <property name="title" i18n:translate="">Remove Promotion</property>
+      <property name="description" i18n:translate="">Remove all promotions for this item</property>
+      <property name="url_expr">string:${object_url}/@@removePromotion</property>
+      <property name="available_expr">python:'eea.promotion.interfaces.IPromoted' in object.restrictedTraverse('@@get_interfaces')()</property>
+      <property name="permissions">
+        <element value="Manage promotions"/>
+      </property>
+      <property name="visible">True</property>
+    </object>
+    <object name="promotion_translations" meta_type="CMF Action" i18n:domain="eea">
+      <property name="title" i18n:translate="">Promote Translations</property>
+      <property name="description" i18n:translate="">If translations of this item have been made after it was first promoted, this action promotes the new translations</property>
+      <property name="url_expr">string:${object_url}/@@promoteTranslations</property>
+      <property name="available_expr">python:'eea.promotion.interfaces.IPromoted' in object.restrictedTraverse('@@get_interfaces')()</property>
+      <property name="permissions">
+        <element value="Manage promotions"/>
+      </property>
+      <property name="visible">True</property>
+    </object>
+  </object>
+
+</object>
