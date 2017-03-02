@@ -1,8 +1,8 @@
 Changelog
 =========
 
-5.4.dev0 - (unreleased)
------------------------
+5.4 - (2017-03-02)
+------------------
 * Bug fix: Get resources over https
   [avoinea refs #82562]
 
