@@ -55,8 +55,7 @@
                tal:attributes="href promo/url;
                                title promo/Description">
             <tal:title tal:content="promo/Title"></tal:title><br />
-            <img src="http://www.eea.europa.eu/images/epeadiabox.jpg" alt=""
-                 tal:attributes="src promo/image;
+            <img tal:attributes="src promo/image;
                                  alt promo/imageCaption|promo/Title;"
                  tal:condition="repeat/promo/start" /></a>
         </dd>
