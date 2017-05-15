@@ -2,10 +2,10 @@
 """
 from zope.interface import implements
 from zope.component import adapts
-from eea.promotion.interfaces import IPromoted, IPromotion
 from zope.annotation.interfaces import IAnnotations
-from persistent.dict import PersistentDict
+from eea.promotion.interfaces import IPromoted, IPromotion
 from eea.themecentre.interfaces import IThemeTagging
+from persistent.dict import PersistentDict
 from Products.CMFPlone.utils import isDefaultPage, parent
 from Products.NavigationManager.interfaces import INavigationSectionPosition
 

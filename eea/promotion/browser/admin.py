@@ -1,10 +1,10 @@
 """ Admin
 """
 from Products.statusmessages.interfaces import IStatusMessage
-from zope.interface import implements, noLongerProvides
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zope.interface import implements, noLongerProvides
 from eea.promotion.interfaces import IPromotion, IPromoted
 from eea.promotion.browser.interfaces import IAdminView
 from DateTime.DateTime import DateTime

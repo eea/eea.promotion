@@ -1,9 +1,9 @@
 """ Form
 """
 from zope.formlib.form import Fields
+from zope.app.form.browser.widget import SimpleInputWidget
 from five.formlib.formbase import EditForm as BaseEditForm
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.app.form.browser.widget import SimpleInputWidget
 from eea.promotion.interfaces import IPromotion
 
 class LocationsWidget(SimpleInputWidget):
