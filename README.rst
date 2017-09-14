@@ -1,10 +1,8 @@
 ==============
 EEA Promotionn
 ==============
-.. image:: http://ci.eionet.europa.eu/job/eea.promotion-www/badge/icon
-  :target: http://ci.eionet.europa.eu/job/eea.promotion-www/lastBuild
-.. image:: http://ci.eionet.europa.eu/job/eea.promotion-plone4/badge/icon
-  :target: http://ci.eionet.europa.eu/job/eea.promotion-plone4/lastBuild
+.. image:: http://ci.eionet.europa.eu/job/eea/job/eea.promotion/job/master/badge/icon
+  :target: http://ci.eionet.europa.eu/job/eea/job/eea.promotion/job/master/display/redirect
 
 Front-page promotions
 
