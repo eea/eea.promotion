@@ -57,6 +57,12 @@ class IPromotion(Interface):
                     in spotlight",
         )
 
+    display_in_topics_index_page = Bool(
+        title=u"Display In Topics index page",
+        description=u"Whether or not this promotion should be visible \
+                    in topics index page",
+    )
+
     display_on_datacentre = Bool(
             title=u"Display In Datacentre",
             description=u"Whether or not this promotion should be visible \

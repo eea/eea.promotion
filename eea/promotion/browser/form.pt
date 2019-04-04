@@ -36,6 +36,12 @@
             </div>
 
             <div class="col">
+                <input class="category" name="category" type="checkbox" value="Topics_index_page" />
+                <span class="location" i18n:translate="">Topics index page</span>
+                <br/>
+            </div>
+
+            <div class="col">
                 <input class="category" name="category" type="checkbox" value="Spotlight" />
                 <span class="location" i18n:translate="">Spotlight</span>
                 <br/>

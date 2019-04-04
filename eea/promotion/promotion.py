@@ -11,6 +11,7 @@ from Products.NavigationManager.interfaces import INavigationSectionPosition
 
 KEY = 'eea.promotion'
 
+
 class Promotion(object):
     """ Promotion
     """
@@ -71,6 +72,12 @@ class Promotion(object):
         """ Display on themepage
         """
         return u'Themes' in self.locations
+
+    @property
+    def display_in_topics_index_page(self):
+        """ Display on themes index page
+        """
+        return u'Topics_index_page' in self.locations
 
     @property
     def display_in_spotlight(self):
