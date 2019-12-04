@@ -2,7 +2,7 @@ Changelog
 =========
 
 5.9-dev0 - (unreleased)
----------------------
+--------------------------
 * Feature: added topics index page promotion index
   [ichim-david refs #104471]
 
