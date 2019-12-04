@@ -1,7 +1,7 @@
 Changelog
 =========
 
-5.9-dev0 - (unreleased)
+5.9 - (2019-12-04)
 --------------------------
 * Feature: added topics index page promotion index
   [ichim-david refs #104471]
